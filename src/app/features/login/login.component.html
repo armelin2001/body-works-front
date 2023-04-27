@@ -1,0 +1,40 @@
+<!--<div style="width:100%; heigth:100%">
+    <div class="divLogo">
+        
+        
+    </div>
+    
+    <div class="divFormulario"></div>
+</div>-->
+<mat-grid-list cols="2" rowHeight="100%">
+    <mat-grid-tile class="divLogo">
+        <img
+            mat-card-image
+            src="../../../assets/icon-name-sem-fundo.png"
+        />
+    </mat-grid-tile>
+    <mat-grid-tile class="divFormulario">
+        <form>
+            <h1 mat-menu-item>Seja bem-vindo</h1>
+            <p></p>
+            <a mat-menu-item>Ainda não tem conta? <a mat-menu-item>Cadastre-se</a></a>
+            <p></p>
+            <p>
+                <mat-form-field>
+                    <input formControlName="email" type="text" matInput placeholder="Email" >
+                </mat-form-field>
+            </p>
+            <p>
+                <mat-form-field>
+                    <input formControlName="senha" type="password" matInput placeholder="Senha" >
+                </mat-form-field>
+            </p>
+            
+            <a mat-menu-item>Esqueceu a senha?</a>
+            <p></p>
+            <div>
+                <button class="button" type="submit" mat-raised-button>Entrar</button>
+            </div>
+        </form>
+    </mat-grid-tile>
+</mat-grid-list>
