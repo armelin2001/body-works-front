@@ -6,12 +6,11 @@ import { environment } from 'src/enviroments/environment';
 
 @Injectable()
 export class LoginService {
-  urlbase = environment.host;
+  urlbase = environment.host + '/usuario';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-  realizaLogin(loginDto: LoginDto): Observable<any>{
+  realizaLogin(loginDto: LoginDto): Observable<any> {
     return this.http.post(`${this.urlbase}/login`, loginDto);
   }
-
 }
