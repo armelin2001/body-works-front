@@ -8,11 +8,13 @@ import { LoginComponent } from './features/login/login.component';
 import { MaterialModule } from 'src/material.module';
 import { LoginService } from './shared/http-service/login-service/login.service';
 import { HttpClientModule } from '@angular/common/http';
+import { CadastroComponent } from './features/cadastro/cadastro.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    CadastroComponent
   ],
   imports: [
     BrowserModule,

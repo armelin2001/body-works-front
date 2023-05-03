@@ -1,0 +1,52 @@
+<mat-grid-list cols="2" rowHeight="100%">
+    <mat-grid-tile class="divLogo">
+        <img
+            mat-card-image
+            src="../../../assets/icon-name-sem-fundo.png"
+        />
+    </mat-grid-tile>
+    <mat-grid-tile class="divFormulario">
+        <form>
+            <h1 mat-menu-item>Registre seu usuário!</h1>
+            <p></p>
+            <p>
+                <mat-form-field>
+                    <input formControlName="nome" type="text" matInput placeholder="Nome" >
+                </mat-form-field>
+            </p>
+            <p>
+                <mat-form-field>
+                    <input formControlName="cpf" type="text" matInput placeholder="CPF" >
+                </mat-form-field>
+            </p>
+            <p>
+                <mat-form-field>
+                    <mat-select formControlName="genero" placeholder="Gênero"> 
+                    <mat-option  value = "M" > Masculino </mat-option>
+                    <mat-option value = "F" > Femenino </mat-option> 
+                    </mat-select> 
+                  </mat-form-field>
+            </p>
+            <p>
+                <mat-form-field>
+                    <input formControlName="email" type="text" matInput placeholder="Email" >
+                </mat-form-field>
+            </p>
+            <p>
+                <mat-form-field>
+                    <input formControlName="senha" type="password" matInput placeholder="Senha" >
+                </mat-form-field>
+            </p>
+            <p></p>
+            <div>
+            <p></p>
+                <button class="button" type="submit" mat-raised-button>Cadastre-se</button>
+            </div>
+            <p></p>
+            <div>
+            <a mat-menu-item>*Após cadastro pediremos mais informações pessoais.</a>
+            <a [routerLink]="['/login']" mat-menu-item>Já tem uma conta?</a>
+            </div>
+        </form>
+    </mat-grid-tile>
+</mat-grid-list>
