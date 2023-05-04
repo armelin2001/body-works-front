@@ -11,12 +11,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { CadastroComponent } from './features/cadastro/cadastro.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UsuarioService } from './shared/http-service/usuario-service/usuario.service';
+import { EditCadastroComponent } from './features/edit-cadastro/edit-cadastro.component';
+import { HomeUsuarioComponent } from './features/home-usuario/home-usuario.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    CadastroComponent
+    CadastroComponent,
+    EditCadastroComponent,
+    HomeUsuarioComponent
   ],
   imports: [
     BrowserModule,
