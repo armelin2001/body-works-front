@@ -13,6 +13,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { UsuarioService } from './shared/http-service/usuario-service/usuario.service';
 import { EditCadastroComponent } from './features/edit-cadastro/edit-cadastro.component';
 import { HomeUsuarioComponent } from './features/home-usuario/home-usuario.component';
+import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -28,6 +30,7 @@ import { HomeUsuarioComponent } from './features/home-usuario/home-usuario.compo
     BrowserAnimationsModule,
     MaterialModule,
     ReactiveFormsModule,
+    FormsModule,
     HttpClientModule,
   ],
   providers: [LoginService, UsuarioService],
