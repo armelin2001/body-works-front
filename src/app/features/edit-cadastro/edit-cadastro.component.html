@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="card">
+    <img src="/assets/logo-com_nome-com_fundo.png" alt="Logo" class="logo" />
+    <button class="back-btn" (click)="goBack()">&#x2190;</button>
+    <h1>Editar Cadastro</h1>
+    <form [formGroup]="formularioUsuario" (ngSubmit)="submitFormUsuario()" #contratoFrm="ngForm">
+
+      <mat-form-field>
+        <input formControlName="nome" type="text" matInput placeholder="Nome">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input formControlName="cpf" type="text" matInput placeholder="CPF">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input formControlName="email" type="text" matInput placeholder="Email">
+      </mat-form-field>
+      
+      <mat-form-field>
+        <input formControlName="senha" type="password" matInput placeholder="Senha">
+      </mat-form-field>
+    
+
+      <mat-form-field appearance="fill">
+        <mat-label>Data de nascimento</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="dataNascimento">
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input formControlName="peso" type="text" matInput placeholder="Peso">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input formControlName="altura" type="text" matInput placeholder="Altura">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-select formControlName="genero" placeholder="Gênero"> 
+        <mat-option value = "M" > Masculino </mat-option>
+        <mat-option value = "F" > Feminino </mat-option>
+        <mat-option value = "O" > Outro </mat-option> 
+        </mat-select> 
+      </mat-form-field> 
+
+      <button type="submit">Salvar</button>
+    </form>
+  </div>
+</div>

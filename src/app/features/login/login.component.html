@@ -10,14 +10,14 @@
     <mat-grid-tile class="divLogo">
         <img
             mat-card-image
-            src="../../../assets/icon-name-sem-fundo.png"
+            src="../../../assets/logo-com_nome-sem_fundo.png"
         />
     </mat-grid-tile>
     <mat-grid-tile class="divFormulario">
         <form [formGroup]="formularioLogin" (ngSubmit)="submitFormLogin()" #contratoFrm="ngForm">
             <h1 mat-menu-item>Seja bem-vindo</h1>
             <p></p>
-            <a mat-menu-item>Ainda não tem conta? <a mat-menu-item>Cadastre-se</a></a>
+            <a mat-menu-item>Ainda não tem conta? <a [routerLink]="['/cadastro']" mat-menu-item>Cadastre-se</a></a> <!--Como deixar o sublinhado em branco?-->
             <p></p>
             <p>
                 <mat-form-field>

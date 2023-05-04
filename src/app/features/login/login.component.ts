@@ -10,7 +10,7 @@ import { MatDialog } from '@angular/material/dialog';
   templateUrl: 'login.component.html',
   styleUrls: ['login.component.scss'],
 })
-export class LoginComponent implements OnInit{
+export class LoginComponent implements OnInit {
   formularioLogin: FormGroup;
 
   constructor(
@@ -26,21 +26,17 @@ export class LoginComponent implements OnInit{
       senha: ['', [Validators.required]],
     });
   }
-  
-  ngOnInit(): void { 
-  }
+
+  ngOnInit(): void {}
 
   submitFormLogin() {
-    console.log("aqui!")
+    console.log('aqui!');
     if (this.formularioLogin.valid) {
       const login = this.getLogin();
       console.log(this.formularioLogin.value);
       this.loginService.realizaLogin(login).subscribe(
         (res) => {
-          // salvar token no localstorage
-          if (res.status == 200) {
-            this.router.navigate(['/']);
-          }
+          this.router.navigate(['/home-usuario/'+res.id]);
         },
         (err) => {
           console.log(err);
