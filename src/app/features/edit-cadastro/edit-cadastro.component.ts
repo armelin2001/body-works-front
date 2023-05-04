@@ -80,7 +80,6 @@ export class EditCadastroComponent implements OnInit {
       peso: formularioUsuario.peso,
       perfil: 'usuario',
     };
-    console.log(usuario);
     return usuario;
   }
 }
