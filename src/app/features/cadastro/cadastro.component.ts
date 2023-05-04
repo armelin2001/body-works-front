@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { LoginService } from 'src/app/shared/http-service/login-service/login.service';
 import { LoginDto } from 'src/app/shared/models/login-dto';
 import { MatDialog } from '@angular/material/dialog';
+import { UsuarioDto } from 'src/app/shared/models/usuario-dto';
 
 
 @Component({
@@ -14,28 +15,29 @@ import { MatDialog } from '@angular/material/dialog';
 
 
 export class CadastroComponent {
-  formularioLogin: FormGroup;
+  formularioUsuario: FormGroup;
   
   constructor(private formBuilder: FormBuilder,
     private router: Router, 
     private loginService: LoginService,
     public dialog: MatDialog,){
     let emailregex: RegExp = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-    this.formularioLogin = this.formBuilder.group({
+    this.formularioUsuario = this.formBuilder.group({
+      nome: ['', [Validators.required]],
+      cpf: ['', [Validators.required]],
+      genero: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.pattern(emailregex)]],
       senha: ['', [Validators.required]],
     });
   }
 
   submitFormLogin(){
-    if(this.formularioLogin.valid){
-      const login = this.getLogin();
-      console.log(this.formularioLogin.value);
-      this.loginService.realizaLogin(login).subscribe(
+    if(this.formularioUsuario.valid){
+      const usuario = this.getUsuario();
+      this.loginService.realizaLogin(usuario).subscribe(
         (res)=>{
-          // salvar token no localstorage
           if(res.status == 200){
-            this.router.navigate(['/']);
+            this.router.navigate(['/login']);
           }
         },
         (err)=>{},
@@ -43,9 +45,12 @@ export class CadastroComponent {
     }
   }
 
-  getLogin(){
-    const formularioLogin = this.formularioLogin.value;
-    const realizaLogin: LoginDto = {
+  getUsuario(){
+    const formularioLogin = this.formularioUsuario.value;
+    const realizaLogin: UsuarioDto = {
+      nome: formularioLogin.nome,
+      cpf: formularioLogin.cpf,
+      genero: formularioLogin.genero,
       email: formularioLogin.email,
       senha: formularioLogin.senha
     }
