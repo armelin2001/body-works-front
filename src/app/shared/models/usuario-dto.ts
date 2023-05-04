@@ -1,9 +1,12 @@
 export interface UsuarioDto {
+    id?: string;
     nome: string;
     cpf: string;
-    nascimento: Date,
     genero: string;
     email: string;
     senha: string;
     perfil: string;
+    dataNascimento: Date;
+    peso?: string;
+    altura?: string;
 }

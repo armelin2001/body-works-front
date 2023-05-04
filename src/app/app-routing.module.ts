@@ -8,8 +8,8 @@ import { HomeUsuarioComponent } from './features/home-usuario/home-usuario.compo
 const routes: Routes = [
   {path:'login', component: LoginComponent},
   {path: 'cadastro', component: CadastroComponent},
-  {path: 'home-usuario', component: HomeUsuarioComponent},
-  {path: 'edit-cadastro', component: EditCadastroComponent}
+  {path: 'home-usuario/:id', component: HomeUsuarioComponent},
+  {path: 'edit-cadastro/:id', component: EditCadastroComponent}
 
 ];
 

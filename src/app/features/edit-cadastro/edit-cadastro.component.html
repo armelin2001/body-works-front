@@ -3,37 +3,47 @@
     <img src="/assets/logo-com_nome-com_fundo.png" alt="Logo" class="logo" />
     <button class="back-btn" (click)="goBack()">&#x2190;</button>
     <h1>Editar Cadastro</h1>
-    <form>
+    <form [formGroup]="formularioUsuario" (ngSubmit)="submitFormUsuario()" #contratoFrm="ngForm">
+
       <mat-form-field>
-        <input type="text" placeholder="Nome">
+        <input formControlName="nome" type="text" matInput placeholder="Nome">
       </mat-form-field>
 
       <mat-form-field>
-        <input type="text" placeholder="CPF">
+        <input formControlName="cpf" type="text" matInput placeholder="CPF">
       </mat-form-field>
 
       <mat-form-field>
-        <input type="text" placeholder="Email">
+        <input formControlName="email" type="text" matInput placeholder="Email">
+      </mat-form-field>
+      
+      <mat-form-field>
+        <input formControlName="senha" type="password" matInput placeholder="Senha">
+      </mat-form-field>
+    
+
+      <mat-form-field appearance="fill">
+        <mat-label>Data de nascimento</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="dataNascimento">
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
 
       <mat-form-field>
-        <input type="password" placeholder="Senha">
+        <input formControlName="peso" type="text" matInput placeholder="Peso">
       </mat-form-field>
 
       <mat-form-field>
-        <input type="text" placeholder="Peso">
+        <input formControlName="altura" type="text" matInput placeholder="Altura">
       </mat-form-field>
 
       <mat-form-field>
-        <input type="text" placeholder="Altura">
-      </mat-form-field>
-
-      <div class="gender-btn-container">
-        <button type="button" class="gender-btn" [class.selected]="selectedGender === 'Masculino'" (click)="selectGender('Masculino')">Masculino</button>
-        <button type="button" class="gender-btn" [class.selected]="selectedGender === 'Feminino'" (click)="selectGender('Feminino')">Feminino</button>
-        <button type="button" class="gender-btn" [class.selected]="selectedGender === 'Outro'" (click)="selectGender('Outro')">Outro</button>
-        <input type="hidden" name="gender" [(ngModel)]="selectedGender">
-      </div>
+        <mat-select formControlName="genero" placeholder="Gênero"> 
+        <mat-option value = "M" > Masculino </mat-option>
+        <mat-option value = "F" > Feminino </mat-option>
+        <mat-option value = "O" > Outro </mat-option> 
+        </mat-select> 
+      </mat-form-field> 
 
       <button type="submit">Salvar</button>
     </form>
