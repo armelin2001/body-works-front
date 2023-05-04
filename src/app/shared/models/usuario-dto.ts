@@ -4,4 +4,5 @@ export interface UsuarioDto {
     genero: string;
     email: string;
     senha: string;
+    perfil: string;
 }

@@ -10,6 +10,7 @@ import { LoginService } from './shared/http-service/login-service/login.service'
 import { HttpClientModule } from '@angular/common/http';
 import { CadastroComponent } from './features/cadastro/cadastro.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { UsuarioService } from './shared/http-service/usuario-service/usuario.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  providers: [LoginService],
+  providers: [LoginService, UsuarioService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent],
 })

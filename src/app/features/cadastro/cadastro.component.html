@@ -6,7 +6,7 @@
         />
     </mat-grid-tile>
     <mat-grid-tile class="divFormulario">
-        <form>
+        <form [formGroup]="formularioUsuario" (ngSubmit)="submitFormUsuario()" #contratoFrm="ngForm">
             <h1 mat-menu-item>Registre seu usuário!</h1>
             <p></p>
             <p>
