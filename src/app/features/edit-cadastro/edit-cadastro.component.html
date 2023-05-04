@@ -1,5 +1,6 @@
 <div class="container">
   <div class="card">
+    <img src="/assets/logo-com_nome-com_fundo.png" alt="Logo" class="logo" />
     <button class="back-btn" (click)="goBack()">&#x2190;</button>
     <h1>Editar Cadastro</h1>
     <form>
@@ -23,16 +24,16 @@
         <input type="text" placeholder="Peso">
       </mat-form-field>
 
+      <mat-form-field>
+        <input type="text" placeholder="Altura">
+      </mat-form-field>
+
       <div class="gender-btn-container">
         <button type="button" class="gender-btn" [class.selected]="selectedGender === 'Masculino'" (click)="selectGender('Masculino')">Masculino</button>
         <button type="button" class="gender-btn" [class.selected]="selectedGender === 'Feminino'" (click)="selectGender('Feminino')">Feminino</button>
         <button type="button" class="gender-btn" [class.selected]="selectedGender === 'Outro'" (click)="selectGender('Outro')">Outro</button>
         <input type="hidden" name="gender" [(ngModel)]="selectedGender">
       </div>
-
-      <mat-form-field>
-        <input type="text" placeholder="Altura">
-      </mat-form-field>
 
       <button type="submit">Salvar</button>
     </form>

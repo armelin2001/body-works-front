@@ -15,7 +15,6 @@ import { EditCadastroComponent } from './features/edit-cadastro/edit-cadastro.co
 import { HomeUsuarioComponent } from './features/home-usuario/home-usuario.component';
 import { FormsModule } from '@angular/forms';
 
-
 @NgModule({
   declarations: [
     AppComponent,

@@ -10,6 +10,7 @@ const routes: Routes = [
   {path: 'cadastro', component: CadastroComponent},
   {path: 'home-usuario', component: HomeUsuarioComponent},
   {path: 'edit-cadastro', component: EditCadastroComponent}
+
 ];
 
 @NgModule({
