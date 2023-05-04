@@ -20,10 +20,19 @@
                 </mat-form-field>
             </p>
             <p>
+                <mat-form-field appearance="fill">
+                    <mat-label>Data de nascimento</mat-label>
+                    <input matInput [matDatepicker]="picker" formControlName="nascimento">
+                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field>
+            </p>
+            <p>
                 <mat-form-field>
                     <mat-select formControlName="genero" placeholder="Gênero"> 
                     <mat-option value = "M" > Masculino </mat-option>
-                    <mat-option value = "F" > Femenino </mat-option> 
+                    <mat-option value = "F" > Femenino </mat-option>
+                    <mat-option value = "O" > Outro </mat-option> 
                     </mat-select> 
                   </mat-form-field>
             </p>

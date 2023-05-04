@@ -20,6 +20,7 @@ export class CadastroComponent {
     this.formularioUsuario = this.formBuilder.group({
       nome: ['', [Validators.required]],
       cpf: ['', [Validators.required]],
+      nascimento: ['', [Validators.required]],
       genero: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.pattern(emailregex)]],
       senha: ['', [Validators.required]],
@@ -45,6 +46,7 @@ export class CadastroComponent {
     const realizaLogin: UsuarioDto = {
       nome: formularioLogin.nome,
       cpf: formularioLogin.cpf,
+      nascimento: formularioLogin.nascimento,
       genero: formularioLogin.genero,
       email: formularioLogin.email,
       senha: formularioLogin.senha,
