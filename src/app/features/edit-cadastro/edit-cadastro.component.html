@@ -10,7 +10,7 @@
       </mat-form-field>
 
       <mat-form-field>
-        <input formControlName="cpf" type="text" matInput placeholder="CPF">
+        <input formControlName="cpf" mask="000.000.000-00" matInput placeholder="CPF">
       </mat-form-field>
 
       <mat-form-field>
@@ -30,11 +30,11 @@
       </mat-form-field>
 
       <mat-form-field>
-        <input formControlName="peso" type="text" matInput placeholder="Peso">
+        <input formControlName="peso" mask="0*.00" suffix="kg" type="text" maxlength="8" matInput placeholder="Peso">
       </mat-form-field>
 
       <mat-form-field>
-        <input formControlName="altura" type="text" matInput placeholder="Altura">
+        <input formControlName="altura" mask="0,00" suffix="cm" type="text" matInput placeholder="Altura">
       </mat-form-field>
 
       <mat-form-field>
