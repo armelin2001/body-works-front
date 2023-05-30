@@ -14,6 +14,8 @@ import { UsuarioService } from './shared/http-service/usuario-service/usuario.se
 import { EditCadastroComponent } from './features/edit-cadastro/edit-cadastro.component';
 import { HomeUsuarioComponent } from './features/home-usuario/home-usuario.component';
 import { FormsModule } from '@angular/forms';
+import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
+import { LocalstorageService } from './shared/local-storage/localstorage.service';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,7 @@ import { FormsModule } from '@angular/forms';
     LoginComponent,
     CadastroComponent,
     EditCadastroComponent,
-    HomeUsuarioComponent
+    HomeUsuarioComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,8 +33,14 @@ import { FormsModule } from '@angular/forms';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
+    NgxMaskDirective,
   ],
-  providers: [LoginService, UsuarioService],
+  providers: [
+    LoginService,
+    UsuarioService,
+    provideNgxMask(),
+    LocalstorageService,
+  ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent],
 })

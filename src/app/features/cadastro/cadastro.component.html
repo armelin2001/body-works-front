@@ -6,18 +6,24 @@
         />
     </mat-grid-tile>
     <mat-grid-tile class="divFormulario">
-        <form [formGroup]="formularioUsuario" (ngSubmit)="submitFormUsuario()" #contratoFrm="ngForm">
+        <form [formGroup]="formularioUsuario" (ngSubmit)="submitFormUsuario()" #usuario="ngForm">
             <h1 mat-menu-item>Registre seu usuário!</h1>
             <p></p>
             <p>
                 <mat-form-field>
                     <input formControlName="nome" type="text" matInput placeholder="Nome" >
                 </mat-form-field>
+                <mat-error *ngIf="nome.errors && nome.touched">
+                    Insira um nome válido
+                </mat-error>
             </p>
             <p>
                 <mat-form-field>
-                    <input formControlName="cpf" type="text" matInput placeholder="CPF" >
+                    <input formControlName="cpf" mask="000.000.000-00" type="text" matInput placeholder="CPF" >
                 </mat-form-field>
+                <mat-error *ngIf="cpf.errors && cpf.touched">
+                    Insira um CPF válido
+                </mat-error>
             </p>
             <p>
                 <mat-form-field appearance="fill">
@@ -26,6 +32,10 @@
                     <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                     <mat-datepicker #picker></mat-datepicker>
                 </mat-form-field>
+                <mat-error *ngIf="validaDataNascimento.errors && validaDataNascimento.touched">
+                    Insira uma data válida
+                </mat-error>
+            
             </p>
             <p>
                 <mat-form-field>
@@ -35,21 +45,31 @@
                     <mat-option value = "O" > Outro </mat-option> 
                     </mat-select> 
                 </mat-form-field>
+
+                <mat-error *ngIf="genero.errors && genero.touched">
+                    Insira um gênero válido
+                </mat-error>
             </p>
             <p>
                 <mat-form-field>
                     <input formControlName="email" type="text" matInput placeholder="Email" >
                 </mat-form-field>
+                <mat-error *ngIf="email.errors && email.touched">
+                    Insira um email válido
+                </mat-error>
             </p>
             <p>
                 <mat-form-field>
                     <input formControlName="senha" type="password" matInput placeholder="Senha" >
                 </mat-form-field>
+                <mat-error *ngIf="senha.errors && senha.touched">
+                    Insira uma senha válida
+                </mat-error>
             </p>
             <p></p>
             <div>
             <p></p>
-                <button class="button" type="submit" mat-raised-button>Cadastre-se</button>
+                <button class="button" type="submit" [disabled]="usuario.form.invalid" mat-raised-button>Cadastre-se</button>
             </div>
             <p></p>
             <div>

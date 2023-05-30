@@ -3,39 +3,66 @@
     <img src="/assets/logo-com_nome-com_fundo.png" alt="Logo" class="logo" />
     <button class="back-btn" (click)="goBack()">&#x2190;</button>
     <h1>Editar Cadastro</h1>
-    <form [formGroup]="formularioUsuario" (ngSubmit)="submitFormUsuario()" #contratoFrm="ngForm">
+    <form [formGroup]="formularioUsuario" (ngSubmit)="submitFormUsuario()" #usuario="ngForm">
 
       <mat-form-field>
         <input formControlName="nome" type="text" matInput placeholder="Nome">
       </mat-form-field>
 
+      <mat-error *ngIf="nome.errors && nome.touched">
+        Insira um nome válido
+      </mat-error>
+
+
       <mat-form-field>
-        <input formControlName="cpf" type="text" matInput placeholder="CPF">
+        <input formControlName="cpf" mask="000.000.000-00" matInput placeholder="CPF">
       </mat-form-field>
+      <mat-error *ngIf="cpf.errors && cpf.touched">
+        Insira um CPF válido
+      </mat-error>
 
       <mat-form-field>
         <input formControlName="email" type="text" matInput placeholder="Email">
       </mat-form-field>
       
+      <mat-error *ngIf="email.errors && email.touched">
+        Insira um email válido
+      </mat-error>
+
       <mat-form-field>
         <input formControlName="senha" type="password" matInput placeholder="Senha">
       </mat-form-field>
     
-
+      <mat-error *ngIf="senha.errors && senha.touched">
+        Insira uma senha válida
+      </mat-error>
+      
       <mat-form-field appearance="fill">
         <mat-label>Data de nascimento</mat-label>
         <input matInput [matDatepicker]="picker" formControlName="dataNascimento">
         <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
+      
+      <mat-error *ngIf="validaDataNascimento.errors && validaDataNascimento.touched">
+        Insira uma data válida
+      </mat-error>
 
       <mat-form-field>
-        <input formControlName="peso" type="text" matInput placeholder="Peso">
+        <input formControlName="peso" mask="0*.00" suffix="kg" type="text" maxlength="8" matInput placeholder="Peso">
       </mat-form-field>
+      
+      <mat-error *ngIf="peso.errors && peso.touched">
+        Insira um peso válido
+      </mat-error>
 
       <mat-form-field>
-        <input formControlName="altura" type="text" matInput placeholder="Altura">
+        <input formControlName="altura" mask="0.00" type="text" matInput placeholder="Altura (cm)" [dropSpecialCharacters]="false">
       </mat-form-field>
+
+      <mat-error *ngIf="altura.errors && altura.touched">
+        Insira uma altura válida
+      </mat-error>
 
       <mat-form-field>
         <mat-select formControlName="genero" placeholder="Gênero"> 
@@ -43,7 +70,11 @@
         <mat-option value = "F" > Feminino </mat-option>
         <mat-option value = "O" > Outro </mat-option> 
         </mat-select> 
-      </mat-form-field> 
+      </mat-form-field>
+       
+      <mat-error *ngIf="genero.errors && genero.touched">
+        Insira um gênero válido
+      </mat-error>
 
       <button type="submit">Salvar</button>
     </form>
