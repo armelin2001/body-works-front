@@ -10,6 +10,7 @@ import { UsuarioService } from 'src/app/shared/http-service/usuario-service/usua
 import { UsuarioDto } from 'src/app/shared/models/usuario-dto';
 import { ActivatedRoute } from '@angular/router';
 import * as moment from 'moment';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-edit-cadastro',
@@ -24,7 +25,8 @@ export class EditCadastroComponent implements OnInit {
     private location: Location,
     private formBuilder: FormBuilder,
     private usuarioService: UsuarioService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private snack: MatSnackBar
   ) {
     let emailregex: RegExp =
       /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -54,7 +56,13 @@ export class EditCadastroComponent implements OnInit {
           altura: res.altura,
         });
       },
-      (err) => {}
+      (err) => {
+        this.snack.open(err.error.message, 'OK', {
+          duration: 3000,
+          horizontalPosition: 'center',
+          verticalPosition: 'top',
+        });
+      }
     );
   }
 

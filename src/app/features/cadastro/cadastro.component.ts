@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 import { UsuarioDto } from 'src/app/shared/models/usuario-dto';
 import { UsuarioService } from 'src/app/shared/http-service/usuario-service/usuario.service';
 import * as moment from 'moment';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-cadastro',
@@ -21,7 +22,8 @@ export class CadastroComponent {
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
-    private usuarioService: UsuarioService
+    private usuarioService: UsuarioService,
+    private snack: MatSnackBar
   ) {
     let emailregex: RegExp =
       /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -43,7 +45,13 @@ export class CadastroComponent {
       (res) => {
         this.router.navigate(['/login']);
       },
-      (err) => {}
+      (err) => {
+        this.snack.open(err.error.message, 'OK', {
+          duration: 3000,
+          horizontalPosition: 'center',
+          verticalPosition: 'top',
+        });
+      }
     );
   }
 
