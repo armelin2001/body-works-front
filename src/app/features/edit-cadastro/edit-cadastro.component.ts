@@ -11,6 +11,7 @@ import { UsuarioDto } from 'src/app/shared/models/usuario-dto';
 import { ActivatedRoute } from '@angular/router';
 import * as moment from 'moment';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { LocalstorageService } from 'src/app/shared/local-storage/localstorage.service';
 
 @Component({
   selector: 'app-edit-cadastro',
@@ -26,7 +27,8 @@ export class EditCadastroComponent implements OnInit {
     private formBuilder: FormBuilder,
     private usuarioService: UsuarioService,
     private activatedRoute: ActivatedRoute,
-    private snack: MatSnackBar
+    private snack: MatSnackBar,
+    private localStorage: LocalstorageService
   ) {
     let emailregex: RegExp =
       /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -74,6 +76,8 @@ export class EditCadastroComponent implements OnInit {
     const usuario = this.getUsuario();
     this.usuarioService.atualizaUsuario(usuario).subscribe(
       (res) => {
+        this.localStorage.remover('usuario');
+        this.localStorage.adicionar('usuario', res);
         this.goBack();
       },
       (err) => {}

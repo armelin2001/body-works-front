@@ -1,10 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/shared/http-service/login-service/login.service';
 import { LoginDto } from 'src/app/shared/models/login-dto';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { LocalstorageService } from 'src/app/shared/local-storage/localstorage.service';
 
 @Component({
   selector: 'app-login',
@@ -19,7 +25,8 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private loginService: LoginService,
     public dialog: MatDialog,
-    private snack: MatSnackBar
+    private snack: MatSnackBar,
+    private localStorage: LocalstorageService
   ) {
     let emailregex: RegExp =
       /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -37,7 +44,8 @@ export class LoginComponent implements OnInit {
       console.log(this.formularioLogin.value);
       this.loginService.realizaLogin(login).subscribe(
         (res) => {
-          this.router.navigate(['/home-usuario/'+res.id]);
+          this.localStorage.adicionar('usuario', res);
+          this.router.navigate(['/home-usuario/' + res.id]);
         },
         (err) => {
           this.snack.open(err.error.message, 'OK', {
