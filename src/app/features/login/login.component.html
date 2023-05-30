@@ -14,7 +14,7 @@
         />
     </mat-grid-tile>
     <mat-grid-tile class="divFormulario">
-        <form [formGroup]="formularioLogin" (ngSubmit)="submitFormLogin()" #contratoFrm="ngForm">
+        <form [formGroup]="formularioLogin" (ngSubmit)="submitFormLogin()" #login="ngForm">
             <h1 mat-menu-item>Seja bem-vindo</h1>
             <p></p>
             <a mat-menu-item>Ainda não tem conta? <a [routerLink]="['/cadastro']" mat-menu-item>Cadastre-se</a></a> <!--Como deixar o sublinhado em branco?-->
@@ -33,7 +33,7 @@
             <a mat-menu-item>Esqueceu a senha?</a>
             <p></p>
             <div>
-                <button class="button" type="submit" mat-raised-button>Entrar</button>
+                <button class="button" type="submit" mat-raised-button [disabled]="login.form.invalid">Entrar</button>
             </div>
         </form>
     </mat-grid-tile>

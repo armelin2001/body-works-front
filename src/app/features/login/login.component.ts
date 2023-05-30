@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/shared/http-service/login-service/login.service';
 import { LoginDto } from 'src/app/shared/models/login-dto';
@@ -30,7 +30,6 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {}
 
   submitFormLogin() {
-    console.log('aqui!');
     if (this.formularioLogin.valid) {
       const login = this.getLogin();
       console.log(this.formularioLogin.value);
