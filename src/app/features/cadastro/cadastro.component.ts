@@ -77,10 +77,6 @@ export class CadastroComponent {
     return this.formularioUsuario.get('dataNascimento') as FormControl;
   }
 
-  get nome(): FormControl {
-    return this.formularioUsuario.get('nome') as FormControl;
-  }
-
   get cpf(): FormControl {
     let regexCpf = '([0-9]{11})';
     const cpf = this.formularioUsuario.get('cpf') as FormControl;
@@ -93,15 +89,35 @@ export class CadastroComponent {
     return this.formularioUsuario.get('cpf') as FormControl;
   }
 
-  get genero(): FormControl {
-    return this.formularioUsuario.get('genero') as FormControl;
+  get senha(): FormControl {
+    const senha = this.formularioUsuario.get('senha') as FormControl;
+    if (senha.value.length < 6) {
+      senha.setErrors({ senhaInvalida: true });
+    }
+    return this.formularioUsuario.get('senha') as FormControl;
   }
 
   get email(): FormControl {
+    const email = this.formularioUsuario.get('email') as FormControl;
+    if (email.value.length < 10) {
+      email.setErrors({ emailInvalido: true });
+    }
     return this.formularioUsuario.get('email') as FormControl;
   }
 
-  get senha(): FormControl {
-    return this.formularioUsuario.get('senha') as FormControl;
+  get genero(): FormControl {
+    const genero = this.formularioUsuario.get('genero') as FormControl;
+    if (genero.value.length < 1) {
+      genero.setErrors({ generoInvalido: true });
+    }
+    return this.formularioUsuario.get('genero') as FormControl;
+  }
+
+  get nome(): FormControl {
+    const nome = this.formularioUsuario.get('nome') as FormControl;
+    if (nome.value.length < 5) {
+      nome.setErrors({ nomeInvalido: true });
+    }
+    return this.formularioUsuario.get('nome') as FormControl;
   }
 }

@@ -9,6 +9,11 @@
         <input formControlName="nome" type="text" matInput placeholder="Nome">
       </mat-form-field>
 
+      <mat-error *ngIf="nome.errors && nome.touched">
+        Insira um nome válido
+      </mat-error>
+
+
       <mat-form-field>
         <input formControlName="cpf" mask="000.000.000-00" matInput placeholder="CPF">
       </mat-form-field>
@@ -20,11 +25,18 @@
         <input formControlName="email" type="text" matInput placeholder="Email">
       </mat-form-field>
       
+      <mat-error *ngIf="email.errors && email.touched">
+        Insira um email válido
+      </mat-error>
+
       <mat-form-field>
         <input formControlName="senha" type="password" matInput placeholder="Senha">
       </mat-form-field>
     
-
+      <mat-error *ngIf="senha.errors && senha.touched">
+        Insira uma senha válida
+      </mat-error>
+      
       <mat-form-field appearance="fill">
         <mat-label>Data de nascimento</mat-label>
         <input matInput [matDatepicker]="picker" formControlName="dataNascimento">
@@ -58,7 +70,11 @@
         <mat-option value = "F" > Feminino </mat-option>
         <mat-option value = "O" > Outro </mat-option> 
         </mat-select> 
-      </mat-form-field> 
+      </mat-form-field>
+       
+      <mat-error *ngIf="genero.errors && genero.touched">
+        Insira um gênero válido
+      </mat-error>
 
       <button type="submit">Salvar</button>
     </form>

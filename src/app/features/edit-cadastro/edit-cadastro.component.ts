@@ -138,4 +138,36 @@ export class EditCadastroComponent implements OnInit {
     }
     return this.formularioUsuario.get('peso') as FormControl;
   }
+
+  get senha(): FormControl {
+    const senha = this.formularioUsuario.get('senha') as FormControl;
+    if (senha.value.length < 6) {
+      senha.setErrors({ senhaInvalida: true });
+    }
+    return this.formularioUsuario.get('senha') as FormControl;
+  }
+
+  get email(): FormControl {
+    const email = this.formularioUsuario.get('email') as FormControl;
+    if (email.value.length < 10) {
+      email.setErrors({ emailInvalido: true });
+    }
+    return this.formularioUsuario.get('email') as FormControl;
+  }
+
+  get genero(): FormControl {
+    const genero = this.formularioUsuario.get('genero') as FormControl;
+    if (genero.value.length < 1) {
+      genero.setErrors({ generoInvalido: true });
+    }
+    return this.formularioUsuario.get('genero') as FormControl;
+  }
+
+  get nome(): FormControl {
+    const nome = this.formularioUsuario.get('nome') as FormControl;
+    if (nome.value.length < 5) {
+      nome.setErrors({ nomeInvalido: true });
+    }
+    return this.formularioUsuario.get('nome') as FormControl;
+  }
 }

@@ -13,6 +13,9 @@
                 <mat-form-field>
                     <input formControlName="nome" type="text" matInput placeholder="Nome" >
                 </mat-form-field>
+                <mat-error *ngIf="nome.errors && nome.touched">
+                    Insira um nome válido
+                </mat-error>
             </p>
             <p>
                 <mat-form-field>
@@ -42,16 +45,26 @@
                     <mat-option value = "O" > Outro </mat-option> 
                     </mat-select> 
                 </mat-form-field>
+
+                <mat-error *ngIf="genero.errors && genero.touched">
+                    Insira um gênero válido
+                </mat-error>
             </p>
             <p>
                 <mat-form-field>
                     <input formControlName="email" type="text" matInput placeholder="Email" >
                 </mat-form-field>
+                <mat-error *ngIf="email.errors && email.touched">
+                    Insira um email válido
+                </mat-error>
             </p>
             <p>
                 <mat-form-field>
                     <input formControlName="senha" type="password" matInput placeholder="Senha" >
                 </mat-form-field>
+                <mat-error *ngIf="senha.errors && senha.touched">
+                    Insira uma senha válida
+                </mat-error>
             </p>
             <p></p>
             <div>
