@@ -100,6 +100,9 @@ export class CadastroComponent {
       email: formularioUsuarioAcademiAdm.email,
       senha: formularioUsuarioAcademiAdm.senha,
       adm: formularioUsuarioAcademiAdm.adm,
+      codigo: formularioUsuarioAcademiAdm.codigo,
+      genero: formularioUsuarioAcademiAdm.genero,
+      dataNascimento: formularioUsuarioAcademiAdm.dataNascimento,
     };
     return usuarioAcademiAdm;
   }

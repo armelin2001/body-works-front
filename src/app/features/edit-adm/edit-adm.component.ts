@@ -21,6 +21,7 @@ import * as moment from 'moment';
 export class EditAdmComponent {
   formularioUsuario: FormGroup;
   id: string = '';
+  edita: boolean = false;
 
   constructor(
     private location: Location,
@@ -38,36 +39,37 @@ export class EditAdmComponent {
       genero: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.pattern(emailregex)]],
       senha: ['', [Validators.required]],
-      dataNascimento: ['', [Validators.required]]
+      dataNascimento: ['', [Validators.required]],
     });
   }
 
   ngOnInit(): void {
     this.id = this.activatedRoute.snapshot.params['id'];
-    console.log(this.id);
-    this.usuarioAcademiaService.obterUsuarioAcademia(this.id).subscribe(
-      (res) => {
-        this.formularioUsuario.patchValue({
-          nome: res.nome,
-          cpf: res.cpf,
-          genero: res.genero,
-          email: res.email,
-          senha: res.senha,
-        });
-      },
-      (err) => {
-        this.snack.open(err.error.message, 'OK', {
-          duration: 3000,
-          horizontalPosition: 'center',
-          verticalPosition: 'top',
-        });
-      }
-    );
+    this.edita = this.activatedRoute.snapshot.params['edita'] === 'true' ? true : false;
+    if (this.edita === true) {
+      this.usuarioAcademiaService.obterUsuarioAcademia(this.id).subscribe(
+        (res) => {
+          this.formularioUsuario.patchValue({
+            nome: res.nome,
+            cpf: res.cpf,
+            genero: res.genero,
+            email: res.email,
+            dataNascimento: res.dataNascimento,
+          });
+        },
+        (err) => {
+          this.snack.open(err.error.message, 'OK', {
+            duration: 3000,
+            horizontalPosition: 'center',
+            verticalPosition: 'top',
+          });
+        }
+      );
+    }
   }
 
   getUsuarioAdm() {
     const formularioUsuario = this.formularioUsuario.value;
-    const usuario = this.localStorage.obter('usuario') as any;
 
     const usuarioAdm: UsuarioAcademiaAdmDto = {
       id: this.id,
@@ -75,7 +77,9 @@ export class EditAdmComponent {
       cpf: formularioUsuario.cpf,
       email: formularioUsuario.email,
       senha: formularioUsuario.senha,
-      adm: usuario.adm,
+      adm: this.edita,
+      dataNascimento: formularioUsuario.dataNascimento,
+      genero: formularioUsuario.genero,
     };
     return usuarioAdm;
   }
@@ -130,7 +134,7 @@ export class EditAdmComponent {
     const dataNascimento = moment(input.value).year();
     if (
       dataNascimento >= dataAtual ||
-      dataNascimento > dataAtual - 1 ||
+      dataNascimento > dataAtual - 18 ||
       dataNascimento < dataAtual - 100
     ) {
       input.setErrors({ dataNascimentoInvalida: true });
@@ -142,14 +146,33 @@ export class EditAdmComponent {
 
   submitFormUsuario() {
     const usuarioAdm = this.getUsuarioAdm();
-    this.usuarioAcademiaService.atualizaUsuarioAcademia(usuarioAdm).subscribe(
-      (res) => {
-        this.localStorage.remover('usuario');
-        this.localStorage.adicionar('usuario', res);
-        this.goBack();
-      },
-      (err) => {}
-    );
+    if (this.edita === true) {
+      this.usuarioAcademiaService.atualizaUsuarioAcademia(usuarioAdm).subscribe(
+        (res) => {
+          this.localStorage.remover('usuario');
+          this.localStorage.adicionar('usuario', res);
+          this.goBack();
+        },
+        (err) => {}
+      );
+    } else {
+      this.usuarioAcademiaService.cadastrarUsuarioAcademia(usuarioAdm).subscribe(
+        (res) => {
+          this.snack.open('Instrutor cadastrado com sucesso!', 'OK', {
+            duration: 3000,
+            horizontalPosition: 'center',
+            verticalPosition: 'top',
+          });
+          this.goBack();
+        },
+        (err) => {
+          this.snack.open(err.error.message, 'OK', {
+          duration: 3000,
+          horizontalPosition: 'center',
+          verticalPosition: 'top',
+        });}
+      );
+    }
   }
 
   goBack(): void {

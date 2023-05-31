@@ -13,7 +13,30 @@
           Insira um nome válido
         </mat-error>
   
-  
+        
+        <mat-form-field appearance="fill">
+            <mat-label>Data de nascimento</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="dataNascimento">
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <mat-error *ngIf="validaDataNascimento.errors && validaDataNascimento.touched">
+            Insira uma data válida
+        </mat-error>
+    
+        <mat-form-field>
+            <mat-select formControlName="genero" placeholder="Gênero"> 
+            <mat-option value = "M" > Masculino </mat-option>
+            <mat-option value = "F" > Feminino </mat-option>
+            <mat-option value = "O" > Outro </mat-option> 
+            </mat-select> 
+        </mat-form-field>
+
+        <mat-error *ngIf="genero.errors && genero.touched">
+            Insira um gênero válido
+        </mat-error>
+    
+
         <mat-form-field>
           <input formControlName="cpf" mask="000.000.000-00" matInput placeholder="CPF">
         </mat-form-field>
@@ -32,32 +55,6 @@
         <mat-form-field>
           <input formControlName="senha" type="password" matInput placeholder="Senha">
         </mat-form-field>
-        
-        <p>
-            <mat-form-field appearance="fill">
-                <mat-label>Data de nascimento</mat-label>
-                <input matInput [matDatepicker]="picker" formControlName="dataNascimento">
-                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>
-            </mat-form-field>
-            <mat-error *ngIf="validaDataNascimento.errors && validaDataNascimento.touched">
-                Insira uma data válida
-            </mat-error>
-        
-        </p>
-        <p>
-            <mat-form-field>
-                <mat-select formControlName="genero" placeholder="Gênero"> 
-                <mat-option value = "M" > Masculino </mat-option>
-                <mat-option value = "F" > Feminino </mat-option>
-                <mat-option value = "O" > Outro </mat-option> 
-                </mat-select> 
-            </mat-form-field>
-
-            <mat-error *ngIf="genero.errors && genero.touched">
-                Insira um gênero válido
-            </mat-error>
-        </p>
         
         <mat-error *ngIf="senha.errors && senha.touched">
           Insira uma senha válida

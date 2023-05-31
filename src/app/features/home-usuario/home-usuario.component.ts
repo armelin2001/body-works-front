@@ -40,6 +40,6 @@ export class HomeUsuarioComponent implements OnInit {
   }
 
   navegarParaCadastroInstrutor(){
-    this.router.navigate(['/cadastro-instrutor/' + this.id + "/" + false]);
+    this.router.navigate(['/edit-cadastro-adm/' + this.id + "/" + false]);
   }
 }

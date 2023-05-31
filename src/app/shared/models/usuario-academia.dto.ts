@@ -6,4 +6,6 @@ export interface UsuarioAcademiaAdmDto {
     senha: string;
     codigo?: string;
     adm: boolean;
+    dataNascimento: Date;
+    genero: string;
 }

@@ -12,6 +12,7 @@
         <button mat-button class="sidebar-item" routerLink="/dashboard" *ngIf="adm">Dashboard</button>
         <button mat-button class="sidebar-item" (click)="navigateToEditCadastro()" *ngIf="!adm">Editar Cadastro</button>
         <button mat-button class="sidebar-item" (click)="navegaParaEditAdm()" *ngIf="adm">Editar Cadastro</button>
+        <button mat-button class="sidebar-item" (click)="navegarParaCadastroInstrutor()" *ngIf="adm">Adicionar Instrutor</button>
         
         
       <div class="logout-container">
