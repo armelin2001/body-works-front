@@ -14,6 +14,10 @@ import { UsuarioService } from './shared/http-service/usuario-service/usuario.se
 import { EditCadastroComponent } from './features/edit-cadastro/edit-cadastro.component';
 import { HomeUsuarioComponent } from './features/home-usuario/home-usuario.component';
 import { FormsModule } from '@angular/forms';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatTableModule } from '@angular/material/table';
+import { EquipamentoListComponent } from './features/lista-equipamentos/lista-equipamentos.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +25,8 @@ import { FormsModule } from '@angular/forms';
     LoginComponent,
     CadastroComponent,
     EditCadastroComponent,
-    HomeUsuarioComponent
+    HomeUsuarioComponent,
+    EquipamentoListComponent
   ],
   imports: [
     BrowserModule,
@@ -31,6 +36,9 @@ import { FormsModule } from '@angular/forms';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
+    MatIconModule,
+    MatButtonModule,
+    MatTableModule,
   ],
   providers: [LoginService, UsuarioService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

@@ -1,0 +1,9 @@
+<div class="container">
+  <h1>Lista de Equipamentos</h1>
+  <ul>
+    <li *ngFor="let equipamento of equipamentos">
+      <h2>{{ equipamento.nome }}</h2>
+      <p>Tipo: {{ equipamento.tipo }}</p>
+    </li>
+  </ul>
+</div>

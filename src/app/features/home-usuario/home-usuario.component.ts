@@ -11,16 +11,26 @@ import { UsuarioService } from 'src/app/shared/http-service/usuario-service/usua
 export class HomeUsuarioComponent implements OnInit {
   showAccountMenu = false;
   id: string = '';
+  userName: string = ''; // nova propriedade para o nome do usuário
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute) {}
+  constructor(
+    private router: Router, 
+    private activatedRoute: ActivatedRoute, 
+    private usuarioService: UsuarioService // injetar o UsuarioService
+  ) {}
 
   ngOnInit() {
     this.id = this.activatedRoute.snapshot.params['id'];
+    // usar o método obterUsuario(id) do UsuarioService
+    this.usuarioService.obterUsuario(this.id).subscribe((usuario) => {
+      this.userName = usuario.nome; // substitua 'nome' pela propriedade correta do seu objeto usuário
+    });
   }
 
   navigateToEditCadastro(): void {
     this.router.navigate(['/edit-cadastro/' + this.id]);
   }
+
   logout() {
     this.router.navigate(['/login']);
   }

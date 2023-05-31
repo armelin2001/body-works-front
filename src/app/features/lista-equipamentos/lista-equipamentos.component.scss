@@ -1,0 +1,19 @@
+.back-button-container {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+  }
+  
+  .equipamentos-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 50px);
+    padding: 25px;
+  }
+  
+  table {
+    width: 100%;
+    max-width: 800px;
+  }
+  
