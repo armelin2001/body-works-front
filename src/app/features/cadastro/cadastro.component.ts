@@ -10,6 +10,8 @@ import { UsuarioDto } from 'src/app/shared/models/usuario-dto';
 import { UsuarioService } from 'src/app/shared/http-service/usuario-service/usuario.service';
 import * as moment from 'moment';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { UsuarioAcademiaAdmDto } from 'src/app/shared/models/usuario-academia.dto';
+import { UsuarioAcademiaService } from 'src/app/shared/http-service/usuario-academia/usuario-academia.service';
 
 @Component({
   selector: 'app-cadastro',
@@ -23,7 +25,8 @@ export class CadastroComponent {
     private formBuilder: FormBuilder,
     private router: Router,
     private usuarioService: UsuarioService,
-    private snack: MatSnackBar
+    private snack: MatSnackBar,
+    private usuarioAcademiaService: UsuarioAcademiaService
   ) {
     let emailregex: RegExp =
       /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -34,25 +37,45 @@ export class CadastroComponent {
       email: ['', [Validators.required, Validators.pattern(emailregex)]],
       senha: ['', [Validators.required]],
       dataNascimento: ['', [Validators.required]],
+      adm: [false],
+      codigo: [''],
     });
   }
 
   submitFormUsuario() {
-    console.log('aqui');
-    const usuario = this.getUsuario();
-    console.log(usuario);
-    this.usuarioService.cadastrarUsuario(usuario).subscribe(
-      (res) => {
-        this.router.navigate(['/login']);
-      },
-      (err) => {
-        this.snack.open(err.error.message, 'OK', {
-          duration: 3000,
-          horizontalPosition: 'center',
-          verticalPosition: 'top',
-        });
-      }
-    );
+    const formularioUsuario = this.formularioUsuario.value;
+    if (formularioUsuario.adm) {
+      const usuarioAdm = this.getUsuarioAdm();
+      this.usuarioAcademiaService
+        .cadastrarUsuarioAcademia(usuarioAdm)
+        .subscribe(
+          (res) => {
+            this.router.navigate(['/login']);
+          },
+          (err) => {
+            this.snack.open(err.error.message, 'OK', {
+              duration: 3000,
+              horizontalPosition: 'center',
+              verticalPosition: 'top',
+            });
+          }
+        );
+    } else {
+      const usuario = this.getUsuario();
+
+      this.usuarioService.cadastrarUsuario(usuario).subscribe(
+        (res) => {
+          this.router.navigate(['/login']);
+        },
+        (err) => {
+          this.snack.open(err.error.message, 'OK', {
+            duration: 3000,
+            horizontalPosition: 'center',
+            verticalPosition: 'top',
+          });
+        }
+      );
+    }
   }
 
   getUsuario() {
@@ -69,13 +92,27 @@ export class CadastroComponent {
     return realizaLogin;
   }
 
+  getUsuarioAdm() {
+    const formularioUsuarioAcademiAdm = this.formularioUsuario.value;
+    const usuarioAcademiAdm: UsuarioAcademiaAdmDto = {
+      nome: formularioUsuarioAcademiAdm.nome,
+      cpf: formularioUsuarioAcademiAdm.cpf,
+      email: formularioUsuarioAcademiAdm.email,
+      senha: formularioUsuarioAcademiAdm.senha,
+      adm: formularioUsuarioAcademiAdm.adm,
+    };
+    return usuarioAcademiAdm;
+  }
+
   get validaDataNascimento(): FormControl {
     const input = this.formularioUsuario.get('dataNascimento') as FormControl;
     const dataAtual = moment().year();
     const dataNascimento = moment(input.value).year();
+    const adm = this.formularioUsuario.get('adm')?.value;
+    const idadeMinima = adm ? 18 : 12;
     if (
       dataNascimento >= dataAtual ||
-      dataNascimento > dataAtual - 12 ||
+      dataNascimento > dataAtual - idadeMinima ||
       dataNascimento < dataAtual - 100
     ) {
       input.setErrors({ dataNascimentoInvalida: true });
@@ -127,5 +164,9 @@ export class CadastroComponent {
       nome.setErrors({ nomeInvalido: true });
     }
     return this.formularioUsuario.get('nome') as FormControl;
+  }
+
+  get adm(): FormControl {
+    return this.formularioUsuario.get('adm') as FormControl;
   }
 }

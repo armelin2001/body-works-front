@@ -16,6 +16,8 @@ import { HomeUsuarioComponent } from './features/home-usuario/home-usuario.compo
 import { FormsModule } from '@angular/forms';
 import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
 import { LocalstorageService } from './shared/local-storage/localstorage.service';
+import { EditAdmComponent } from './features/edit-adm/edit-adm.component';
+import { UsuarioAcademiaService } from './shared/http-service/usuario-academia/usuario-academia.service';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,7 @@ import { LocalstorageService } from './shared/local-storage/localstorage.service
     CadastroComponent,
     EditCadastroComponent,
     HomeUsuarioComponent,
+    EditAdmComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,6 +41,7 @@ import { LocalstorageService } from './shared/local-storage/localstorage.service
   providers: [
     LoginService,
     UsuarioService,
+    UsuarioAcademiaService,
     provideNgxMask(),
     LocalstorageService,
   ],
