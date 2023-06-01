@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { EquipamentoService } from 'src/app/shared/http-service/equipamento-service/equipamento.service';
 import { IEquipamentoDTO } from 'src/app/shared/models/equipamento.dto';
 import { Location } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cadastro-equipamento',
@@ -15,6 +16,7 @@ export class CadastroEquipamentoComponent {
   constructor(
     private location: Location,
     private formBuilder: FormBuilder,
+    private router: Router,
     private equipamentoService: EquipamentoService
   ){
     this.formularioEquipamento = this.formBuilder.group({
@@ -34,7 +36,7 @@ export class CadastroEquipamentoComponent {
   }
 
   goBack(){
-    this.location.back();
+    this.router.navigate(['/home-usuario/']);
   }
 
   get nome(): FormControl {

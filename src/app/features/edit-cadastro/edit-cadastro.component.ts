@@ -8,7 +8,7 @@ import {
 } from '@angular/forms';
 import { UsuarioService } from 'src/app/shared/http-service/usuario-service/usuario.service';
 import { UsuarioDto } from 'src/app/shared/models/usuario-dto';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import * as moment from 'moment';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { LocalstorageService } from 'src/app/shared/local-storage/localstorage.service';
@@ -28,6 +28,7 @@ export class EditCadastroComponent implements OnInit {
     private usuarioService: UsuarioService,
     private activatedRoute: ActivatedRoute,
     private snack: MatSnackBar,
+    private router: Router,
     private localStorage: LocalstorageService
   ) {
     let emailregex: RegExp =
@@ -68,7 +69,7 @@ export class EditCadastroComponent implements OnInit {
   }
 
   goBack(): void {
-    this.location.back();
+    this.router.navigate(['/home-usuario/']);
   }
 
   submitFormUsuario() {

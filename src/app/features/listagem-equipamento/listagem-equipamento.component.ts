@@ -1,22 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { UsuarioAcademiaService } from 'src/app/shared/http-service/usuario-academia/usuario-academia.service';
+import { EquipamentoService } from 'src/app/shared/http-service/equipamento-service/equipamento.service';
 import { LocalstorageService } from 'src/app/shared/local-storage/localstorage.service';
-import { UsuarioAcademiaAdmResumidoDto } from 'src/app/shared/models/usuario-academia.dto';
+import { IEquipamentoDTO } from 'src/app/shared/models/equipamento.dto';
 
 @Component({
-  selector: 'app-listagem-usuario-academia',
-  templateUrl: './listagem-usuario-academia.component.html',
-  styleUrls: ['./listagem-usuario-academia.component.scss'],
+  selector: 'app-listagem-equipamento',
+  templateUrl: './listagem-equipamento.component.html',
+  styleUrls: ['./listagem-equipamento.component.scss'],
 })
-export class ListagemUsuarioAcademiaComponent implements OnInit {
-  listaInstrutores: UsuarioAcademiaAdmResumidoDto[] = [];
+export class ListagemEquipamentoComponent implements OnInit {
+  listaEquipamentos: IEquipamentoDTO[] = [];
   id: string = '';
   adm: boolean = false;
   nomeUsuario: string = '';
 
   constructor(
-    private usuarioAcademiaService: UsuarioAcademiaService,
+    private equipamentoSerivice: EquipamentoService,
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private localStorage: LocalstorageService
@@ -27,34 +27,32 @@ export class ListagemUsuarioAcademiaComponent implements OnInit {
     this.nomeUsuario = String(usuario.nome).split(' ')[0];
     this.adm = usuario.adm;
     this.id = usuario.id;
-    this.carregarListaInstrutores();
+    this.carregarListaEquipamentos();
   }
 
-  carregarListaInstrutores() {
-    this.usuarioAcademiaService
-      .obterTodosUsuariosAcademia()
-      .subscribe((res) => {
-        res.dados.forEach((usuario: any) => {
-          if (!usuario.adm) {
-            const usuarioAcademiaResumido: UsuarioAcademiaAdmResumidoDto = {
-              id: usuario.id,
-              nome: usuario.nome,
-              cpf: usuario.cpf,
-              email: usuario.email,
-              adm: usuario.adm,
-            };
-            this.listaInstrutores.push(usuarioAcademiaResumido);
-          }
+  carregarListaEquipamentos() {
+    this.equipamentoSerivice.obterTodosEquipamentos().subscribe(
+      (res) => {
+        res.dados.forEach((equipamento: any) => {
+          const equipamentoDto: IEquipamentoDTO = {
+            id: equipamento.id,
+            nome: equipamento.nome,
+            tipo: equipamento.tipo,
+          };
+          this.listaEquipamentos.push(equipamentoDto);
         });
-      });
+      },
+      (err) => {}
+    );
   }
 
   removeItemListagem(event: any) {
     if (event) {
-      this.listaInstrutores = [];
-      this.carregarListaInstrutores();
+      this.listaEquipamentos = [];
+      this.carregarListaEquipamentos();
     }
   }
+
   navegaParaEditAdm() {
     this.router.navigate(['/edit-cadastro-adm/' + this.id + '/' + true]);
   }

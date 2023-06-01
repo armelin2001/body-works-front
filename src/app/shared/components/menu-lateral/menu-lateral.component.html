@@ -1,5 +1,4 @@
-<div class="container">
-  <div class="sidebar">
+<div class="sidebar">
     <div class="logo-container">
       <img src="/assets/logo-com_nome-sem_fundo.png" alt="Logo" class="logo" />
     </div>
@@ -21,6 +20,20 @@
     <button mat-button class="logout-btn" (click)="logout()">Sair</button>
   </div>
   
-  </div>   
 </div>
-  
+<!--<p>
+    <mat-toolbar color="primary" class="toolbar">
+        <mat-toolbar-row>            
+            <button mat-button class="sidebar-item" routerLink="/treinos" *ngIf="!adm"class="texto">Treinos</button>
+            <button mat-button class="sidebar-item" (click)="navigateToEditCadastro()" *ngIf="!adm" >Editar Cadastro</button>
+            <button mat-button class="sidebar-item" (click)="navegaParaEditAdm()" *ngIf="adm" >Editar Cadastro</button>
+            <button mat-button class="sidebar-item" (click)="navegarParaCadastroInstrutor()" *ngIf="adm">Add Instrutor</button>
+            <button mat-button class="sidebar-item" (click)="navegarParaListagemInstrutores()" *ngIf="adm">Visualizar Instrutores</button>
+            <button mat-button class="sidebar-item" (click)="navegarParaCadastroEquipamento()" *ngIf="adm">Add Equipamento</button>
+            <button mat-button class="sidebar-item" (click)="navegarParaListagemEquipamentos()" *ngIf="adm">Listar Equipamentos</button>
+        </mat-toolbar-row>
+        <mat-toolbar-row>
+            <button mat-button class="logout-btn" (click)="logout()" >Sair</button>
+        </mat-toolbar-row>
+    </mat-toolbar>
+</p>-->

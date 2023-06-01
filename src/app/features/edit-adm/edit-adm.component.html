@@ -59,8 +59,9 @@
         <mat-error *ngIf="senha.errors && senha.touched">
           Insira uma senha válida
         </mat-error>
-  
-        <button type="submit">Salvar</button>
+        
+        <button mat-button (click)="goBack()">Voltar</button>
+        <button mat-button type="submit">Salvar</button>
       </form>
     </div>
   </div>

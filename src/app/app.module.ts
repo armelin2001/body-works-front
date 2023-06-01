@@ -22,6 +22,10 @@ import { ListagemUsuarioAcademiaComponent } from './features/listagem-usuario-ac
 import { CardUsuarioAcademiaComponent } from './features/listagem-usuario-academia/components/card-usuario-academia/card-usuario-academia.component';
 import { CadastroEquipamentoComponent } from './features/cadastro-equipamento/cadastro-equipamento.component';
 import { EquipamentoService } from './shared/http-service/equipamento-service/equipamento.service';
+import { MenuLateralComponent } from './shared/components/menu-lateral/menu-lateral.component';
+import { ListagemEquipamentoComponent } from './features/listagem-equipamento/listagem-equipamento.component';
+import { CardEquipamentoComponent } from './features/listagem-equipamento/componente/card-equipamento/card-equipamento.component';
+import { EditEquipamentoComponent } from './features/edit-equipamento/edit-equipamento.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +38,10 @@ import { EquipamentoService } from './shared/http-service/equipamento-service/eq
     ListagemUsuarioAcademiaComponent,
     CardUsuarioAcademiaComponent,
     CadastroEquipamentoComponent,
+    MenuLateralComponent,
+    ListagemEquipamentoComponent,
+    CardEquipamentoComponent,
+    EditEquipamentoComponent,
   ],
   imports: [
     BrowserModule,

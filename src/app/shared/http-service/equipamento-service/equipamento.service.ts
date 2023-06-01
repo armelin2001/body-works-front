@@ -23,4 +23,11 @@ export class EquipamentoService {
     return this.http.patch(`${this.urlbase}/${equipamentoAcademia.id}`, equipamentoAcademia);
   }
   
+  obterTodosEquipamentos(): Observable<any> {
+    return this.http.get(`${this.urlbase}`);
+  }
+
+  deletarEquipamento(id: string): Observable<any> {
+    return this.http.delete(`${this.urlbase}/${id}`);
+  }
 }
