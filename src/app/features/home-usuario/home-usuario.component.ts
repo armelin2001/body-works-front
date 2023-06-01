@@ -46,4 +46,8 @@ export class HomeUsuarioComponent implements OnInit {
   navegarParaListagemInstrutores(){
     this.router.navigate(['/visualiza-instrutores']);
   }
+
+  navegarParaCadastroEquipamento(){
+    this.router.navigate(['/equipamento-cadastro']);
+  }
 }

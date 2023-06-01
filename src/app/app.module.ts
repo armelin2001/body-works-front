@@ -20,6 +20,8 @@ import { EditAdmComponent } from './features/edit-adm/edit-adm.component';
 import { UsuarioAcademiaService } from './shared/http-service/usuario-academia/usuario-academia.service';
 import { ListagemUsuarioAcademiaComponent } from './features/listagem-usuario-academia/listagem-usuario-academia.component';
 import { CardUsuarioAcademiaComponent } from './features/listagem-usuario-academia/components/card-usuario-academia/card-usuario-academia.component';
+import { CadastroEquipamentoComponent } from './features/cadastro-equipamento/cadastro-equipamento.component';
+import { EquipamentoService } from './shared/http-service/equipamento-service/equipamento.service';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,7 @@ import { CardUsuarioAcademiaComponent } from './features/listagem-usuario-academ
     EditAdmComponent,
     ListagemUsuarioAcademiaComponent,
     CardUsuarioAcademiaComponent,
+    CadastroEquipamentoComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,6 +49,7 @@ import { CardUsuarioAcademiaComponent } from './features/listagem-usuario-academ
     LoginService,
     UsuarioService,
     UsuarioAcademiaService,
+    EquipamentoService,
     provideNgxMask(),
     LocalstorageService,
   ],
