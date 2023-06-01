@@ -41,11 +41,10 @@ export class LoginComponent implements OnInit {
   submitFormLogin() {
     if (this.formularioLogin.valid) {
       const login = this.getLogin();
-      console.log(this.formularioLogin.value);
       this.loginService.realizaLogin(login).subscribe(
         (res) => {
           this.localStorage.adicionar('usuario', res);
-          this.router.navigate(['/home-usuario/' + res.id]);
+          this.router.navigate(['/home-usuario/']);
         },
         (err) => {
           this.snack.open(err.error.message, 'OK', {

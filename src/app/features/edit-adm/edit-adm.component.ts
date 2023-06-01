@@ -6,7 +6,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UsuarioAcademiaService } from 'src/app/shared/http-service/usuario-academia/usuario-academia.service';
 import { LocalstorageService } from 'src/app/shared/local-storage/localstorage.service';
 import { UsuarioAcademiaAdmDto } from 'src/app/shared/models/usuario-academia.dto';
@@ -29,6 +29,7 @@ export class EditAdmComponent {
     private usuarioAcademiaService: UsuarioAcademiaService,
     private activatedRoute: ActivatedRoute,
     private snack: MatSnackBar,
+    private router: Router,
     private localStorage: LocalstorageService
   ) {
     let emailregex: RegExp =
@@ -45,7 +46,8 @@ export class EditAdmComponent {
 
   ngOnInit(): void {
     this.id = this.activatedRoute.snapshot.params['id'];
-    this.edita = this.activatedRoute.snapshot.params['edita'] === 'true' ? true : false;
+    this.edita =
+      this.activatedRoute.snapshot.params['edita'] === 'true' ? true : false;
     if (this.edita === true) {
       this.usuarioAcademiaService.obterUsuarioAcademia(this.id).subscribe(
         (res) => {
@@ -70,7 +72,6 @@ export class EditAdmComponent {
 
   getUsuarioAdm() {
     const formularioUsuario = this.formularioUsuario.value;
-
     const usuarioAdm: UsuarioAcademiaAdmDto = {
       id: this.id,
       nome: formularioUsuario.nome,
@@ -147,35 +148,44 @@ export class EditAdmComponent {
   submitFormUsuario() {
     const usuarioAdm = this.getUsuarioAdm();
     if (this.edita === true) {
+      const usuario = this.localStorage.obter('usuario') as any;
+      if (this.id !== usuario.id) {
+        usuarioAdm.adm = false;
+      }
       this.usuarioAcademiaService.atualizaUsuarioAcademia(usuarioAdm).subscribe(
         (res) => {
-          this.localStorage.remover('usuario');
-          this.localStorage.adicionar('usuario', res);
+          if(this.id === usuario.id){
+            this.localStorage.remover('usuario');
+            this.localStorage.adicionar('usuario', res);
+          }
           this.goBack();
         },
         (err) => {}
       );
     } else {
-      this.usuarioAcademiaService.cadastrarUsuarioAcademia(usuarioAdm).subscribe(
-        (res) => {
-          this.snack.open('Instrutor cadastrado com sucesso!', 'OK', {
-            duration: 3000,
-            horizontalPosition: 'center',
-            verticalPosition: 'top',
-          });
-          this.goBack();
-        },
-        (err) => {
-          this.snack.open(err.error.message, 'OK', {
-          duration: 3000,
-          horizontalPosition: 'center',
-          verticalPosition: 'top',
-        });}
-      );
+      this.usuarioAcademiaService
+        .cadastrarUsuarioAcademia(usuarioAdm)
+        .subscribe(
+          (res) => {
+            this.snack.open('Instrutor cadastrado com sucesso!', 'OK', {
+              duration: 3000,
+              horizontalPosition: 'center',
+              verticalPosition: 'top',
+            });
+            this.goBack();
+          },
+          (err) => {
+            this.snack.open(err.error.message, 'OK', {
+              duration: 3000,
+              horizontalPosition: 'center',
+              verticalPosition: 'top',
+            });
+          }
+        );
     }
   }
 
   goBack(): void {
-    this.location.back();
+    this.router.navigate(['/home-usuario/']);
   }
 }

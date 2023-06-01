@@ -1,28 +1,27 @@
-import { Router } from '@angular/router';
-import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { UsuarioService } from 'src/app/shared/http-service/usuario-service/usuario.service';
-import { LocalstorageService } from 'src/app/shared/local-storage/localstorage.service';
+import { Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { LocalstorageService } from '../../local-storage/localstorage.service';
 
 @Component({
-  selector: 'app-home-usuario',
-  templateUrl: './home-usuario.component.html',
-  styleUrls: ['./home-usuario.component.scss'],
+  selector: 'app-menu-lateral',
+  templateUrl: './menu-lateral.component.html',
+  styleUrls: ['./menu-lateral.component.scss']
 })
-export class HomeUsuarioComponent implements OnInit {
-  showAccountMenu = false;
+export class MenuLateralComponent {
+
   id: string = '';
   adm: boolean = false;
   nomeUsuario: string = '';
 
   constructor(
     private router: Router,
+    private activatedRoute: ActivatedRoute,
     private localStorage: LocalstorageService
   ) {}
 
   ngOnInit() {
     const usuario = this.localStorage.obter('usuario') as any;
-    this.nomeUsuario = String(usuario.nome).split(' ')[0];
+    this.nomeUsuario = String(usuario.nome).split(" ")[0];
     this.adm = usuario.adm;
     this.id = usuario.id;
   }
@@ -51,8 +50,8 @@ export class HomeUsuarioComponent implements OnInit {
   navegarParaCadastroEquipamento(){
     this.router.navigate(['/equipamento-cadastro']);
   }
-  
-  navegarParaListagemEquipamentos() {
+
+  navegarParaListagemEquipamentos(){
     this.router.navigate(['/visualiza-equipamentos']);
   }
 }

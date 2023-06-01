@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="card">
+      <img src="/assets/logo-com_nome-com_fundo.png" alt="Logo" class="logo" />
+      <button class="back-btn" (click)="goBack()">&#x2190;</button>
+      <h1>Editar Cadastro</h1>
+      <form [formGroup]="formularioEquipamento" (ngSubmit)="submitFormEquipamento()" #equipamento="ngForm">
+  
+        <mat-form-field>
+          <input formControlName="nome" type="text" matInput placeholder="Nome">
+        </mat-form-field>
+  
+        <mat-error *ngIf="nome.errors && nome.touched">
+          Insira um nome válido
+        </mat-error>
+  
+        <mat-form-field>
+            <mat-select formControlName="tipo" placeholder="Tipo Equipamento"> 
+            <mat-option value = "Cross" > Cross </mat-option>
+            <mat-option value = "Livre" > Livre </mat-option>
+            <mat-option value = "Barra" > Barra </mat-option> 
+            </mat-select> 
+        </mat-form-field>
+
+        <mat-error *ngIf="tipo.errors && tipo.touched">
+            Insira um tipo válido
+        </mat-error>
+        
+        <button mat-button (click)="goBack()">Voltar</button>
+        <button mat-button type="submit">Salvar</button>
+      </form>
+    </div>
+  </div>
+  
