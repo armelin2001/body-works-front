@@ -52,7 +52,6 @@ export class EditCadastroComponent implements OnInit {
           cpf: res.cpf,
           genero: res.genero,
           email: res.email,
-          senha: res.senha,
           dataNascimento: res.dataNascimento,
           peso: res.peso,
           altura: res.altura,
@@ -132,7 +131,6 @@ export class EditCadastroComponent implements OnInit {
   get altura(): FormControl {
     const altura = this.formularioUsuario.get('altura') as FormControl;
     const alturaTratada = Number(altura.value.replace(',', '.'));
-    console.log(altura.value);
     if (alturaTratada < 0.9 || alturaTratada > 2.3) {
       altura.setErrors({ alturaInvalida: true });
     } else {
