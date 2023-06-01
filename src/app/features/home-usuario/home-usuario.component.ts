@@ -13,6 +13,7 @@ export class HomeUsuarioComponent implements OnInit {
   showAccountMenu = false;
   id: string = '';
   adm: boolean = false;
+  mostraEditInstrutor: boolean = false;
   nomeUsuario: string = '';
 
   constructor(
@@ -24,6 +25,9 @@ export class HomeUsuarioComponent implements OnInit {
     const usuario = this.localStorage.obter('usuario') as any;
     this.nomeUsuario = String(usuario.nome).split(' ')[0];
     this.adm = usuario.adm;
+    if(!usuario.perfil){
+      this.mostraEditInstrutor = true;
+    }
     this.id = usuario.id;
   }
 

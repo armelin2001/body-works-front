@@ -10,8 +10,8 @@
     </div>
   </div>
     <button mat-button class="sidebar-item" routerLink="/treinos" *ngIf="!adm"class="texto">Treinos</button>
-    <button mat-button class="sidebar-item" (click)="navigateToEditCadastro()" *ngIf="!adm" >Editar Cadastro</button>
-    <button mat-button class="sidebar-item" (click)="navegaParaEditAdm()" *ngIf="adm" >Editar Cadastro</button>
+    <button mat-button class="sidebar-item" (click)="navigateToEditCadastro()" *ngIf="!adm && !mostraEditInstrutor" >Editar Cadastro</button>
+    <button mat-button class="sidebar-item" (click)="navegaParaEditAdm()" *ngIf="mostraEditInstrutor" >Editar Cadastro</button>
     <button mat-button class="sidebar-item" (click)="navegarParaCadastroInstrutor()" *ngIf="adm">Add Instrutor</button>
     <button mat-button class="sidebar-item" (click)="navegarParaListagemInstrutores()" *ngIf="adm">Visualizar Instrutores</button>
     <button mat-button class="sidebar-item" (click)="navegarParaCadastroEquipamento()" *ngIf="adm">Add Equipamento</button>

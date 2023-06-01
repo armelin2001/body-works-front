@@ -54,9 +54,17 @@ export class EditCadastroComponent implements OnInit {
           genero: res.genero,
           email: res.email,
           dataNascimento: res.dataNascimento,
-          peso: res.peso,
-          altura: res.altura,
         });
+        if(res.peso){
+          this.formularioUsuario.patchValue({
+            peso: res.peso,
+          });
+        }
+        if(res.altura){
+          this.formularioUsuario.patchValue({
+            altura: res.altura,
+          });
+        }
       },
       (err) => {
         this.snack.open(err.error.message, 'OK', {
