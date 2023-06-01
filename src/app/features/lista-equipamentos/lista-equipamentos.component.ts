@@ -12,9 +12,10 @@ export class EquipamentoListComponent implements OnInit {
 
   constructor(private equipamentoService: EquipamentoService) { }
 
-  ngOnInit(): void {
-    this.equipamentoService.getEquipamentos().subscribe(equipamentos => {
-      this.equipamentos = equipamentos;
-    });
+  ngOnInit() {
+    this.equipamentoService.getEquipamentos().subscribe(
+      equipamentos => this.equipamentos = equipamentos
+    );
   }
+
 }

@@ -18,6 +18,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
 import { EquipamentoListComponent } from './features/lista-equipamentos/lista-equipamentos.component';
+import { EquipamentoService } from './shared/http-service/equipamento-service/equipamento.service';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,11 @@ import { EquipamentoListComponent } from './features/lista-equipamentos/lista-eq
     MatButtonModule,
     MatTableModule,
   ],
-  providers: [LoginService, UsuarioService],
+  providers: [
+    LoginService, 
+    UsuarioService, 
+    EquipamentoService,
+  ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent],
 })

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { environment } from 'src/enviroments/environment';
 import { EquipamentoDto } from '../../models/equipamento-dto'
 
@@ -11,6 +11,8 @@ export class EquipamentoService {
   constructor(private http: HttpClient) {}
 
   getEquipamentos(): Observable<EquipamentoDto[]> {
-    return this.http.get<EquipamentoDto[]>(`${this.urlbase}`);
+    return this.http.get<{dados: EquipamentoDto[], quantidade: number}>('http://localhost:52556/lista-equipamentos')
+      .pipe(map(response => response.dados));
   }
+  
 }
