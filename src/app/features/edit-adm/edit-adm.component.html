@@ -61,7 +61,7 @@
         </mat-error>
         
         <button mat-button (click)="goBack()">Voltar</button>
-        <button mat-button type="submit">Salvar</button>
+        <button mat-raised-button  type="submit" [disabled]="usuario.form.invalid">Salvar</button>
       </form>
     </div>
   </div>
