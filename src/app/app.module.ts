@@ -18,6 +18,8 @@ import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
 import { LocalstorageService } from './shared/local-storage/localstorage.service';
 import { EditAdmComponent } from './features/edit-adm/edit-adm.component';
 import { UsuarioAcademiaService } from './shared/http-service/usuario-academia/usuario-academia.service';
+import { ListagemUsuarioAcademiaComponent } from './features/listagem-usuario-academia/listagem-usuario-academia.component';
+import { CardUsuarioAcademiaComponent } from './features/listagem-usuario-academia/components/card-usuario-academia/card-usuario-academia.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,8 @@ import { UsuarioAcademiaService } from './shared/http-service/usuario-academia/u
     EditCadastroComponent,
     HomeUsuarioComponent,
     EditAdmComponent,
+    ListagemUsuarioAcademiaComponent,
+    CardUsuarioAcademiaComponent,
   ],
   imports: [
     BrowserModule,

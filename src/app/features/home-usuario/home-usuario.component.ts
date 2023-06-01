@@ -42,4 +42,8 @@ export class HomeUsuarioComponent implements OnInit {
   navegarParaCadastroInstrutor(){
     this.router.navigate(['/edit-cadastro-adm/' + this.id + "/" + false]);
   }
+
+  navegarParaListagemInstrutores(){
+    this.router.navigate(['/visualiza-instrutores']);
+  }
 }

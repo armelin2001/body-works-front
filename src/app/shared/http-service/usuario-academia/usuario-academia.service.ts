@@ -21,4 +21,12 @@ export class UsuarioAcademiaService {
     atualizaUsuarioAcademia(usuarioAcademia: UsuarioAcademiaAdmDto): Observable<any> {
         return this.http.patch(`${this.urlBase}/${usuarioAcademia.id}`, usuarioAcademia);
     }
+
+    deletaUsuarioAcademia(id: string): Observable<any> {
+        return this.http.delete(`${this.urlBase}/${id}`);
+    }
+
+    obterTodosUsuariosAcademia(): Observable<any> {
+        return this.http.get(`${this.urlBase}`);
+    }
 }
