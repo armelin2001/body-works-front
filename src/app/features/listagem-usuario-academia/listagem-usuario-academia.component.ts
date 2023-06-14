@@ -14,6 +14,7 @@ export class ListagemUsuarioAcademiaComponent implements OnInit {
   id: string = '';
   adm: boolean = false;
   nomeUsuario: string = '';
+  nivelADM: string = '';
 
   constructor(
     private usuarioAcademiaService: UsuarioAcademiaService,
@@ -42,6 +43,7 @@ export class ListagemUsuarioAcademiaComponent implements OnInit {
               cpf: usuario.cpf,
               email: usuario.email,
               adm: usuario.adm,
+              nivelADM: usuario.nivelADM,
             };
             this.listaInstrutores.push(usuarioAcademiaResumido);
           }

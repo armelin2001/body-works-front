@@ -39,6 +39,7 @@ export class CadastroComponent {
       dataNascimento: ['', [Validators.required]],
       adm: [false],
       codigo: [''],
+      nivelADM: [''],
     });
   }
 
@@ -103,6 +104,7 @@ export class CadastroComponent {
       codigo: formularioUsuarioAcademiAdm.codigo,
       genero: formularioUsuarioAcademiAdm.genero,
       dataNascimento: formularioUsuarioAcademiAdm.dataNascimento,
+      nivelADM: formularioUsuarioAcademiAdm.nivelADM,
     };
     return usuarioAcademiAdm;
   }

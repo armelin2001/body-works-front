@@ -75,6 +75,19 @@
                     <input formControlName="codigo" type="password" matInput placeholder="Codigo Cadastro" >
                 </mat-form-field>
             </p>
+            <p *ngIf="adm.value">
+                <mat-form-field>
+                    <mat-select formControlName="nivelADM" placeholder="Nível de Administrador"> 
+                    <mat-option value = "1" > Moderador </mat-option>
+                    <mat-option value = "2" > Gerente </mat-option>
+                    <mat-option value = "3" > Dono </mat-option>
+                    </mat-select> 
+                </mat-form-field>
+
+                <mat-error *ngIf="genero.errors && genero.touched">
+                    Insira um gênero válido
+                </mat-error>
+            </p>
             <div>
             <p></p>
                 <button class="button" type="submit" [disabled]="usuario.form.invalid" mat-raised-button>Cadastre-se</button>

@@ -8,6 +8,7 @@ export interface UsuarioAcademiaAdmDto {
     adm: boolean;
     dataNascimento: Date;
     genero: string;
+    nivelADM: string;
 }
 
 export interface UsuarioAcademiaAdmResumidoDto {
@@ -16,4 +17,5 @@ export interface UsuarioAcademiaAdmResumidoDto {
     cpf: string;
     email: string;
     adm: boolean;
+    nivelADM: string;
 }

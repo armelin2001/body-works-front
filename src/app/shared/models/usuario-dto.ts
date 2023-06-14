@@ -9,4 +9,5 @@ export interface UsuarioDto {
     dataNascimento: Date;
     peso?: string;
     altura?: string;
+    nivelADM?: string;
 }

@@ -41,6 +41,7 @@ export class EditAdmComponent {
       email: ['', [Validators.required, Validators.pattern(emailregex)]],
       senha: ['', [Validators.required]],
       dataNascimento: ['', [Validators.required]],
+      nivelADM: ['', [Validators.required]],
     });
   }
 
@@ -57,6 +58,7 @@ export class EditAdmComponent {
             genero: res.genero,
             email: res.email,
             dataNascimento: res.dataNascimento,
+            nivelADM: res.nivelADM,
           });
         },
         (err) => {
@@ -81,6 +83,7 @@ export class EditAdmComponent {
       adm: this.edita,
       dataNascimento: formularioUsuario.dataNascimento,
       genero: formularioUsuario.genero,
+      nivelADM: formularioUsuario.nivelADM,
     };
     return usuarioAdm;
   }
@@ -127,6 +130,14 @@ export class EditAdmComponent {
       genero.setErrors({ generoInvalido: true });
     }
     return this.formularioUsuario.get('genero') as FormControl;
+  }
+
+  get nivelADM(): FormControl {
+    const nivelADM = this.formularioUsuario.get('nivelADM') as FormControl;
+    if (nivelADM.value.length < 1) {
+      nivelADM.setErrors({ nivelADMInvalido: true });
+    }
+    return this.formularioUsuario.get('nivelADM') as FormControl;
   }
 
   get validaDataNascimento(): FormControl {

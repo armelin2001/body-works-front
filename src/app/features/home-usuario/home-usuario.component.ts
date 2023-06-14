@@ -15,6 +15,7 @@ export class HomeUsuarioComponent implements OnInit {
   adm: boolean = false;
   mostraEditInstrutor: boolean = false;
   nomeUsuario: string = '';
+  cargoUsuario: string = '';
 
   constructor(
     private router: Router,
@@ -25,6 +26,20 @@ export class HomeUsuarioComponent implements OnInit {
     const usuario = this.localStorage.obter('usuario') as any;
     this.nomeUsuario = String(usuario.nome).split(' ')[0];
     this.adm = usuario.adm;
+    switch (usuario.nivelADM) {
+      case '1':
+        this.cargoUsuario = 'Moderador';
+        break;
+      case '2':
+        this.cargoUsuario = 'Gerente';
+        break;
+      case '3':
+        this.cargoUsuario = 'Dono';
+        break;
+      default:
+        this.cargoUsuario = 'Aluno';
+        break;
+    }
     if(!usuario.perfil){
       this.mostraEditInstrutor = true;
     }

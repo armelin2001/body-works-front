@@ -7,4 +7,5 @@ export interface UsuarioRetornoDTO {
     senha: string;
     dataNascimento: string;
     altura: string;
+    nivelADM: string;
 }
