@@ -17,6 +17,7 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+    background-color: #e04679;
   }
   
   .back-btn {
@@ -55,7 +56,7 @@
   
   button[type="submit"] {
     margin-top: 20px;
-    background-color: #eb1d63;
+    background-color: #464042;
     color: #ffffff;
     border-radius: 5px;
     padding: 10px;
@@ -63,7 +64,7 @@
   }
   
   button[type="submit"]:hover {
-    background-color: #d31152;
+    background-color: #942f50;
   }
   
   input[type="text"],
