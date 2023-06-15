@@ -1,0 +1,34 @@
+{ 
+"CTRL+SHIFT+F": "procura em todos os arquivos",
+"CTRL+SHIFT+P": "abre o terminal",
+"CTRL+CLICK": "vai para a instância",
+"Código de cadastro administrador": 300,
+
+"Alteração no Front": [
+    "src/app/features/cadastro/cadastro.component.html",
+    "src/app/features/cadastro/cadastro.component.ts",
+    "src/app/models/usuario-dto.ts",
+    "src/app/shared/models/usuario-dto.ts (tem apenas para usuario)",
+
+    
+    "Verificar se necessita alteração em edit-... exemplo, edit-usuario ou edit-equipamento."
+],
+"Alteração no Back": [
+    "src/app/modules/usuario-academia/dto/usuario-academia.dto.ts",
+    "src/app/modules/usuario-academia/entity/usuario-academia.interface.ts",
+    "src/app/modules/usuario-academia/entity/usuario-academia.schema.ts",
+    "REINICIAR TERMINAR DO BACK PARA FUNCIONAR!!!!"
+],
+
+"Para printar no front": [
+    "Adicionar a TAG da variavel no arquivo HTML ex: {{cargoUsuario}}",
+
+    "Na 'export class' do arquivo component.ts: ",
+    "- adicionar a variável abaixo das demais.",
+
+    "Ainda no arquivo component.ts: ",
+    "- Em 'ngOnInit()' manipular a variável atribuindo a ela o valor do banco.",
+    "- this.variavel = usuario.nivelADM",
+    "Se quiser falterar o valor, fazer um switch case."
+]
+}
