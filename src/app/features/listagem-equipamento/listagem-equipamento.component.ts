@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EquipamentoService } from 'src/app/shared/http-service/equipamento-service/equipamento.service';
 import { LocalstorageService } from 'src/app/shared/local-storage/localstorage.service';
@@ -14,6 +14,7 @@ export class ListagemEquipamentoComponent implements OnInit {
   id: string = '';
   adm: boolean = false;
   nomeUsuario: string = '';
+  @ViewChild('sidebarRef', { static: false }) sidebarRef!: ElementRef;
 
   constructor(
     private equipamentoSerivice: EquipamentoService,
@@ -80,5 +81,14 @@ export class ListagemEquipamentoComponent implements OnInit {
   logout() {
     this.localStorage.remover('usuario');
     this.router.navigate(['/login']);
+  }
+
+  toggleSidebar() {
+    const sidebarWidth = this.sidebarRef.nativeElement.style.width;
+    if (sidebarWidth === "0px" || !sidebarWidth) {
+        this.sidebarRef.nativeElement.style.width = "250px";
+    } else {
+        this.sidebarRef.nativeElement.style.width = "0px";
+    }
   }
 }

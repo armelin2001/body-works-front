@@ -1,6 +1,11 @@
 
 <div class="container">
-    <div class="sidebar">
+    <!-- Início do ícone do menu -->
+    <button class="hamburger-btn" (click)="toggleSidebar()">
+      &#9776;
+    </button>
+    <!-- Fim do ícone do menu -->
+    <div class="sidebar" #sidebarRef>
         <div class="logo-container">
           <img src="/assets/logo-com_nome-sem_fundo.png" alt="Logo" class="logo" />
         </div>
