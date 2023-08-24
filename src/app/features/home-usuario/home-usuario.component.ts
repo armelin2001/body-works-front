@@ -59,4 +59,8 @@ export class HomeUsuarioComponent implements OnInit {
   navegarParaListagemEquipamentos() {
     this.router.navigate(['/visualiza-equipamentos']);
   }
+
+  navegarParaListagemUsuario() {
+    this.router.navigate(['/visualiza-usuario']);
+  }
 }

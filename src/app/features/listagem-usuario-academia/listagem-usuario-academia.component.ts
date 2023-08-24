@@ -13,6 +13,7 @@ export class ListagemUsuarioAcademiaComponent implements OnInit {
   listaInstrutores: UsuarioAcademiaAdmResumidoDto[] = [];
   id: string = '';
   adm: boolean = false;
+  mostraEditInstrutor: boolean = false;
   nomeUsuario: string = '';
 
   constructor(
@@ -26,6 +27,9 @@ export class ListagemUsuarioAcademiaComponent implements OnInit {
     const usuario = this.localStorage.obter('usuario') as any;
     this.nomeUsuario = String(usuario.nome).split(' ')[0];
     this.adm = usuario.adm;
+    if(!usuario.perfil){
+      this.mostraEditInstrutor = true;
+    }
     this.id = usuario.id;
     this.carregarListaInstrutores();
   }
@@ -77,6 +81,10 @@ export class ListagemUsuarioAcademiaComponent implements OnInit {
 
   navigateToEditCadastro(): void {
     this.router.navigate(['/edit-cadastro/' + this.id]);
+  }
+
+  navegarParaListagemUsuario() {
+    this.router.navigate(['/visualiza-usuario']);
   }
 
   logout() {

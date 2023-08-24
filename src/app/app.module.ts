@@ -12,6 +12,7 @@ import { CadastroComponent } from './features/cadastro/cadastro.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UsuarioService } from './shared/http-service/usuario-service/usuario.service';
 import { EditCadastroComponent } from './features/edit-cadastro/edit-cadastro.component';
+import { MatCardModule } from '@angular/material/card';
 import { HomeUsuarioComponent } from './features/home-usuario/home-usuario.component';
 import { FormsModule } from '@angular/forms';
 import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
@@ -26,6 +27,8 @@ import { MenuLateralComponent } from './shared/components/menu-lateral/menu-late
 import { ListagemEquipamentoComponent } from './features/listagem-equipamento/listagem-equipamento.component';
 import { CardEquipamentoComponent } from './features/listagem-equipamento/componente/card-equipamento/card-equipamento.component';
 import { EditEquipamentoComponent } from './features/edit-equipamento/edit-equipamento.component';
+import { ListagemUsuarioComponent } from './features/listagem-usuario/listagem-usuario.component';
+import { CardUsuarioComponent } from './features/listagem-usuario/components/card-usuario.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +45,8 @@ import { EditEquipamentoComponent } from './features/edit-equipamento/edit-equip
     ListagemEquipamentoComponent,
     CardEquipamentoComponent,
     EditEquipamentoComponent,
+    ListagemUsuarioComponent,
+    CardUsuarioComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,6 +57,7 @@ import { EditEquipamentoComponent } from './features/edit-equipamento/edit-equip
     FormsModule,
     HttpClientModule,
     NgxMaskDirective,
+    MatCardModule,
   ],
   providers: [
     LoginService,

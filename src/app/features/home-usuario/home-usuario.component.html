@@ -9,18 +9,20 @@
         {{nomeUsuario}}
     </div>
   </div>
-    <button mat-button class="sidebar-item" routerLink="/treinos" *ngIf="!adm"class="texto">Treinos</button>
-    <button mat-button class="sidebar-item" (click)="navigateToEditCadastro()" *ngIf="!adm && !mostraEditInstrutor" >Editar Cadastro</button>
-    <button mat-button class="sidebar-item" (click)="navegaParaEditAdm()" *ngIf="mostraEditInstrutor" >Editar Cadastro</button>
-    <button mat-button class="sidebar-item" (click)="navegarParaCadastroInstrutor()" *ngIf="adm">Add Instrutor</button>
-    <button mat-button class="sidebar-item" (click)="navegarParaListagemInstrutores()" *ngIf="adm">Visualizar Instrutores</button>
-    <button mat-button class="sidebar-item" (click)="navegarParaCadastroEquipamento()" *ngIf="adm">Add Equipamento</button>
-    <button mat-button class="sidebar-item" (click)="navegarParaListagemEquipamentos()" *ngIf="adm">Listar Equipamentos</button>
+  <button mat-button class="sidebar-item" routerLink="/treinos" *ngIf="!adm"class="texto">Treinos</button>
+  <button mat-button class="sidebar-item" (click)="navigateToEditCadastro()" *ngIf="!adm && !mostraEditInstrutor" >Editar Cadastro</button>
+  <button mat-button class="sidebar-item" (click)="navegaParaEditAdm()" *ngIf="mostraEditInstrutor" >Editar Cadastro</button>
+  <button mat-button class="sidebar-item" (click)="navegarParaCadastroInstrutor()" *ngIf="adm">Novo instrutor</button>
+  <button mat-button class="sidebar-item" (click)="navegarParaCadastroEquipamento()" *ngIf="adm">Novo Equipamento</button>
+  <button mat-button class="sidebar-item" (click)="navegarParaListagemEquipamentos()" *ngIf="adm">Listar Equipamentos</button>
+  <button mat-button class="sidebar-item" (click)="navegarParaListagemUsuario()" *ngIf="adm">Listar Usuários</button>
+  <button mat-button class="sidebar-item" (click)="navegarParaListagemInstrutores()" *ngIf="adm">Listar Instrutores</button>
     
   <div class="logout-container">
     <button mat-button class="logout-btn" (click)="logout()">Sair</button>
   </div>
   
   </div>   
+  <router-outlet></router-outlet>
 </div>
   

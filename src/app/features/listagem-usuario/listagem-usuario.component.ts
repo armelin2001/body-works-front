@@ -1,27 +1,25 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { EquipamentoService } from 'src/app/shared/http-service/equipamento-service/equipamento.service';
+import { UsuarioService } from 'src/app/shared/http-service/usuario-service/usuario.service';
 import { LocalstorageService } from 'src/app/shared/local-storage/localstorage.service';
-import { IEquipamentoDTO } from 'src/app/shared/models/equipamento.dto';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-listagem-equipamento',
-  templateUrl: './listagem-equipamento.component.html',
-  styleUrls: ['./listagem-equipamento.component.scss'],
+  selector: 'app-listagem-usuario',
+  templateUrl: './listagem-usuario.component.html',
+  styleUrls: ['./listagem-usuario.component.scss'],
 })
-export class ListagemEquipamentoComponent implements OnInit {
-  listaEquipamentos: IEquipamentoDTO[] = [];
-  id: string = '';
-  adm: boolean = false;
+export class ListagemUsuarioComponent implements OnInit {
+  listaUsuarios: any[] = [];
   nomeUsuario: string = '';
+  adm: boolean = false;
+  id: string = '';
   mostraEditInstrutor: boolean = false;
 
   constructor(
-    private equipamentoSerivice: EquipamentoService,
+    private usuarioService: UsuarioService,
+    private localStorage: LocalstorageService,
     private router: Router,
-    private activatedRoute: ActivatedRoute,
-    private localStorage: LocalstorageService
-  ) {}
+    ) {}
 
   ngOnInit(): void {
     const usuario = this.localStorage.obter('usuario') as any;
@@ -31,30 +29,29 @@ export class ListagemEquipamentoComponent implements OnInit {
       this.mostraEditInstrutor = true;
     }
     this.id = usuario.id;
-    this.carregarListaEquipamentos();
+    this.carregarListaUsuarios();
   }
 
-  carregarListaEquipamentos() {
-    this.equipamentoSerivice.obterTodosEquipamentos().subscribe(
+  carregarListaUsuarios() {
+    this.usuarioService.obterTodosUsuarios().subscribe(
       (res) => {
-        res.dados.forEach((equipamento: any) => {
-          const equipamentoDto: IEquipamentoDTO = {
-            id: equipamento.id,
-            nome: equipamento.nome,
-            tipo: equipamento.tipo,
-          };
-          this.listaEquipamentos.push(equipamentoDto);
-        });
+        this.listaUsuarios = res.dados;
       },
-      (err) => {}
+      (err) => {
+        console.error('Erro ao carregar lista de usuários:', err);
+      }
     );
   }
 
-  removeItemListagem(event: any) {
-    if (event) {
-      this.listaEquipamentos = [];
-      this.carregarListaEquipamentos();
-    }
+  atualizarStatusPagamento(usuarioId: string, novoStatus: string) {
+    this.usuarioService.atualizarStatusPagamento(usuarioId, novoStatus).subscribe(
+      (res) => {
+        console.log('Status de pagamento atualizado com sucesso!', res);
+      },
+      (err) => {
+        console.error('Erro ao atualizar status de pagamento:', err);
+      }
+    );
   }
 
   navegaParaEditAdm() {
