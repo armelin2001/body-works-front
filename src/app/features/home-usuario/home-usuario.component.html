@@ -5,12 +5,14 @@
     </div>
     <div class="user-info">
     <div class="user-name">
-        <p>Bem vindo!</p>
-        {{nomeUsuario}}
+        <p>Bem vindo!<br>{{nomeUsuario}}</p>
+        <br>
+        <p *ngIf="!adm" >Status da conta: <br>{{statusPagamento}}</p>
+        <p *ngIf="adm" >LOGADO COMO ADMINISTRADOR</p>
     </div>
   </div>
-  <button mat-button class="sidebar-item" routerLink="/treinos" *ngIf="!adm"class="texto">Treinos</button>
   <button mat-button class="sidebar-item" (click)="navigateToEditCadastro()" *ngIf="!adm && !mostraEditInstrutor" >Editar Cadastro</button>
+  <button mat-button class="sidebar-item" (click)="navegarParaTreinos()" *ngIf="!adm && !mostraEditInstrutor" >Ir para treinos</button>
   <button mat-button class="sidebar-item" (click)="navegaParaEditAdm()" *ngIf="mostraEditInstrutor" >Editar Cadastro</button>
   <button mat-button class="sidebar-item" (click)="navegarParaCadastroInstrutor()" *ngIf="adm">Novo instrutor</button>
   <button mat-button class="sidebar-item" (click)="navegarParaCadastroEquipamento()" *ngIf="adm">Novo Equipamento</button>

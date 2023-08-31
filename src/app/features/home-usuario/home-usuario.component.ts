@@ -15,6 +15,7 @@ export class HomeUsuarioComponent implements OnInit {
   adm: boolean = false;
   mostraEditInstrutor: boolean = false;
   nomeUsuario: string = '';
+  statusPagamento: string = '';
 
   constructor(
     private router: Router,
@@ -29,7 +30,20 @@ export class HomeUsuarioComponent implements OnInit {
       this.mostraEditInstrutor = true;
     }
     this.id = usuario.id;
+
+    switch (usuario.statusPagamento) {
+      case 'ativo':
+        this.statusPagamento = 'Conta ativa';
+        break;
+      case 'atraso':
+        this.statusPagamento = 'Mensalidade atrasada';
+        break;
+      case 'cancelado':
+        this.statusPagamento = 'Conta suspensa';
+        break;
+    }
   }
+
 
   navigateToEditCadastro(): void {
     this.router.navigate(['/edit-cadastro/' + this.id]);
@@ -62,5 +76,9 @@ export class HomeUsuarioComponent implements OnInit {
 
   navegarParaListagemUsuario() {
     this.router.navigate(['/visualiza-usuario']);
+  }
+
+  navegarParaTreinos() {
+    this.router.navigate(['/treinos']);
   }
 }

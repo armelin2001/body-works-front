@@ -15,6 +15,7 @@ export class ListagemEquipamentoComponent implements OnInit {
   adm: boolean = false;
   nomeUsuario: string = '';
   mostraEditInstrutor: boolean = false;
+  statusPagamento: string = '';
 
   constructor(
     private equipamentoSerivice: EquipamentoService,

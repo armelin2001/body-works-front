@@ -15,6 +15,7 @@ export class ListagemUsuarioAcademiaComponent implements OnInit {
   adm: boolean = false;
   mostraEditInstrutor: boolean = false;
   nomeUsuario: string = '';
+  statusPagamento: string = '';
 
   constructor(
     private usuarioAcademiaService: UsuarioAcademiaService,
