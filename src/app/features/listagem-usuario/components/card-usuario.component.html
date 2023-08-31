@@ -5,7 +5,7 @@
         <div class="info-item">E-mail:<br><br>{{ usuario.email }}</div>
         <select [(ngModel)]="usuario.statusPagamento" (change)="atualizarStatusPagamento()">
             <option value="ativo">Ativo</option>
-            <option value="atraso">Em atraso</option>
+            <option value="atrasado">Em atraso</option>
             <option value="cancelado">Cancelado</option>
         </select>
     </mat-card-content>

@@ -35,7 +35,7 @@ export class HomeUsuarioComponent implements OnInit {
       case 'ativo':
         this.statusPagamento = 'Conta ativa';
         break;
-      case 'atraso':
+      case 'atrasado':
         this.statusPagamento = 'Mensalidade atrasada';
         break;
       case 'cancelado':
