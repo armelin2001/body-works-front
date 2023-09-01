@@ -1,5 +1,5 @@
 import { Router } from '@angular/router';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { UsuarioService } from 'src/app/shared/http-service/usuario-service/usuario.service';
 import { LocalstorageService } from 'src/app/shared/local-storage/localstorage.service';
@@ -16,6 +16,7 @@ export class HomeUsuarioComponent implements OnInit {
   mostraEditInstrutor: boolean = false;
   nomeUsuario: string = '';
   statusPagamento: string = '';
+  @ViewChild('sidebarRef', { static: false }) sidebarRef!: ElementRef;
 
   constructor(
     private router: Router,
@@ -80,5 +81,14 @@ export class HomeUsuarioComponent implements OnInit {
 
   navegarParaTreinos() {
     this.router.navigate(['/treinos']);
+  }
+
+  toggleSidebar() {
+    const sidebarWidth = this.sidebarRef.nativeElement.style.width;
+    if (sidebarWidth === "0px" || !sidebarWidth) {
+        this.sidebarRef.nativeElement.style.width = "250px";
+    } else {
+        this.sidebarRef.nativeElement.style.width = "0px";
+    }
   }
 }

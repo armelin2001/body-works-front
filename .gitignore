@@ -40,6 +40,5 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
-
-# README DO VINI
 README_VINI.md
+/src/ajuda_implementação.json
