@@ -26,6 +26,8 @@ import { MenuLateralComponent } from './shared/components/menu-lateral/menu-late
 import { ListagemEquipamentoComponent } from './features/listagem-equipamento/listagem-equipamento.component';
 import { CardEquipamentoComponent } from './features/listagem-equipamento/componente/card-equipamento/card-equipamento.component';
 import { EditEquipamentoComponent } from './features/edit-equipamento/edit-equipamento.component';
+import { CadastroExercicioComponent } from './features/cadastro-exercicio/cadastro-exercicio.component';
+import { ExercicioService } from './shared/http-service/exercicio-service/exercicio.service';
 
 @NgModule({
   declarations: [
@@ -42,6 +44,8 @@ import { EditEquipamentoComponent } from './features/edit-equipamento/edit-equip
     ListagemEquipamentoComponent,
     CardEquipamentoComponent,
     EditEquipamentoComponent,
+    CadastroExercicioComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -58,6 +62,7 @@ import { EditEquipamentoComponent } from './features/edit-equipamento/edit-equip
     UsuarioService,
     UsuarioAcademiaService,
     EquipamentoService,
+    ExercicioService,
     provideNgxMask(),
     LocalstorageService,
   ],

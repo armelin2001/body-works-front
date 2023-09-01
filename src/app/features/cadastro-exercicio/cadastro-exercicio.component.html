@@ -1,0 +1,69 @@
+<div class="container">
+    <div class="card">
+        <img src="/assets/logo-com_nome-com_fundo.png" alt="Logo" class="logo" />
+        <button class="back-btn" (click)="goBack()">&#x2190;</button>
+        <h1>Editar Cadastro</h1>
+        <form [formGroup]="formularioExercicio" (ngSubmit)="submitFormExercicio()" #exercicio="ngForm">
+  
+            <mat-form-field>
+                <input formControlName="nome" type="text" matInput placeholder="Nome do Exercício">
+            </mat-form-field>
+  
+            <mat-form-field>
+                <textarea formControlName="descricao" matInput placeholder="Descrição"></textarea>
+            </mat-form-field>
+  
+            <mat-form-field>
+                <mat-select formControlName="tipoExercicio" placeholder="Tipo de Exercício">
+                    <mat-option value="Cardiovascular">Cardiovascular</mat-option>
+                    <mat-option value="Força">Força</mat-option>
+                    <mat-option value="Flexibilidade">Flexibilidade</mat-option>
+                </mat-select>
+            </mat-form-field>
+  
+            <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Equipamento Necessário</mat-label>
+                <mat-select formControlName="equipamentoNecessario">
+                    <mat-option *ngFor="let equipamento of equipamentos" [value]="equipamento.id">
+                    {{ equipamento.nome }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+              
+
+            <mat-form-field>
+                <mat-select formControlName="nivelDificuldade" placeholder="Nível de Dificuldade">
+                    <mat-option value="Iniciante">Iniciante</mat-option>
+                    <mat-option value="Intermediário">Intermediário</mat-option>
+                    <mat-option value="Avançado">Avançado</mat-option>
+                </mat-select>
+            </mat-form-field>
+  
+            <mat-form-field>
+                <input formControlName="tempo" type="text" matInput placeholder="Tempo Recomendado (ex: 15 minutos)">
+            </mat-form-field>
+            <mat-form-field>
+                <input formControlName="frequencia" type="text" matInput placeholder="Frequência Recomendada (ex: 3 vezes por semana)">
+            </mat-form-field>
+  
+            <mat-form-field>
+                <input formControlName="video" type="url" matInput placeholder="Link do Vídeo Demonstrativo">
+            </mat-form-field>
+  
+            <mat-form-field>
+                <textarea formControlName="instrucoes" matInput placeholder="Instruções Passo a Passo"></textarea>
+            </mat-form-field>
+  
+            <mat-form-field>
+                <input formControlName="musculos" type="text" matInput placeholder="Músculos Trabalhados (ex: Bíceps, Tríceps)">
+            </mat-form-field>
+
+            <mat-form-field>
+                <textarea formControlName="observacoes" matInput placeholder="Observações"></textarea>
+            </mat-form-field>
+  
+            <button mat-button (click)="goBack()">Voltar</button>
+            <button mat-button type="submit">Salvar</button>
+        </form>
+    </div>
+</div>

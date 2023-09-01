@@ -9,6 +9,7 @@ import { ListagemUsuarioAcademiaComponent } from './features/listagem-usuario-ac
 import { CadastroEquipamentoComponent } from './features/cadastro-equipamento/cadastro-equipamento.component';
 import { ListagemEquipamentoComponent } from './features/listagem-equipamento/listagem-equipamento.component';
 import { EditEquipamentoComponent } from './features/edit-equipamento/edit-equipamento.component';
+import { CadastroExercicioComponent } from './features/cadastro-exercicio/cadastro-exercicio.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -16,13 +17,11 @@ const routes: Routes = [
   { path: 'home-usuario', component: HomeUsuarioComponent },
   { path: 'edit-cadastro/:id', component: EditCadastroComponent },
   { path: 'edit-cadastro-adm/:id/:edita', component: EditAdmComponent },
-  {
-    path: 'visualiza-instrutores',
-    component: ListagemUsuarioAcademiaComponent,
-  },
+  { path: 'visualiza-instrutores', component: ListagemUsuarioAcademiaComponent },
   { path: 'equipamento-cadastro', component: CadastroEquipamentoComponent },
   { path: 'visualiza-equipamentos', component: ListagemEquipamentoComponent },
   { path: 'edita-equipamento/:id', component: EditEquipamentoComponent },
+  { path: 'cadastro-exercicio', component: CadastroExercicioComponent },
 ];
 
 @NgModule({
