@@ -1,0 +1,12 @@
+<mat-card class="card">
+    <mat-card-content>
+        <div class="info-item"><h2>{{ usuario.nome }}</h2></div>
+        <div class="info-item">CPF:<br><br>{{ formatCPF(usuario.cpf) }}</div>
+        <div class="info-item">E-mail:<br><br>{{ usuario.email }}</div>
+        <select [(ngModel)]="usuario.statusPagamento" (change)="atualizarStatusPagamento()">
+            <option value="ativo">Ativo</option>
+            <option value="atrasado">Em atraso</option>
+            <option value="cancelado">Cancelado</option>
+        </select>
+    </mat-card-content>
+</mat-card>

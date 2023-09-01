@@ -21,4 +21,12 @@ export class UsuarioService {
   atualizaUsuario(usuario: UsuarioDto): Observable<any> {
     return this.http.patch(`${this.urlbase}/${usuario.id}`, usuario);
   }
+  
+  atualizarStatusPagamento(id: string, statusPagamento: string): Observable<any> {
+    return this.http.patch(`${this.urlbase}/${id}/status-pagamento`, { statusPagamento });
+  }
+
+  obterTodosUsuarios(): Observable<any> {
+    return this.http.get(`${this.urlbase}`);
+  }
 }

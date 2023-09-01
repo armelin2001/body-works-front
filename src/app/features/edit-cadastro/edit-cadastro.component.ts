@@ -105,6 +105,7 @@ export class EditCadastroComponent implements OnInit {
       altura: formularioUsuario.altura,
       peso: formularioUsuario.peso,
       perfil: 'usuario',
+      statusPagamento: 'ativo',
     };
     return usuario;
   }

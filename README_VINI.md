@@ -2,7 +2,7 @@
 [CTRL+SHIFT+F] = "procura em todos os arquivos"
 [CTRL+SHIFT+P] = "abre o terminal"
 [CTRL+CLICK] = "vai para a instância"
-[Código_cadastro_administrador] = "300"
+[Código_cadastro_administrador] = "600"
 
 
 # ALTERAÇÕES EM FRONT OU BACK:

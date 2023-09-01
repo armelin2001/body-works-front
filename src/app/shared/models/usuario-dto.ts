@@ -6,6 +6,7 @@ export interface UsuarioDto {
     email: string;
     senha: string;
     perfil: string;
+    statusPagamento: string;
     dataNascimento: Date;
     peso?: string;
     altura?: string;

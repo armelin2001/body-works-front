@@ -1,0 +1,35 @@
+.card {
+    text-align: center;
+    border-radius: 5%;
+    background-color: #ffffff;
+}
+button {
+    border: 2px solid #ddd;
+    margin-left: 2px;
+}
+
+.item {
+    width: 100%;
+}
+
+.teste {
+    display: flex;
+}
+
+.info-item {
+    border-bottom: 1px solid #ccc; // Adiciona uma borda inferior para separar as informações
+    padding-bottom: 8px; // Adiciona um pouco de espaço abaixo do conteúdo
+    margin-bottom: 8px; // Adiciona um pouco de espaço abaixo da borda
+}
+
+select {
+    appearance: none; // Remove a aparência padrão do selectbox
+    padding: 8px 12px; // Adiciona um pouco de padding
+    border: 1px solid #ccc; // Define uma borda
+    border-radius: 10px; // Adiciona bordas arredondadas
+    background-color: #fff; // Define a cor de fundo
+    background-image: url('data:image/svg+xml;utf8,<svg fill="black" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>'); // Adiciona um ícone de seta para baixo
+    background-repeat: no-repeat;
+    background-position: right 8px center; // Posiciona o ícone de seta para baixo à direita
+    cursor: pointer; // Muda o cursor para indicar que é selecionável
+}
