@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ExercicioService } from 'src/app/shared/http-service/exercicio-service/exercicio.service';
-import { IExercicioDTO } from 'src/app/shared/models/exercicio.dto';
+import { IExercicioDTO, TIPO_EXERCICIO, NIVEL_DIFICULDADE } from 'src/app/shared/models/exercicio.dto';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
 import { EquipamentoService } from 'src/app/shared/http-service/equipamento-service/equipamento.service';
@@ -11,49 +11,56 @@ import { EquipamentoService } from 'src/app/shared/http-service/equipamento-serv
   templateUrl: './cadastro-exercicio.component.html',
   styleUrls: ['./cadastro-exercicio.component.scss']
 })
-export class CadastroExercicioComponent {
+export class CadastroExercicioComponent implements OnInit{
   formularioExercicio: FormGroup;
+  equipamentos: any[] = [];
+  tiposExercicio = TIPO_EXERCICIO;
+  dificuldadesExercicio = NIVEL_DIFICULDADE;
 
   constructor(
-    private location: Location,
     private formBuilder: FormBuilder,
+    private location: Location,
     private router: Router,
     private equipamentoService: EquipamentoService,
     private exercicioService: ExercicioService
-  ){
+  ) {
     this.formularioExercicio = this.formBuilder.group({
-      nome: ['', [Validators.required]],
-      descricao: ['', [Validators.required]],
-      tipoExercicio: ['', [Validators.required]],
-      equipamento: ['', [Validators.required]],
-      nivelDificuldade: ['', [Validators.required]],
-      tempo: ['', [Validators.required]],
-      frequencia: ['', [Validators.required]],
-      video: ['', [Validators.required]],
-      instrucoes: ['', [Validators.required]],
-      musculos: ['', [Validators.required]],
-      observacoes: ['', [Validators.required]],
-      equipamentoNecessario: [''],
-    })
-  }
-  equipamentos: any[] = [];
+    nome: ['', [Validators.required]],
+    descricao: ['', [Validators.required]],
+    tipoExercicio: ['', [Validators.required]],
+    equipamentoNecessario: ['', [Validators.required]],
+    nivelDificuldade: ['', [Validators.required]],
+    tempoRecomendado: ['', [Validators.required]],
+    videoDemonstrativo: ['', [Validators.required]],
+    instrucoesPassoAPasso: ['', [Validators.required]],
+    musculosTrabalhados: ['', [Validators.required]],
+    observacoes: ['', [Validators.required]],
+  })}
 
   ngOnInit() {
     this.equipamentoService.obterTodosEquipamentos().subscribe(data => {
       this.equipamentos = data.dados;
     });
-  
+    
   }
 
 
   submitFormExercicio(){
-    const exercicio = this.getExercicio();
-    this.exercicioService.cadastroExercicio(exercicio).subscribe(
-      (res) => {
-        this.goBack();
-      },
-      (err) =>{}
-    )
+    if (this.formularioExercicio.valid) {
+      const exercicio: IExercicioDTO = this.formularioExercicio.value;
+      this.exercicioService.cadastroExercicio(exercicio).subscribe(
+        () => {
+          alert('Exercício cadastrado com sucesso!');
+          this.formularioExercicio.reset();
+        },
+        error => {
+          console.error("Erro ao cadastrar exercício:", error);
+          alert('Erro ao cadastrar exercício. Por favor, tente novamente.');
+        }
+      );
+    } else {
+      alert('Por favor, preencha todos os campos corretamente.');
+    }
   }
 
   goBack(){
@@ -75,13 +82,21 @@ export class CadastroExercicioComponent {
     return this.formularioExercicio.get('tipo') as FormControl;
   }
 
-  getExercicio(){
+  getExercicio() {
     const formularioExercicio = this.formularioExercicio.value;
     const exercicio: IExercicioDTO = {
       nome: formularioExercicio.nome,
-      tipo: formularioExercicio.tipo
+      descricao: formularioExercicio.descricao,
+      tipoExercicio: formularioExercicio.tipoExercicio,
+      equipamentoNecessario: formularioExercicio.equipamentoNecessario,
+      nivelDificuldade: formularioExercicio.nivelDificuldade,
+      tempoRecomendado: formularioExercicio.tempoRecomendado,
+      instrucoesPassoAPasso: formularioExercicio.instrucoes,
+      musculosTrabalhados: formularioExercicio.musculosTrabalhados,
+      observacoes: formularioExercicio.observacoes,
+      videoDemonstrativo: formularioExercicio.videoDemonstrativo
     }
-    return exercicio
+    return exercicio;
   }
 
 }

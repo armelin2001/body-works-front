@@ -13,11 +13,10 @@
                 <textarea formControlName="descricao" matInput placeholder="Descrição"></textarea>
             </mat-form-field>
   
-            <mat-form-field>
-                <mat-select formControlName="tipoExercicio" placeholder="Tipo de Exercício">
-                    <mat-option value="Cardiovascular">Cardiovascular</mat-option>
-                    <mat-option value="Força">Força</mat-option>
-                    <mat-option value="Flexibilidade">Flexibilidade</mat-option>
+            <mat-form-field appearance="fill">
+                <mat-label>Tipo de Exercício</mat-label>
+                <mat-select formControlName="tipoExercicio">
+                    <mat-option *ngFor="let tipo of tiposExercicio" [value]="tipo">{{ tipo }}</mat-option>
                 </mat-select>
             </mat-form-field>
   
@@ -31,31 +30,27 @@
             </mat-form-field>
               
 
-            <mat-form-field>
-                <mat-select formControlName="nivelDificuldade" placeholder="Nível de Dificuldade">
-                    <mat-option value="Iniciante">Iniciante</mat-option>
-                    <mat-option value="Intermediário">Intermediário</mat-option>
-                    <mat-option value="Avançado">Avançado</mat-option>
+            <mat-form-field appearance="fill">
+                <mat-label>Nível de Dificuldade</mat-label>
+                <mat-select formControlName="nivelDificuldade">
+                    <mat-option *ngFor="let nivel of dificuldadesExercicio" [value]="nivel">{{ nivel }}</mat-option>
                 </mat-select>
             </mat-form-field>
   
             <mat-form-field>
-                <input formControlName="tempo" type="text" matInput placeholder="Tempo Recomendado (ex: 15 minutos)">
+                <input formControlName="tempoRecomendado" type="text" matInput placeholder="Tempo Recomendado (ex: 15 minutos)">
             </mat-form-field>
+
             <mat-form-field>
-                <input formControlName="frequencia" type="text" matInput placeholder="Frequência Recomendada (ex: 3 vezes por semana)">
-            </mat-form-field>
-  
-            <mat-form-field>
-                <input formControlName="video" type="url" matInput placeholder="Link do Vídeo Demonstrativo">
+                <input formControlName="videoDemonstrativo" type="url" matInput placeholder="Link do Vídeo Demonstrativo">
             </mat-form-field>
   
             <mat-form-field>
-                <textarea formControlName="instrucoes" matInput placeholder="Instruções Passo a Passo"></textarea>
+                <textarea formControlName="instrucoesPassoAPasso" matInput placeholder="Instruções Passo a Passo"></textarea>
             </mat-form-field>
   
             <mat-form-field>
-                <input formControlName="musculos" type="text" matInput placeholder="Músculos Trabalhados (ex: Bíceps, Tríceps)">
+                <input formControlName="musculosTrabalhados" type="text" matInput placeholder="Músculos Trabalhados (ex: Bíceps, Tríceps)">
             </mat-form-field>
 
             <mat-form-field>
