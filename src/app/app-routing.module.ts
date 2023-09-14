@@ -25,6 +25,7 @@ const routes: Routes = [
   { path: 'visualiza-equipamentos', component: ListagemEquipamentoComponent },
   { path: 'edita-equipamento/:id', component: EditEquipamentoComponent },
   { path: 'visualiza-usuario', component: ListagemUsuarioComponent },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
 ];
 
 @NgModule({
