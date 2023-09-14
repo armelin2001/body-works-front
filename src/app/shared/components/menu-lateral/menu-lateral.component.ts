@@ -1,29 +1,46 @@
-import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { LocalstorageService } from '../../local-storage/localstorage.service';
 
 @Component({
   selector: 'app-menu-lateral',
   templateUrl: './menu-lateral.component.html',
-  styleUrls: ['./menu-lateral.component.scss']
+  styleUrls: ['./menu-lateral.component.scss'],
 })
 export class MenuLateralComponent {
-
+  showAccountMenu = false;
   id: string = '';
   adm: boolean = false;
+  mostraEditInstrutor: boolean = false;
   nomeUsuario: string = '';
+  statusPagamento: string = '';
+  @ViewChild('sidebarRef', { static: false }) sidebarRef!: ElementRef;
 
   constructor(
     private router: Router,
-    private activatedRoute: ActivatedRoute,
     private localStorage: LocalstorageService
   ) {}
 
   ngOnInit() {
     const usuario = this.localStorage.obter('usuario') as any;
-    this.nomeUsuario = String(usuario.nome).split(" ")[0];
+    this.nomeUsuario = String(usuario.nome).split(' ')[0];
     this.adm = usuario.adm;
+    if (!usuario.perfil) {
+      this.mostraEditInstrutor = true;
+    }
     this.id = usuario.id;
+
+    switch (usuario.statusPagamento) {
+      case 'ativo':
+        this.statusPagamento = 'Conta ativa';
+        break;
+      case 'atrasado':
+        this.statusPagamento = 'Mensalidade atrasada';
+        break;
+      case 'cancelado':
+        this.statusPagamento = 'Conta suspensa';
+        break;
+    }
   }
 
   navigateToEditCadastro(): void {
@@ -36,22 +53,39 @@ export class MenuLateralComponent {
   }
 
   navegaParaEditAdm() {
-    this.router.navigate(['/edit-cadastro-adm/' + this.id + "/" + true]);
+    this.router.navigate(['/edit-cadastro-adm/' + this.id + '/' + true]);
   }
 
-  navegarParaCadastroInstrutor(){
-    this.router.navigate(['/edit-cadastro-adm/' + this.id + "/" + false]);
+  navegarParaCadastroInstrutor() {
+    this.router.navigate(['/edit-cadastro-adm/' + this.id + '/' + false]);
   }
 
-  navegarParaListagemInstrutores(){
+  navegarParaListagemInstrutores() {
     this.router.navigate(['/visualiza-instrutores']);
   }
 
-  navegarParaCadastroEquipamento(){
+  navegarParaCadastroEquipamento() {
     this.router.navigate(['/equipamento-cadastro']);
   }
 
-  navegarParaListagemEquipamentos(){
+  navegarParaListagemEquipamentos() {
     this.router.navigate(['/visualiza-equipamentos']);
+  }
+
+  navegarParaListagemUsuario() {
+    this.router.navigate(['/visualiza-usuario']);
+  }
+
+  navegarParaTreinos() {
+    this.router.navigate(['/treinos']);
+  }
+
+  toggleSidebar() {
+    const sidebarWidth = this.sidebarRef.nativeElement.style.width;
+    if (sidebarWidth === '0px' || !sidebarWidth) {
+      this.sidebarRef.nativeElement.style.width = '250px';
+    } else {
+      this.sidebarRef.nativeElement.style.width = '0px';
+    }
   }
 }
