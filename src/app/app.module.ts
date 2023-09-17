@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './features/login/login.component';
 import { MaterialModule } from 'src/material.module';
 import { LoginService } from './shared/http-service/login-service/login.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { CadastroComponent } from './features/cadastro/cadastro.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UsuarioService } from './shared/http-service/usuario-service/usuario.service';
@@ -29,6 +29,8 @@ import { CardEquipamentoComponent } from './features/listagem-equipamento/compon
 import { EditEquipamentoComponent } from './features/edit-equipamento/edit-equipamento.component';
 import { ListagemUsuarioComponent } from './features/listagem-usuario/listagem-usuario.component';
 import { CardUsuarioComponent } from './features/listagem-usuario/components/card-usuario.component';
+import { AuthService } from './shared/http-service/auth/auth.service';
+import { TokenInterceptor } from './shared/components/interceptors/token-interceptor/token.interceptor';
 
 @NgModule({
   declarations: [
@@ -63,9 +65,15 @@ import { CardUsuarioComponent } from './features/listagem-usuario/components/car
     LoginService,
     UsuarioService,
     UsuarioAcademiaService,
+    AuthService,
     EquipamentoService,
     provideNgxMask(),
     LocalstorageService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true,
+    }
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent],
