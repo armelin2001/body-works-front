@@ -11,6 +11,7 @@ import { LoginDto } from 'src/app/shared/models/login-dto';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { LocalstorageService } from 'src/app/shared/local-storage/localstorage.service';
+import { AuthService } from 'src/app/shared/http-service/auth/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -24,6 +25,7 @@ export class LoginComponent implements OnInit {
     private formBuilder: FormBuilder,
     private router: Router,
     private loginService: LoginService,
+    private authService: AuthService,
     public dialog: MatDialog,
     private snack: MatSnackBar,
     private localStorage: LocalstorageService
@@ -44,6 +46,19 @@ export class LoginComponent implements OnInit {
       this.loginService.realizaLogin(login).subscribe(
         (res) => {
           this.localStorage.adicionar('usuario', res);
+          //this.router.navigate(['/home-usuario/']);
+        },
+        (err) => {
+          this.snack.open(err.error.message, 'OK', {
+            duration: 3000,
+            horizontalPosition: 'center',
+            verticalPosition: 'top',
+          });
+        }
+      );
+      this.authService.obterToken(login).subscribe(
+        (res)=> {
+          this.localStorage.adicionar('token', res.access_token);
           this.router.navigate(['/home-usuario/']);
         },
         (err) => {
