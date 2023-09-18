@@ -48,7 +48,7 @@ export class MenuLateralComponent {
   }
 
   logout() {
-    this.localStorage.remover('usuario');
+    this.localStorage.limpar();
     this.router.navigate(['/login']);
   }
 
