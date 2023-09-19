@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+
+:host {
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: #13131a;
+  color: #ffffff;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+.listagem {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.usuario-card {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+
+:host {
+  font-family: 'Roboto', sans-serif;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+  background-color: #464042;
+}
+
+.sidebar {
+  width: 250px;
+  height: 100%;
+  background-color: #2f2c31;
+  display: flex;
+  flex-direction: column;
+  padding: 15px 0;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+  padding: 15px;
+}
+
+.user-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.user-name {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 500;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.sidebar-item {
+  text-decoration: none;
+  color: #ffffff;
+  padding: 10px 20px;
+  font-size: 18px;
+  margin-bottom: 10px;
+  background-color: #3a363c;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.sidebar-item:hover {
+  background-color: #eb1d63;
+}
+
+.content {
+  flex: 1;
+  background-color: #464042;
+  padding: 30px;
+}
+
+button.sidebar-item {
+    width: 100%;
+    text-align: left;
+    font-size: 18px;
+    margin-bottom: 10px;
+    background-color: #3a363c;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  button.sidebar-item:hover,
+  button.sidebar-item[matMenuTriggerFor]:hover {
+    background-color: #eb1d63;
+  }
+  
+  .logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .logo {
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .sidebar-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 100vh;
+  }
+
+  .sidebar {
+    // Adicione a largura máxima
+    max-width: 300px;
+    padding-bottom: 15px;
+    flex-grow: 1;
+  }
+  
+
+  @media (max-width: 768px) {
+    .sidebar {
+      width: 100%;
+      max-width: 100%;
+      position: static;
+    }
+  }
+  .logout-container {
+    padding-bottom: 100px; // Mantenha o padding existente
+    margin-top: auto; // Adicione esta linha para empurrar o botão "Sair" para o fundo
+  }
+  .logout-btn {
+    bottom: -20px;
+    width: 100%;
+    background-color: #eb1d63;
+    color: #ffffff;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .logout-btn:hover {
+    background-color: #d31152;
+  }
+  

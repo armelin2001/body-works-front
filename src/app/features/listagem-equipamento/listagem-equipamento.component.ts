@@ -14,6 +14,8 @@ export class ListagemEquipamentoComponent implements OnInit {
   id: string = '';
   adm: boolean = false;
   nomeUsuario: string = '';
+  mostraEditInstrutor: boolean = false;
+  statusPagamento: string = '';
   @ViewChild('sidebarRef', { static: false }) sidebarRef!: ElementRef;
 
   constructor(
@@ -27,6 +29,9 @@ export class ListagemEquipamentoComponent implements OnInit {
     const usuario = this.localStorage.obter('usuario') as any;
     this.nomeUsuario = String(usuario.nome).split(' ')[0];
     this.adm = usuario.adm;
+    if(!usuario.perfil){
+      this.mostraEditInstrutor = true;
+    }
     this.id = usuario.id;
     this.carregarListaEquipamentos();
   }
@@ -72,6 +77,10 @@ export class ListagemEquipamentoComponent implements OnInit {
 
   navegarParaListagemEquipamentos() {
     this.router.navigate(['/visualiza-equipamentos']);
+  }
+  
+  navegarParaListagemUsuario() {
+    this.router.navigate(['/visualiza-usuario']);
   }
 
   navigateToEditCadastro(): void {

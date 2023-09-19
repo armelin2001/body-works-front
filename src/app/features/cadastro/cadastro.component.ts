@@ -88,6 +88,7 @@ export class CadastroComponent {
       senha: formularioLogin.senha,
       dataNascimento: formularioLogin.dataNascimento,
       perfil: 'usuario',
+      statusPagamento: 'ativo',
     };
     return realizaLogin;
   }

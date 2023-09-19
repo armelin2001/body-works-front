@@ -15,6 +15,7 @@ export class HomeUsuarioComponent implements OnInit {
   adm: boolean = false;
   mostraEditInstrutor: boolean = false;
   nomeUsuario: string = '';
+  statusPagamento: string = '';
   @ViewChild('sidebarRef', { static: false }) sidebarRef!: ElementRef;
 
   constructor(
@@ -30,7 +31,20 @@ export class HomeUsuarioComponent implements OnInit {
       this.mostraEditInstrutor = true;
     }
     this.id = usuario.id;
+
+    switch (usuario.statusPagamento) {
+      case 'ativo':
+        this.statusPagamento = 'Conta ativa';
+        break;
+      case 'atrasado':
+        this.statusPagamento = 'Mensalidade atrasada';
+        break;
+      case 'cancelado':
+        this.statusPagamento = 'Conta suspensa';
+        break;
+    }
   }
+
 
   navigateToEditCadastro(): void {
     this.router.navigate(['/edit-cadastro/' + this.id]);
@@ -59,6 +73,14 @@ export class HomeUsuarioComponent implements OnInit {
   
   navegarParaListagemEquipamentos() {
     this.router.navigate(['/visualiza-equipamentos']);
+  }
+
+  navegarParaListagemUsuario() {
+    this.router.navigate(['/visualiza-usuario']);
+  }
+
+  navegarParaTreinos() {
+    this.router.navigate(['/treinos']);
   }
 
   toggleSidebar() {

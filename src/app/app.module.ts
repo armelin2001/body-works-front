@@ -12,6 +12,7 @@ import { CadastroComponent } from './features/cadastro/cadastro.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UsuarioService } from './shared/http-service/usuario-service/usuario.service';
 import { EditCadastroComponent } from './features/edit-cadastro/edit-cadastro.component';
+import { MatCardModule } from '@angular/material/card';
 import { HomeUsuarioComponent } from './features/home-usuario/home-usuario.component';
 import { FormsModule } from '@angular/forms';
 import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
@@ -28,6 +29,8 @@ import { CardEquipamentoComponent } from './features/listagem-equipamento/compon
 import { EditEquipamentoComponent } from './features/edit-equipamento/edit-equipamento.component';
 import { CadastroExercicioComponent } from './features/cadastro-exercicio/cadastro-exercicio.component';
 import { ExercicioService } from './shared/http-service/exercicio-service/exercicio.service';
+import { ListagemUsuarioComponent } from './features/listagem-usuario/listagem-usuario.component';
+import { CardUsuarioComponent } from './features/listagem-usuario/components/card-usuario.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +48,8 @@ import { ExercicioService } from './shared/http-service/exercicio-service/exerci
     CardEquipamentoComponent,
     EditEquipamentoComponent,
     CadastroExercicioComponent,
-
+    ListagemUsuarioComponent,
+    CardUsuarioComponent,
   ],
   imports: [
     BrowserModule,
@@ -56,6 +60,7 @@ import { ExercicioService } from './shared/http-service/exercicio-service/exerci
     FormsModule,
     HttpClientModule,
     NgxMaskDirective,
+    MatCardModule,
   ],
   providers: [
     LoginService,

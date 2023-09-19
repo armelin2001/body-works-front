@@ -10,6 +10,7 @@ import { CadastroEquipamentoComponent } from './features/cadastro-equipamento/ca
 import { ListagemEquipamentoComponent } from './features/listagem-equipamento/listagem-equipamento.component';
 import { EditEquipamentoComponent } from './features/edit-equipamento/edit-equipamento.component';
 import { CadastroExercicioComponent } from './features/cadastro-exercicio/cadastro-exercicio.component';
+import { ListagemUsuarioComponent } from './features/listagem-usuario/listagem-usuario.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'visualiza-equipamentos', component: ListagemEquipamentoComponent },
   { path: 'edita-equipamento/:id', component: EditEquipamentoComponent },
   { path: 'cadastro-exercicio', component: CadastroExercicioComponent },
+  { path: 'visualiza-usuario', component: ListagemUsuarioComponent },
 ];
 
 @NgModule({
