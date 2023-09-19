@@ -27,6 +27,8 @@ import { MenuLateralComponent } from './shared/components/menu-lateral/menu-late
 import { ListagemEquipamentoComponent } from './features/listagem-equipamento/listagem-equipamento.component';
 import { CardEquipamentoComponent } from './features/listagem-equipamento/componente/card-equipamento/card-equipamento.component';
 import { EditEquipamentoComponent } from './features/edit-equipamento/edit-equipamento.component';
+import { CadastroExercicioComponent } from './features/cadastro-exercicio/cadastro-exercicio.component';
+import { ExercicioService } from './shared/http-service/exercicio-service/exercicio.service';
 import { ListagemUsuarioComponent } from './features/listagem-usuario/listagem-usuario.component';
 import { CardUsuarioComponent } from './features/listagem-usuario/components/card-usuario.component';
 import { AuthService } from './shared/http-service/auth/auth.service';
@@ -47,6 +49,7 @@ import { TokenInterceptor } from './shared/components/interceptors/token-interce
     ListagemEquipamentoComponent,
     CardEquipamentoComponent,
     EditEquipamentoComponent,
+    CadastroExercicioComponent,
     ListagemUsuarioComponent,
     CardUsuarioComponent,
   ],
@@ -67,6 +70,7 @@ import { TokenInterceptor } from './shared/components/interceptors/token-interce
     UsuarioAcademiaService,
     AuthService,
     EquipamentoService,
+    ExercicioService,
     provideNgxMask(),
     LocalstorageService,
     {
