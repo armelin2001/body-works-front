@@ -33,6 +33,8 @@ import { ListagemUsuarioComponent } from './features/listagem-usuario/listagem-u
 import { CardUsuarioComponent } from './features/listagem-usuario/components/card-usuario.component';
 import { AuthService } from './shared/http-service/auth/auth.service';
 import { TokenInterceptor } from './shared/components/interceptors/token-interceptor/token.interceptor';
+import { AuthGuard } from './shared/guards/auth.guard';
+import { AuthServiceGuard } from './shared/auth/auth.service';
 
 @NgModule({
   declarations: [
@@ -71,6 +73,8 @@ import { TokenInterceptor } from './shared/components/interceptors/token-interce
     AuthService,
     EquipamentoService,
     ExercicioService,
+    AuthServiceGuard,
+    AuthGuard,
     provideNgxMask(),
     LocalstorageService,
     {
