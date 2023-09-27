@@ -2,66 +2,85 @@
     <div class="card">
       <img src="/assets/logo-com_nome-com_fundo.png" alt="Logo" class="logo" />
       <button class="back-btn" (click)="goBack()">&#x2190;</button>
-      <h1>Editar Cadastro</h1>
+      <h1>
+        <mat-label> {{"editarAdm.editarCad" | translate}} </mat-label>
+      </h1>
       <form [formGroup]="formularioUsuario" (ngSubmit)="submitFormUsuario()" #usuario="ngForm">
   
         <mat-form-field>
-          <input formControlName="nome" type="text" matInput placeholder="Nome">
+          <mat-label> {{"editarAdm.nomeAdm" | translate}} </mat-label>
+          <input formControlName="nome" type="text" matInput>
         </mat-form-field>
   
         <mat-error *ngIf="nome.errors && nome.touched">
-          Insira um nome válido
+          <mat-label> {{"editarAdm.errorNomeAdm" | translate}} </mat-label>
         </mat-error>
   
         
         <mat-form-field appearance="fill">
-            <mat-label>Data de nascimento</mat-label>
+            <mat-label>
+              <mat-label> {{"editarAdm.dataNascAdm" | translate}} </mat-label>
+            </mat-label>
             <input matInput [matDatepicker]="picker" formControlName="dataNascimento">
             <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
         <mat-error *ngIf="validaDataNascimento.errors && validaDataNascimento.touched">
-            Insira uma data válida
+          <mat-label> {{"editarAdm.errorDataNascAdm" | translate}} </mat-label>
         </mat-error>
     
         <mat-form-field>
-            <mat-select formControlName="genero" placeholder="Gênero"> 
-            <mat-option value = "M" > Masculino </mat-option>
-            <mat-option value = "F" > Feminino </mat-option>
-            <mat-option value = "O" > Outro </mat-option> 
+          <mat-label> {{"editarAdm.generoAdm" | translate}} </mat-label>
+            <mat-select formControlName="genero"> 
+            <mat-option value = "M" >
+              <mat-label> {{"editarAdm.masc" | translate}} </mat-label>
+            </mat-option>
+            <mat-option value = "F" >
+              <mat-label> {{"editarAdm.fem" | translate}} </mat-label>
+            </mat-option>
+            <mat-option value = "O" >
+              <mat-label> {{"editarAdm.outro" | translate}} </mat-label>
+            </mat-option> 
             </mat-select> 
         </mat-form-field>
 
         <mat-error *ngIf="genero.errors && genero.touched">
-            Insira um gênero válido
+          <mat-label> {{"editarAdm.errorGeneroAdm" | translate}} </mat-label>
         </mat-error>
     
 
         <mat-form-field>
-          <input formControlName="cpf" mask="000.000.000-00" matInput placeholder="CPF">
+          <mat-label> {{"editarAdm.campoCPF" | translate}} </mat-label>
+          <input formControlName="cpf" mask="000.000.000-00" matInput>
         </mat-form-field>
         <mat-error *ngIf="cpf.errors && cpf.touched">
-          Insira um CPF válido
+          <mat-label> {{"editarAdm.errorCPF" | translate}} </mat-label>
         </mat-error>
   
         <mat-form-field>
-          <input formControlName="email" type="text" matInput placeholder="Email">
+          <mat-label> {{"editarAdm.email" | translate}} </mat-label>
+          <input formControlName="email" type="text" matInput>
         </mat-form-field>
         
         <mat-error *ngIf="email.errors && email.touched">
-          Insira um email válido
+          <mat-label> {{"editarAdm.errorEmail" | translate}} </mat-label>
         </mat-error>
   
         <mat-form-field>
-          <input formControlName="senha" type="password" matInput placeholder="Senha">
+          <mat-label> {{"editarAdm.senha" | translate}} </mat-label>
+          <input formControlName="senha" type="password" matInput>
         </mat-form-field>
         
         <mat-error *ngIf="senha.errors && senha.touched">
-          Insira uma senha válida
+          <mat-label> {{"editarAdm.errorSenha" | translate}} </mat-label>
         </mat-error>
         
-        <button mat-button (click)="goBack()">Voltar</button>
-        <button mat-raised-button  type="submit" [disabled]="usuario.form.invalid">Salvar</button>
+        <button mat-button (click)="goBack()">
+          <mat-label> {{"editarAdm.voltar" | translate}} </mat-label>
+        </button>
+        <button mat-raised-button  type="submit" [disabled]="usuario.form.invalid">
+          <mat-label> {{"editarAdm.salvar" | translate}} </mat-label>
+        </button>
       </form>
     </div>
   </div>

@@ -1,13 +1,12 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './features/login/login.component';
 import { MaterialModule } from 'src/material.module';
 import { LoginService } from './shared/http-service/login-service/login.service';
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule, HttpClient } from '@angular/common/http';
 import { CadastroComponent } from './features/cadastro/cadastro.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UsuarioService } from './shared/http-service/usuario-service/usuario.service';
@@ -35,6 +34,9 @@ import { AuthService } from './shared/http-service/auth/auth.service';
 import { TokenInterceptor } from './shared/components/interceptors/token-interceptor/token.interceptor';
 import { AuthGuard } from './shared/guards/auth.guard';
 import { AuthServiceGuard } from './shared/auth/auth.service';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader'; 
+
 
 @NgModule({
   declarations: [
@@ -65,6 +67,13 @@ import { AuthServiceGuard } from './shared/auth/auth.service';
     HttpClientModule,
     NgxMaskDirective,
     MatCardModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: httpTranslateLoader,
+        deps: [HttpClient]
+      }
+    })
   ],
   providers: [
     LoginService,
@@ -87,3 +96,6 @@ import { AuthServiceGuard } from './shared/auth/auth.service';
   bootstrap: [AppComponent],
 })
 export class AppModule {}
+export function httpTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
