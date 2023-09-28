@@ -8,23 +8,23 @@
     </div>
     <div class="user-info">
     <div class="user-name">
-        <p>Bem vindo!<br>{{nomeUsuario}}</p>
+        <p>{{"menu.menuInicio" | translate}}<br>{{nomeUsuario}}</p>
         <br>
-        <p *ngIf="!adm" >Status da conta: <br>{{statusPagamento}}</p>
-        <p *ngIf="adm" >LOGADO COMO ADMINISTRADOR</p>
+        <p *ngIf="!adm" > {{"menu.menuStatus" | translate}} <br>{{statusPagamento}}</p>
+        <p *ngIf="adm" > {{"menu.menuLogAdm" | translate}} </p>
     </div>
   </div>
-  <button mat-button class="sidebar-item" (click)="navigateToEditCadastro()" *ngIf="!adm && !mostraEditInstrutor" >Editar Cadastro</button>
-  <button mat-button class="sidebar-item" (click)="navegarParaTreinos()" *ngIf="!adm && !mostraEditInstrutor" >Ir para treinos</button>
-  <button mat-button class="sidebar-item" (click)="navegaParaEditAdm()" *ngIf="mostraEditInstrutor" >Editar Cadastro</button>
-  <button mat-button class="sidebar-item" (click)="navegarParaCadastroInstrutor()" *ngIf="adm">Novo instrutor</button>
-  <button mat-button class="sidebar-item" (click)="navegarParaCadastroEquipamento()" *ngIf="adm">Novo Equipamento</button>
-  <button mat-button class="sidebar-item" (click)="navegarParaListagemEquipamentos()" *ngIf="adm">Listar Equipamentos</button>
-  <button mat-button class="sidebar-item" (click)="navegarParaListagemUsuario()" *ngIf="adm">Listar Usuários</button>
-  <button mat-button class="sidebar-item" (click)="navegarParaListagemInstrutores()" *ngIf="adm">Listar Instrutores</button>
+  <button mat-button class="sidebar-item" (click)="navigateToEditCadastro()" *ngIf="!adm && !mostraEditInstrutor" > {{"menu.menuEditar" | translate}} </button>
+  <button mat-button class="sidebar-item" (click)="navegarParaTreinos()" *ngIf="!adm && !mostraEditInstrutor" > {{"menu.menuTreino" | translate}}  </button>
+  <button mat-button class="sidebar-item" (click)="navegaParaEditAdm()" *ngIf="mostraEditInstrutor" > {{"menu.menuEditar" | translate}} </button>
+  <button mat-button class="sidebar-item" (click)="navegarParaCadastroInstrutor()" *ngIf="adm"> {{"menu.menuAddInst" | translate}} </button>
+  <button mat-button class="sidebar-item" (click)="navegarParaCadastroEquipamento()" *ngIf="adm"> {{"menu.menuAddEquip" | translate}} </button>
+  <button mat-button class="sidebar-item" (click)="navegarParaListagemEquipamentos()" *ngIf="adm"> {{"menu.menuListEquip" | translate}} </button>
+  <button mat-button class="sidebar-item" (click)="navegarParaListagemUsuario()" *ngIf="adm"> {{"menu.menuListUsu" | translate}} </button>
+  <button mat-button class="sidebar-item" (click)="navegarParaListagemInstrutores()" *ngIf="adm"> {{"menu.menuListInst" | translate}} </button>
     
   <div class="logout-container">
-    <button mat-button class="logout-btn" (click)="logout()">Sair</button>
+    <button mat-button class="logout-btn" (click)="logout()"> {{"menu.menuSair" | translate}} </button>
   </div>
   
   </div>   

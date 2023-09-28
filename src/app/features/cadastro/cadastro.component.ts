@@ -12,6 +12,7 @@ import * as moment from 'moment';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { UsuarioAcademiaAdmDto } from 'src/app/shared/models/usuario-academia.dto';
 import { UsuarioAcademiaService } from 'src/app/shared/http-service/usuario-academia/usuario-academia.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-cadastro',
@@ -20,14 +21,16 @@ import { UsuarioAcademiaService } from 'src/app/shared/http-service/usuario-acad
 })
 export class CadastroComponent {
   formularioUsuario: FormGroup;
-
+  
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
     private usuarioService: UsuarioService,
     private snack: MatSnackBar,
-    private usuarioAcademiaService: UsuarioAcademiaService
+    private usuarioAcademiaService: UsuarioAcademiaService,
+    private translateService: TranslateService,
   ) {
+    
     let emailregex: RegExp =
       /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     this.formularioUsuario = this.formBuilder.group({

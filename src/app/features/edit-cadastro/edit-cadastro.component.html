@@ -2,82 +2,89 @@
   <div class="card">
     <img src="/assets/logo-com_nome-com_fundo.png" alt="Logo" class="logo" />
     <button class="back-btn" (click)="goBack()">&#x2190;</button>
-    <h1>Editar Cadastro</h1>
+    <h1> {{"editarCad.editarCad" | translate}} </h1>
     <form [formGroup]="formularioUsuario" (ngSubmit)="submitFormUsuario()" #usuario="ngForm">
 
       <mat-form-field>
-        <input formControlName="nome" type="text" matInput placeholder="Nome">
+        <mat-label> {{"editarCad.nomeCad" | translate}} </mat-label>
+        <input formControlName="nome" type="text" matInput>
       </mat-form-field>
 
       <mat-error *ngIf="nome.errors && nome.touched">
-        Insira um nome válido
+        <mat-label> {{"editarCad.errorNomeCad" | translate}} </mat-label>
       </mat-error>
 
 
       <mat-form-field>
-        <input formControlName="cpf" mask="000.000.000-00" matInput placeholder="CPF">
+        <mat-label> {{"editarCad.campoCPF" | translate}} </mat-label>
+        <input formControlName="cpf" mask="000.000.000-00" matInput>
       </mat-form-field>
       <mat-error *ngIf="cpf.errors && cpf.touched">
-        Insira um CPF válido
+        <mat-label> {{"editarCad.errorCPF" | translate}} </mat-label>
       </mat-error>
 
       <mat-form-field>
-        <input formControlName="email" type="text" matInput placeholder="Email">
+        <mat-label> {{"editarCad.email" | translate}} </mat-label>
+        <input formControlName="email" type="text" matInput>
       </mat-form-field>
       
       <mat-error *ngIf="email.errors && email.touched">
-        Insira um email válido
+        <mat-label> {{"editarCad.errorEmail" | translate}} </mat-label>
       </mat-error>
 
       <mat-form-field>
-        <input formControlName="senha" type="password" matInput placeholder="Senha">
+        <mat-label> {{"editarCad.senha" | translate}} </mat-label>
+        <input formControlName="senha" type="password" matInput>
       </mat-form-field>
     
       <mat-error *ngIf="senha.errors && senha.touched">
-        Insira uma senha válida
+        <mat-label> {{"editarCad.errorSenha" | translate}} </mat-label>
       </mat-error>
       
-      <mat-form-field appearance="fill">
-        <mat-label>Data de nascimento</mat-label>
+      <mat-form-field>
+        <mat-label> {{"editarCad.dataNascCad" | translate}} </mat-label>
         <input matInput [matDatepicker]="picker" formControlName="dataNascimento">
         <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
       
       <mat-error *ngIf="validaDataNascimento.errors && validaDataNascimento.touched">
-        Insira uma data válida
+        <mat-label> {{"editarCad.errorDataNascCad" | translate}} </mat-label>
       </mat-error>
 
       <mat-form-field>
-        <input formControlName="peso" mask="0*.00" suffix="kg" type="text" maxlength="8" matInput placeholder="Peso">
+        <mat-label> {{"editarCad.pesoCad" | translate}} </mat-label>
+        <input formControlName="peso" mask="0*.00" suffix="kg" type="text" maxlength="8" matInput>
       </mat-form-field>
       
       <mat-error *ngIf="peso.errors && peso.touched">
-        Insira um peso válido
+        <mat-label> {{"editarCad.errorPeso" | translate}} </mat-label>
       </mat-error>
 
       <mat-form-field>
-        <input formControlName="altura" mask="0.00" type="text" matInput placeholder="Altura (cm)" [dropSpecialCharacters]="false">
+        <mat-label> {{"editarCad.alturaCad" | translate}} </mat-label>
+        <input formControlName="altura" mask="0.00" type="text" matInput [dropSpecialCharacters]="false">
       </mat-form-field>
 
       <mat-error *ngIf="altura.errors && altura.touched">
-        Insira uma altura válida
+        <mat-label> {{"editarCad.errorAltura" | translate}} </mat-label>
       </mat-error>
 
       <mat-form-field>
-        <mat-select formControlName="genero" placeholder="Gênero"> 
-        <mat-option value = "M" > Masculino </mat-option>
-        <mat-option value = "F" > Feminino </mat-option>
-        <mat-option value = "O" > Outro </mat-option> 
+        <mat-label> {{"editarCad.generoCad" | translate}} </mat-label>
+        <mat-select formControlName="genero"> 
+        <mat-option value = "M" > <mat-label> {{"editarCad.masc" | translate}} </mat-label> </mat-option>
+        <mat-option value = "F" > <mat-label> {{"editarCad.fem" | translate}} </mat-label> </mat-option>
+        <mat-option value = "O" > <mat-label> {{"editarCad.outro" | translate}} </mat-label> </mat-option> 
         </mat-select> 
       </mat-form-field>
        
       <mat-error *ngIf="genero.errors && genero.touched">
-        Insira um gênero válido
+        <mat-label> {{"editarCad.errorGeneroAdm" | translate}} </mat-label>
       </mat-error>
 
-      <button mat-button (click)="goBack()">Voltar</button>
-      <button mat-raised-button  type="submit" [disabled]="usuario.form.invalid">Salvar</button>
+      <button mat-button (click)="goBack()"> <mat-label> {{"editarCad.voltar" | translate}} </mat-label> </button>
+      <button mat-raised-button  type="submit" [disabled]="usuario.form.invalid"> <mat-label> {{"editarCad.salvar" | translate}} </mat-label> </button>
     </form>
   </div>
 </div>

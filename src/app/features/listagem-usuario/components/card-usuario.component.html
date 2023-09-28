@@ -1,12 +1,13 @@
 <mat-card class="card">
     <mat-card-content>
         <div class="info-item"><h2>{{ usuario.nome }}</h2></div>
-        <div class="info-item">CPF:<br><br>{{ formatCPF(usuario.cpf) }}</div>
-        <div class="info-item">E-mail:<br><br>{{ usuario.email }}</div>
+        <div class="info-item"> <mat-label> {{"listarUsuario.listaCPF" | translate}} </mat-label> <br><br>{{ formatCPF(usuario.cpf) }}</div>
+        <div class="info-item"> <mat-label> {{"listarUsuario.listaEmail" | translate}} </mat-label> <br><br>{{ usuario.email }}</div>
+        <div><button (click)="excluirUsuario()"><mat-label>{{"excluir" | translate}}</mat-label></button></div>
         <select [(ngModel)]="usuario.statusPagamento" (change)="atualizarStatusPagamento()">
-            <option value="ativo">Ativo</option>
-            <option value="atrasado">Em atraso</option>
-            <option value="cancelado">Cancelado</option>
+            <option value="ativo"> <mat-label> {{"listarUsuario.listaAtivo" | translate}} </mat-label> </option>
+            <option value="atrasado"> <mat-label> {{"listarUsuario.listaAtraso" | translate}} </mat-label> </option>
+            <option value="cancelado"> <mat-label> {{"listarUsuario.listaCancelado" | translate}} </mat-label> </option>
         </select>
     </mat-card-content>
 </mat-card>
