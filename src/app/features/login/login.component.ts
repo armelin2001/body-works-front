@@ -47,19 +47,19 @@ export class LoginComponent implements OnInit {
         (res) => {
           this.localStorage.adicionar('usuario', res);
           //this.router.navigate(['/home-usuario/']);
-        },
-        (err) => {
-          this.snack.open(err.error.message, 'OK', {
-            duration: 3000,
-            horizontalPosition: 'center',
-            verticalPosition: 'top',
-          });
-        }
-      );
-      this.authService.obterToken(login).subscribe(
-        (res)=> {
-          this.localStorage.adicionar('token', res.access_token);
-          this.router.navigate(['/home-usuario/']);
+          this.authService.obterToken(login).subscribe(
+            (res) => {
+              this.localStorage.adicionar('token', res.access_token);
+              this.router.navigate(['/home-usuario/']);
+            },
+            (err) => {
+              this.snack.open(err.error.message, 'OK', {
+                duration: 3000,
+                horizontalPosition: 'center',
+                verticalPosition: 'top',
+              });
+            }
+          );
         },
         (err) => {
           this.snack.open(err.error.message, 'OK', {
