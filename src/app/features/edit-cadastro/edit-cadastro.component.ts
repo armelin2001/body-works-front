@@ -46,13 +46,15 @@ export class EditCadastroComponent implements OnInit {
   }
   ngOnInit(): void {
     this.id = this.activatedRoute.snapshot.params['id'];
+    const usuario = this.localStorage.obter('usuario') as any;
     this.usuarioService.obterUsuario(this.id).subscribe(
       (res) => {
+        console.log(res);
         this.formularioUsuario.patchValue({
           nome: res.nome,
           cpf: res.cpf,
           genero: res.genero,
-          email: res.email,
+          email: usuario.email,
           dataNascimento: res.dataNascimento,
         });
         if(res.peso){

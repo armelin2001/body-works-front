@@ -48,6 +48,7 @@ export class EditAdmComponent {
     this.id = this.activatedRoute.snapshot.params['id'];
     this.edita =
       this.activatedRoute.snapshot.params['edita'] === 'true' ? true : false;
+    const usuario = this.localStorage.obter('usuario') as any;
     if (this.edita === true) {
       this.usuarioAcademiaService.obterUsuarioAcademia(this.id).subscribe(
         (res) => {
@@ -55,7 +56,7 @@ export class EditAdmComponent {
             nome: res.nome,
             cpf: res.cpf,
             genero: res.genero,
-            email: res.email,
+            email: usuario.email,
             dataNascimento: res.dataNascimento,
           });
         },
