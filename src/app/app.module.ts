@@ -35,7 +35,8 @@ import { TokenInterceptor } from './shared/components/interceptors/token-interce
 import { AuthGuard } from './shared/guards/auth.guard';
 import { AuthServiceGuard } from './shared/auth/auth.service';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader'; 
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { CadastroFichaComponent } from './features/cadastro-ficha/cadastro-ficha.component'; 
 
 
 @NgModule({
@@ -56,6 +57,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
     CadastroExercicioComponent,
     ListagemUsuarioComponent,
     CardUsuarioComponent,
+    CadastroFichaComponent,
   ],
   imports: [
     BrowserModule,

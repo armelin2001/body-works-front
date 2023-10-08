@@ -14,6 +14,7 @@ export class MenuLateralComponent {
   mostraEditInstrutor: boolean = false;
   nomeUsuario: string = '';
   statusPagamento: string = '';
+  role: string = '';
   @ViewChild('sidebarRef', { static: false }) sidebarRef!: ElementRef;
 
   constructor(
@@ -29,6 +30,7 @@ export class MenuLateralComponent {
       this.mostraEditInstrutor = true;
     }
     this.id = usuario.id;
+    this.role = usuario.role;
 
     switch (usuario.statusPagamento) {
       case 'ativo':
@@ -78,6 +80,10 @@ export class MenuLateralComponent {
 
   navegarParaTreinos() {
     this.router.navigate(['/treinos']);
+  }
+
+  navegaParaCadastroFichaTreino() {
+    this.router.navigate(['cadastro-ficha-treino'])
   }
 
   toggleSidebar() {

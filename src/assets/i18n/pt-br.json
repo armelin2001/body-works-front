@@ -120,6 +120,12 @@
         "menuListEquip": "Listar Equipamentos",
         "menuListUsu": "Listar Usuários",
         "menuListInst": "Listar Instrutores",
+        "menuCadastroFicha": "Cadastrar ficha",
         "menuSair": "Sair"
+    },
+    "cadastroFicha": {
+        "nomeFicha": "Nome da ficha de treino",
+        "descricaoFicha": "Descrição da ficha de treino",
+        "tiposTreino": "Tipos de treino"
     }
 }

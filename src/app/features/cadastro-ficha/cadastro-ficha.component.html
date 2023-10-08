@@ -1,0 +1,22 @@
+<app-menu-lateral></app-menu-lateral>
+
+<div class="">
+    <form>
+        <mat-form-field>
+            <mat-label> {{"cadastroFicha.nomeFicha" | translate}} </mat-label>
+            <input formControlName="nome" type="text" matInput>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label> {{"cadastroFicha.descricaoFicha" | translate}} </mat-label>
+            <textarea matInput formControlName="descricao" type="text" ></textarea>
+        </mat-form-field>
+        <mat-label>{{"cadastroFicha.tiposTreino" | translate}}</mat-label>
+        <section>
+            <p>A</p>
+            <p>B</p>
+            <p>C</p>
+            <p>D</p>
+            <p>E</p>
+        </section>
+    </form>
+</div>
