@@ -83,9 +83,12 @@ export class MenuLateralComponent {
   }
 
   navegaParaCadastroFichaTreino() {
-    this.router.navigate(['cadastro-ficha-treino'])
+    this.router.navigate(['cadastro-ficha-treino']);
   }
 
+  navegaParaCadastroExercicio() {
+    this.router.navigate(['cadastro-exercicio']);
+  }
   toggleSidebar() {
     const sidebarWidth = this.sidebarRef.nativeElement.style.width;
     if (sidebarWidth === '0px' || !sidebarWidth) {
