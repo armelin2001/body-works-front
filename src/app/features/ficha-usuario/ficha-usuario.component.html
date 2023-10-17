@@ -16,7 +16,7 @@
             <form [formGroup]="formularioFichaUsuario" #usuarioFicha="ngForm">
                     <div *ngIf="!carregando">
                         <mat-form-field class="example-full-width">
-                            <mat-label>Ficha</mat-label>
+                            <mat-label>{{"usuarioFicha.nomeFicha" | translate}}</mat-label>
                                 <input type="text"
                                     placeholder="Pick one"
                                     aria-label="Number"
@@ -32,7 +32,7 @@
                     </div>
                     <div *ngIf="!carregando">
                         <mat-form-field class="example-full-width">
-                            <mat-label>Usuario</mat-label>
+                            <mat-label>{{"usuarioFicha.nomeUsuario" | translate}}</mat-label>
                                 <input type="text"
                                     placeholder="Pick one"
                                     aria-label="Number"
@@ -48,7 +48,7 @@
                     </div>
             </form>
             
-            <button mat-button class="btnSalvar" [disabled]="usuarioFicha.form.invalid" (click)="salvarFichaUsuario()">Salvar</button>
+            <button mat-button class="btnSalvar" [disabled]="usuarioFicha.form.invalid" (click)="salvarFichaUsuario()">{{"usuarioFicha.salvar" | translate}}</button>
         </div>
           
     </mat-grid-tile>

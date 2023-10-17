@@ -122,12 +122,29 @@
         "menuListInst": "Listar Instrutores",
         "menuCadastroFicha": "Cadastrar ficha",
         "menuCadastroExercicio": "Cadastrar exercício",
-        "menuFichaUsuario": "Fichas Usuario",
+        "menuFichaUsuario": "Usuario Fichas",
         "menuSair": "Sair"
     },
     "cadastroFicha": {
-        "nomeFicha": "Nome da ficha de treino",
-        "descricaoFicha": "Descrição da ficha de treino",
-        "tiposTreino": "Tipos de treino"
+        "nomeFicha": "Nome da Ficha",
+        "descricaoFicha": "Descrição da Ficha",
+        "tiposTreino": "Tipos de Treino",
+        "nomeExercicio": "Nome do Exercício",
+        "tipoTreino": "Tipo de Treino",
+        "series": "Séries",
+        "repeticoes": "Repetições",
+        "minutos": "Minutos",
+        "segundos": "Segundos",
+        "botoes": {
+            "remover": "Remover",
+            "adicionaExercicio": "Adicionar Exercício",
+            "voltar": "Voltar",
+            "criarFicha": "Criar Ficha"
+        }
+    },
+    "usuarioFicha": {
+        "nomeFicha": "Nome da Ficha",
+        "nomeUsuario": "Nome do Usuário",
+        "salvar": "Salvar"
     }
 }
