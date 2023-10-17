@@ -1,101 +1,111 @@
 
-<mat-grid-list cols="1">
-<mat-grid-tile class="divFormulario">
-    
-    <form class="basic-container" [formGroup]="fichaForm" #usuario="ngForm">
-
-        <mat-form-field class="campoTotal">
-            <mat-label>Nome</mat-label>
-            <input formControlName="nome" type="text" matInput>
-        </mat-form-field>
-        
-        <br>
-    
-        <mat-form-field class="campoTotal">
-            <mat-label>Descricao</mat-label>
-            <textarea matInput formControlName="descricao" type="text" ></textarea>
-        </mat-form-field>
-        <br>    
-        
-        <div class="tiposTreino">
-            <h2 class="tipoTreino">Tipos Treino</h2>
-            <section [formGroup]="tiposExercicioCheckBox">
-                <mat-checkbox formControlName="A" (click)="checkBox('A')">A</mat-checkbox>
-                <mat-checkbox formControlName="B" (click)="checkBox('B')">B</mat-checkbox>
-                <mat-checkbox formControlName="C" (click)="checkBox('C')">C</mat-checkbox>
-                <mat-checkbox formControlName="D" (click)="checkBox('D')">D</mat-checkbox>
-                <mat-checkbox formControlName="E" (click)="checkBox('E')">E</mat-checkbox>
-            </section>
+<mat-grid-list cols="4" gutterSize="-20px" rowHeight="100%" class="tela">
+    <mat-grid-tile 
+        [rowspan]="1"
+        [colspan]="1"
+    >
+        <div class="menuLateral">
+            <app-menu-lateral>
+            </app-menu-lateral>    
         </div>
+    </mat-grid-tile>
+    <mat-grid-tile
         
-        <mat-card>
-            <mat-card-content>
-                <div formArrayName="exercicios">
-                    <div class="row" *ngFor="let exercicio of exercicios.controls; let i = index" [formGroupName]="i">
-            
-                        <mat-form-field class="primeiroCampoExercicio">
-                            <mat-label>Nome de Exercício</mat-label>
-                            <mat-select formControlName="idExercicio">
-                                <mat-option *ngFor="let exercicio of listaExercicios" [value]="exercicio.id">{{ exercicio.nome }}</mat-option>
-                            </mat-select>
-                            
-                        </mat-form-field>
-                        <br>
-            
-                        <mat-form-field class="campoTelaCheia">
-                            <mat-label>Tipo Treino</mat-label>
-                            <mat-select formControlName="tipoGrupamento">
-                                <mat-option *ngFor="let tipo of tiposTreino" [value]="tipo">{{ tipo }}</mat-option>
-                            </mat-select>
-                        </mat-form-field>
-                        <br>
-            
-                        <mat-form-field class="camposMenores">
-                            <mat-label>Series</mat-label>
-                            <input matInput type="number" formControlName="series">
-                        </mat-form-field>
-                        
-            
-                        <mat-form-field class="camposMenores">
-                            <mat-label>Repetições</mat-label>
-                            <input matInput type="number" formControlName="repeticoes">
-                        </mat-form-field>
-                            
-                        <mat-form-field class="camposMenores">
-                            <mat-label>Minutos</mat-label>
-                            <input matInput type="number" formControlName="tempoIntervaloMinutos">
-                        </mat-form-field>
-                        
-            
-                        <mat-form-field class="camposMenores">
-                            <mat-label>Segundos</mat-label>
-                            <input matInput type="number" formControlName="tempoIntervaloSegundos">
-                        </mat-form-field>
-                        <br>
-                        <button class="botaoTelaInteira" mat-button (click)="removerExercicio(i)">
-                            Remover
-                        </button>
-                    </div>
-                </div>
-            </mat-card-content>
-        </mat-card>
-        <br>
+    [colspan]="3"
+    [rowspan]="1" 
+    class="divFormulario">
         
-        
-        <button mat-button class="botaoTelaInteira" color="primary" (click)="adicionaExercicioFromGroup()">
-            Adicionar Exercício
-        </button>
-        <button mat-button class="botaoTelaInteira" color="primary" (click)="goBack()">
-            Voltar
-        </button>
-        <!--<button mat-button class="botaoTelaInteira" color="primary" (click)="mostraFormConsole()">
-            mostrar console
-        </button>-->
-        <button mat-button class="botaoTelaInteira" color="primary" (click)="subimitFormFicha()">
-            Criar ficha
-        </button>
+        <form class="formulario" [formGroup]="fichaForm" #ficha="ngForm">
 
-    </form>
-</mat-grid-tile>
+            <mat-form-field class="campoTotal">
+                <mat-label>Nome da Ficha</mat-label>
+                <input formControlName="nome" type="text" matInput>
+            </mat-form-field>
+            
+            <br>
+        
+            <mat-form-field class="campoTotal">
+                <mat-label>Descricao</mat-label>
+                <textarea matInput formControlName="descricao" type="text" ></textarea>
+            </mat-form-field>
+            <br>    
+            
+            <div class="tiposTreino">
+                <h2 class="tipoTreino">Tipos Treino</h2>
+                <section [formGroup]="tiposExercicioCheckBox">
+                    <mat-checkbox formControlName="A" (click)="checkBox('A')">A</mat-checkbox>
+                    <mat-checkbox formControlName="B" (click)="checkBox('B')">B</mat-checkbox>
+                    <mat-checkbox formControlName="C" (click)="checkBox('C')">C</mat-checkbox>
+                    <mat-checkbox formControlName="D" (click)="checkBox('D')">D</mat-checkbox>
+                    <mat-checkbox formControlName="E" (click)="checkBox('E')">E</mat-checkbox>
+                </section>
+            </div>
+            
+            <mat-card>
+                <mat-card-content>
+                    <div formArrayName="exercicios">
+                        <div class="row" *ngFor="let exercicio of exercicios.controls; let i = index" [formGroupName]="i">
+                
+                            <mat-form-field class="primeiroCampoExercicio">
+                                <mat-label>Nome de Exercício</mat-label>
+                                <mat-select formControlName="idExercicio">
+                                    <mat-option *ngFor="let exercicio of listaExercicios" [value]="exercicio.id">{{ exercicio.nome }}</mat-option>
+                                </mat-select>
+                                
+                            </mat-form-field>
+                            <br>
+                
+                            <mat-form-field class="campoTelaCheia">
+                                <mat-label>Tipo Treino</mat-label>
+                                <mat-select formControlName="tipoGrupamento">
+                                    <mat-option *ngFor="let tipo of tiposTreino" [value]="tipo">{{ tipo }}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <br>
+                
+                            <mat-form-field class="camposMenores">
+                                <mat-label>Series</mat-label>
+                                <input matInput type="number" formControlName="series">
+                            </mat-form-field>
+                            
+                
+                            <mat-form-field class="camposMenores">
+                                <mat-label>Repetições</mat-label>
+                                <input matInput type="number" formControlName="repeticoes">
+                            </mat-form-field>
+                                
+                            <mat-form-field class="camposMenores">
+                                <mat-label>Minutos</mat-label>
+                                <input matInput type="number" formControlName="tempoIntervaloMinutos">
+                            </mat-form-field>
+                            
+                
+                            <mat-form-field class="camposMenores">
+                                <mat-label>Segundos</mat-label>
+                                <input matInput type="number" formControlName="tempoIntervaloSegundos">
+                            </mat-form-field>
+                            <br>
+                            <button class="botaoTelaInteira" mat-button (click)="removerExercicio(i)">
+                                Remover
+                            </button>
+                        </div>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+            <br>
+            
+            
+            <button mat-button class="botaoTelaInteira" (click)="adicionaExercicioFromGroup()">
+                Adicionar Exercício
+            </button>
+            <button mat-button class="botaoTelaInteira" color="primary" (click)="goBack()">
+                Voltar
+            </button>
+            <button mat-button class="botaoTelaInteira" class="btnSalvar" [disabled]="ficha.form.invalid" (click)="subimitFormFicha()">
+                Criar ficha
+            </button>
+
+        </form>
+    </mat-grid-tile>
 
 </mat-grid-list>

@@ -28,8 +28,8 @@ export class CadastroFichaComponent {
   tiposTreino: string[] = [];
   listaExercicios: IExercicioDTO[] = [];
   tiposExercicioCheckBox = this.formBuilder.group({
-    A: false,
-    B: false,
+    A: true,
+    B: true,
     C: false,
     D: false,
     E: false,
