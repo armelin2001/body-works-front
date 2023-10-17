@@ -89,6 +89,11 @@ export class MenuLateralComponent {
   navegaParaCadastroExercicio() {
     this.router.navigate(['cadastro-exercicio']);
   }
+
+  navegaParaFichaUsuario() {
+    this.router.navigate(['usuario-ficha']);
+  }
+
   toggleSidebar() {
     const sidebarWidth = this.sidebarRef.nativeElement.style.width;
     if (sidebarWidth === '0px' || !sidebarWidth) {

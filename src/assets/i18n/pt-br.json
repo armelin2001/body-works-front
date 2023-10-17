@@ -122,6 +122,7 @@
         "menuListInst": "Listar Instrutores",
         "menuCadastroFicha": "Cadastrar ficha",
         "menuCadastroExercicio": "Cadastrar exercício",
+        "menuFichaUsuario": "Fichas Usuario",
         "menuSair": "Sair"
     },
     "cadastroFicha": {

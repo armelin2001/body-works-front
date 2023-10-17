@@ -42,6 +42,7 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { CadastroFichaComponent } from './features/cadastro-ficha/cadastro-ficha.component';
 import { FichaService } from './shared/http-service/ficha-service/ficha.service';
+import { FichaUsuarioComponent } from './features/ficha-usuario/ficha-usuario.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import { FichaService } from './shared/http-service/ficha-service/ficha.service'
     ListagemUsuarioComponent,
     CardUsuarioComponent,
     CadastroFichaComponent,
+    FichaUsuarioComponent,
   ],
   imports: [
     BrowserModule,

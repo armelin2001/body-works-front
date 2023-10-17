@@ -13,6 +13,7 @@ import { CadastroExercicioComponent } from './features/cadastro-exercicio/cadast
 import { ListagemUsuarioComponent } from './features/listagem-usuario/listagem-usuario.component';
 import { AuthGuard } from './shared/guards/auth.guard';
 import { CadastroFichaComponent } from './features/cadastro-ficha/cadastro-ficha.component';
+import { FichaUsuarioComponent } from './features/ficha-usuario/ficha-usuario.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -27,6 +28,7 @@ const routes: Routes = [
   { path: 'cadastro-exercicio', component: CadastroExercicioComponent, canActivate: [AuthGuard] },
   { path: 'visualiza-usuario', component: ListagemUsuarioComponent, canActivate: [AuthGuard] },
   { path: 'cadastro-ficha-treino', component: CadastroFichaComponent, canActivate: [AuthGuard] },
+  { path: 'usuario-ficha', component: FichaUsuarioComponent, canActivate: [AuthGuard]},
   { path: '', redirectTo: '/login', pathMatch: 'full' },
 ];
 

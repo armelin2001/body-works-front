@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/enviroments/environment';
-import { UsuarioDto } from '../../models/usuario-dto';
+import { UsuarioDto, UsuarioFichaDto } from '../../models/usuario-dto';
 
 @Injectable()
 export class UsuarioService {
@@ -37,5 +37,9 @@ export class UsuarioService {
 
   excluirUsuario(id: string): Observable<any> {
     return this.http.delete(`${this.urlbase}/${id}`);
+  }
+
+  salvarFichaUsuario(fichaUsuario: UsuarioFichaDto): Observable<any> {
+    return this.http.post(`${this.urlbase}/ficha`, fichaUsuario);
   }
 }
