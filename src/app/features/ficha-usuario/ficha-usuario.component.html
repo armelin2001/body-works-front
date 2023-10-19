@@ -1,0 +1,55 @@
+<mat-grid-list cols="4" gutterSize="-20px" rowHeight="100%" class="matGrid">
+    <mat-grid-tile 
+        [rowspan]="1"
+        [colspan]="1"
+    >
+        <div class="menuLateral">
+            <app-menu-lateral>
+            </app-menu-lateral>    
+        </div>
+    </mat-grid-tile>
+    <mat-grid-tile
+        [colspan]="3"
+        [rowspan]="1"
+    >
+        <div class="body">
+            <form [formGroup]="formularioFichaUsuario" #usuarioFicha="ngForm">
+                    <div *ngIf="!carregando">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>{{"usuarioFicha.nomeFicha" | translate}}</mat-label>
+                                <input type="text"
+                                    placeholder="Pick one"
+                                    aria-label="Number"
+                                    matInput
+                                    [formControl]="fichaControl"
+                                    [matAutocomplete]="auto">
+                            <mat-autocomplete #auto="matAutocomplete">
+                                <mat-option *ngFor="let option of opcoesFiltradasFicha | async" [value]="option.nome">
+                                {{option.nome}}
+                                </mat-option>
+                            </mat-autocomplete>
+                        </mat-form-field>
+                    </div>
+                    <div *ngIf="!carregando">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>{{"usuarioFicha.nomeUsuario" | translate}}</mat-label>
+                                <input type="text"
+                                    placeholder="Pick one"
+                                    aria-label="Number"
+                                    matInput
+                                    [formControl]="usuarioControl"
+                                    [matAutocomplete]="auto">
+                            <mat-autocomplete #auto="matAutocomplete">
+                                <mat-option *ngFor="let usuario of opcoesFiltradasUsuario | async" [value]="usuario.nome">
+                                {{usuario.nome}}
+                                </mat-option>
+                            </mat-autocomplete>
+                        </mat-form-field>
+                    </div>
+            </form>
+            
+            <button mat-button class="btnSalvar" [disabled]="usuarioFicha.form.invalid" (click)="salvarFichaUsuario()">{{"usuarioFicha.salvar" | translate}}</button>
+        </div>
+          
+    </mat-grid-tile>
+</mat-grid-list>

@@ -6,7 +6,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './features/login/login.component';
 import { MaterialModule } from 'src/material.module';
 import { LoginService } from './shared/http-service/login-service/login.service';
-import { HTTP_INTERCEPTORS, HttpClientModule, HttpClient } from '@angular/common/http';
+import {
+  HTTP_INTERCEPTORS,
+  HttpClientModule,
+  HttpClient,
+} from '@angular/common/http';
 import { CadastroComponent } from './features/cadastro/cadastro.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UsuarioService } from './shared/http-service/usuario-service/usuario.service';
@@ -35,8 +39,10 @@ import { TokenInterceptor } from './shared/components/interceptors/token-interce
 import { AuthGuard } from './shared/guards/auth.guard';
 import { AuthServiceGuard } from './shared/auth/auth.service';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader'; 
-
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { CadastroFichaComponent } from './features/cadastro-ficha/cadastro-ficha.component';
+import { FichaService } from './shared/http-service/ficha-service/ficha.service';
+import { FichaUsuarioComponent } from './features/ficha-usuario/ficha-usuario.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +62,8 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
     CadastroExercicioComponent,
     ListagemUsuarioComponent,
     CardUsuarioComponent,
+    CadastroFichaComponent,
+    FichaUsuarioComponent,
   ],
   imports: [
     BrowserModule,
@@ -71,9 +79,9 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
       loader: {
         provide: TranslateLoader,
         useFactory: httpTranslateLoader,
-        deps: [HttpClient]
-      }
-    })
+        deps: [HttpClient],
+      },
+    }),
   ],
   providers: [
     LoginService,
@@ -82,6 +90,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
     AuthService,
     EquipamentoService,
     ExercicioService,
+    FichaService,
     AuthServiceGuard,
     AuthGuard,
     provideNgxMask(),
@@ -90,7 +99,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,
       multi: true,
-    }
+    },
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent],

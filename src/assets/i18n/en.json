@@ -34,6 +34,38 @@
         "esqueceuSenha": "Forgot password?",
         "entrar": "To enter"
     },
+    "cadastroEquipamento": {
+        "editarCad": "Edit registration",
+        "nomeEquip": "Equipment name",
+        "errorNomeEquip": "Enter a valid name",
+        "tipoEquip": "Equipment type",
+        "equipCross": "Cross",
+        "equipLivre": "Free",
+        "equipBarra": "Bar",
+        "errorTipo": "Please enter a valid type",
+        "voltar": "Back",
+        "salvar": "Save"
+    },
+    "editarAdm": {
+        "editarCad": "Edit registration",
+        "nomeAdm": "Administrator name",
+        "errorNomeAdm": "Enter a valid name",
+        "dataNascAdm": "Date of birth",
+        "errorDataNascAdm": "Enter a valid date",
+        "generoAdm": "Gender",
+        "masc": "Male",
+        "fem": "Female",
+        "outro": "Other",
+        "errorGeneroAdm": "Please enter a valid gender",
+        "campoCPF": "CPF - Document",
+        "errorCPF": "Enter a valid CPF",
+        "email": "E-mail",
+        "senha": "Password",
+        "errorEmail": "Enter a valid email",
+        "errorSenha": "Enter a valid password",
+        "voltar": "Back",
+        "salvar": "Save"
+    },
     "editarCad": {
         "editarCad": "Edit Registration",
         "nomeCad": "Name",

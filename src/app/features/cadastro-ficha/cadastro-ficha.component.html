@@ -1,0 +1,114 @@
+
+<mat-grid-list cols="4" gutterSize="-20px" rowHeight="100%" class="tela">
+    <mat-grid-tile 
+        [rowspan]="1"
+        [colspan]="1"
+    >
+        <div class="menuLateral">
+            <app-menu-lateral>
+            </app-menu-lateral>    
+        </div>
+    </mat-grid-tile>
+    <mat-grid-tile
+        
+    [colspan]="3"
+    [rowspan]="1" 
+    class="divFormulario">
+        
+        <form class="formulario" [formGroup]="fichaForm" #ficha="ngForm">
+
+            <mat-form-field class="campoTotal">
+                <mat-label>{{"cadastroFicha.nomeFicha" | translate}}</mat-label>
+                <input formControlName="nome" type="text" matInput>
+            </mat-form-field>
+            
+            <br>
+        
+            <mat-form-field class="campoTotal">
+                <mat-label>{{"cadastroFicha.descricaoFicha" | translate}}</mat-label>
+                <textarea matInput formControlName="descricao" type="text" ></textarea>
+            </mat-form-field>
+            <br>    
+            
+            <div class="tiposTreino">
+                <h2 class="tipoTreino">{{"cadastroFicha.tiposTreino" | translate}}</h2>
+                <section [formGroup]="tiposExercicioCheckBox">
+                    <mat-checkbox formControlName="A" (click)="checkBox('A')">A</mat-checkbox>
+                    <mat-checkbox formControlName="B" (click)="checkBox('B')">B</mat-checkbox>
+                    <mat-checkbox formControlName="C" (click)="checkBox('C')">C</mat-checkbox>
+                    <mat-checkbox formControlName="D" (click)="checkBox('D')">D</mat-checkbox>
+                    <mat-checkbox formControlName="E" (click)="checkBox('E')">E</mat-checkbox>
+                </section>
+            </div>
+            
+            <mat-card>
+                <mat-card-content class="card">
+                    <div formArrayName="exercicios">
+                        <div class="row" *ngFor="let exercicio of exercicios.controls; let i = index" [formGroupName]="i">
+                            
+
+                            
+                            <mat-form-field class="primeiroCampoExercicio">
+                                <mat-label>{{"cadastroFicha.nomeExercicio" | translate}}</mat-label>
+                                <mat-select formControlName="idExercicio">
+                                    <mat-option *ngFor="let exercicio of listaExercicios" [value]="exercicio.id">{{ exercicio.nome }}</mat-option>
+                                </mat-select>
+                                
+                            </mat-form-field>
+                            <br>
+                
+                            <mat-form-field class="campoTelaCheia">
+                                <mat-label>{{"cadastroFicha.tipoTreino" | translate}}</mat-label>
+                                <mat-select formControlName="tipoGrupamento">
+                                    <mat-option *ngFor="let tipo of tiposTreino" [value]="tipo">{{ tipo }}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <br>
+                
+                            <mat-form-field class="camposMenores">
+                                <mat-label>{{"cadastroFicha.series" | translate}}</mat-label>
+                                <input matInput type="number" formControlName="series">
+                            </mat-form-field>
+                            
+                
+                            <mat-form-field class="camposMenores">
+                                <mat-label>{{"cadastroFicha.repeticoes" | translate}}</mat-label>
+                                <input matInput type="number" formControlName="repeticoes">
+                            </mat-form-field>
+                                
+                            <mat-form-field class="camposMenores">
+                                <mat-label>{{"cadastroFicha.minutos" | translate}}</mat-label>
+                                <input matInput type="number" formControlName="tempoIntervaloMinutos">
+                            </mat-form-field>
+                            
+                
+                            <mat-form-field class="camposMenores">
+                                <mat-label>{{"cadastroFicha.segundos" | translate}}</mat-label>
+                                <input matInput type="number" formControlName="tempoIntervaloSegundos">
+                            </mat-form-field>
+                            <br>
+                            <button class="botaoTelaInteira" mat-button (click)="removerExercicio(i)">
+                                {{"cadastroFicha.botoes.remover" | translate}}
+                            </button>
+                        
+                        </div>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+            <br>
+            
+            
+            <button mat-button class="botaoTelaInteira" (click)="adicionaExercicioFromGroup()">
+                {{"cadastroFicha.botoes.adicionaExercicio" | translate}}
+            </button>
+            <button mat-button class="botaoTelaInteira" color="primary" (click)="goBack()">
+                {{"cadastroFicha.botoes.voltar" | translate}}
+            </button>
+            <button mat-button class="botaoTelaInteira" class="btnSalvar" [disabled]="ficha.form.invalid" (click)="subimitFormFicha()">
+                {{"cadastroFicha.botoes.criarFicha" | translate}}
+            </button>
+
+        </form>
+    </mat-grid-tile>
+
+</mat-grid-list>

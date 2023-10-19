@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { LoginDto } from '../../models/login-dto';
 import { environment } from 'src/enviroments/environment';
 import { IExercicioDTO } from '../../models/exercicio.dto';
 
@@ -20,9 +19,12 @@ export class ExercicioService {
   }
 
   atualizaExercicioPorId(exercicioAcademia: IExercicioDTO): Observable<any> {
-    return this.http.patch(`${this.urlbase}/${exercicioAcademia.id}`, exercicioAcademia);
+    return this.http.patch(
+      `${this.urlbase}/${exercicioAcademia.id}`,
+      exercicioAcademia
+    );
   }
-  
+
   obterTodosExercicios(): Observable<any> {
     return this.http.get(`${this.urlbase}`);
   }

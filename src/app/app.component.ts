@@ -8,9 +8,8 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class AppComponent {
   title = 'body-works-front';
-  constructor(public translate: TranslateService){
+  constructor(public translate: TranslateService) {
     translate.addLangs(['en', 'pt-br']);
-    translate.setDefaultLang('en');
+    translate.setDefaultLang('pt-br');
   }
 }
-
