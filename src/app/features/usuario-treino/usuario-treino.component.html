@@ -1,0 +1,25 @@
+<mat-grid-list cols="4" gutterSize="-20px" rowHeight="100%" class="tela">
+    <mat-grid-tile 
+        [rowspan]="1"
+        [colspan]="1"
+    >
+        <div class="menuLateral">
+            <app-menu-lateral>
+            </app-menu-lateral>    
+        </div>
+    </mat-grid-tile>
+
+    <mat-grid-tile
+        [colspan]="3"
+        [rowspan]="1">
+
+        <div class="visualizacao">
+            <div class="informacoesTreino"></div>
+            <br>
+            <div class="bataoIniciarTreino"></div>
+            <br>
+            <div class="acessoHistorico"></div>
+        </div>
+    </mat-grid-tile>
+
+</mat-grid-list>

@@ -30,6 +30,11 @@
             </mat-form-field>
             <br>    
             
+            <mat-form-field class="campoTotal">
+                <mat-label>{{"cadastroFicha.quantidadeTreinos" | translate}}</mat-label>
+                <input matInput type="number" formControlName="qtdTreino">
+            </mat-form-field>
+
             <div class="tiposTreino">
                 <h2 class="tipoTreino">{{"cadastroFicha.tiposTreino" | translate}}</h2>
                 <section [formGroup]="tiposExercicioCheckBox">

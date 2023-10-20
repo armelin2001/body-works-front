@@ -135,6 +135,7 @@
         "repeticoes": "Repetições",
         "minutos": "Minutos",
         "segundos": "Segundos",
+        "quantidadeTreinos": "Quantidade de treinos",
         "botoes": {
             "remover": "Remover",
             "adicionaExercicio": "Adicionar Exercício",

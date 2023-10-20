@@ -79,7 +79,7 @@ export class MenuLateralComponent {
   }
 
   navegarParaTreinos() {
-    this.router.navigate(['/treinos']);
+    this.router.navigate(['/treino']);
   }
 
   navegaParaCadastroFichaTreino() {

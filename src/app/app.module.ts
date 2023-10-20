@@ -43,6 +43,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { CadastroFichaComponent } from './features/cadastro-ficha/cadastro-ficha.component';
 import { FichaService } from './shared/http-service/ficha-service/ficha.service';
 import { FichaUsuarioComponent } from './features/ficha-usuario/ficha-usuario.component';
+import { UsuarioTreinoComponent } from './features/usuario-treino/usuario-treino.component';
 
 @NgModule({
   declarations: [
@@ -64,6 +65,7 @@ import { FichaUsuarioComponent } from './features/ficha-usuario/ficha-usuario.co
     CardUsuarioComponent,
     CadastroFichaComponent,
     FichaUsuarioComponent,
+    UsuarioTreinoComponent,
   ],
   imports: [
     BrowserModule,
