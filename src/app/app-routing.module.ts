@@ -15,6 +15,7 @@ import { AuthGuard } from './shared/guards/auth.guard';
 import { CadastroFichaComponent } from './features/cadastro-ficha/cadastro-ficha.component';
 import { FichaUsuarioComponent } from './features/ficha-usuario/ficha-usuario.component';
 import { UsuarioTreinoComponent } from './features/usuario-treino/usuario-treino.component';
+import { UsuarioTreinoCoreComponent } from './features/usuario-treino-core/usuario-treino-core.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -31,6 +32,7 @@ const routes: Routes = [
   { path: 'cadastro-ficha-treino', component: CadastroFichaComponent, canActivate: [AuthGuard] },
   { path: 'usuario-ficha', component: FichaUsuarioComponent, canActivate: [AuthGuard]},
   { path: 'treino', component: UsuarioTreinoComponent, canActivate: [AuthGuard]},
+  { path: 'treino-core/:idFicha/:tipoTreino', component: UsuarioTreinoCoreComponent, canActivate: [AuthGuard]},
   { path: '', redirectTo: '/login', pathMatch: 'full' },
 ];
 

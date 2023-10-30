@@ -11,15 +11,31 @@
 
     <mat-grid-tile
         [colspan]="3"
-        [rowspan]="1">
-
-        <div class="visualizacao">
-            <div class="informacoesTreino"></div>
-            <br>
-            <div class="bataoIniciarTreino"></div>
-            <br>
-            <div class="acessoHistorico"></div>
-        </div>
+        [rowspan]="1"
+        class="visualizacao">
+            <mat-grid-list cols="1" rowHeight="fit" [style.height]="'80%'">
+                <mat-card class="informacoesTreino">
+                    <mat-card-subtitle>{{quntidadeTreinoAtual}}/{{quantidadeTreinoTotal}}</mat-card-subtitle>
+                    <mat-card-header>{{nomeTreino}}</mat-card-header>
+                    <mat-card-subtitle>{{dataAtual}}</mat-card-subtitle>            
+                </mat-card>
+                <mat-card class="informacoesTreino">
+                    <mat-card-subtitle>TREINO</mat-card-subtitle>
+                    <mat-card-subtitle>A</mat-card-subtitle>
+                    <mat-card-actions>
+                        <button mat-button (click)="inciarTreino()" class="botaoTelaInteira" class="btnSalvar">
+                            INICAR
+                        </button>
+                    </mat-card-actions>
+                    
+                </mat-card>
+                
+                <mat-card class="informacoesTreino">
+                    <mat-card-header>HISTORICO COMPLETO</mat-card-header>
+                </mat-card>
+            </mat-grid-list>
+            
+        
     </mat-grid-tile>
 
 </mat-grid-list>

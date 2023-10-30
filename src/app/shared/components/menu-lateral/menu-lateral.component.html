@@ -15,7 +15,7 @@
     </div>
   </div>
   <button mat-button class="sidebar-item" (click)="navigateToEditCadastro()" *ngIf="!adm && !mostraEditInstrutor" > {{"menu.menuEditar" | translate}} </button>
-  <button mat-button class="sidebar-item" (click)="navegarParaTreinos()" *ngIf="!adm && !mostraEditInstrutor" > {{"menu.menuTreino" | translate}}  </button>
+  <button mat-button class="sidebar-item" (click)="navegarParaTreinos()" *ngIf="role === 'USUARIO' " > {{"menu.menuTreino" | translate}}  </button>
   <button mat-button class="sidebar-item" (click)="navegaParaEditAdm()" *ngIf="mostraEditInstrutor" > {{"menu.menuEditar" | translate}} </button>
   <button mat-button class="sidebar-item" (click)="navegarParaCadastroInstrutor()" *ngIf="adm"> {{"menu.menuAddInst" | translate}} </button>
   <button mat-button class="sidebar-item" (click)="navegarParaCadastroEquipamento()" *ngIf="adm"> {{"menu.menuAddEquip" | translate}} </button>

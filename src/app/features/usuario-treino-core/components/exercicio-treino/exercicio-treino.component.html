@@ -1,0 +1,35 @@
+<mat-card-title class="titulo">{{nome}}</mat-card-title>
+<mat-card-subtitle class="sub-titulo">{{nomeEquipamento}}</mat-card-subtitle>
+<mat-card-subtitle class="sub-titulo">{{tipoEquipamento}}</mat-card-subtitle>
+<form [formGroup]="exercicioForm" #exercicioTreino="ngForm">
+    <div formArrayName="linhasExercicio">
+        <div class="listaLinhas" *ngFor="let linhaExercicio of linhasExercicio.controls; let i = index" [formGroupName]="i">
+            
+            <mat-form-field class="form-field">
+                <mat-label>Carga Kg</mat-label>
+                <input matInput type="number" formControlName="carga" readonly="{{exercicioCompleto}}">
+            </mat-form-field>
+            <mat-form-field class="form-field">
+                <mat-label>Repetições</mat-label>
+                <input matInput type="number" formControlName="repeticoes" readonly="{{exercicioCompleto}}">
+            </mat-form-field>
+            
+            <mat-checkbox (click)="startCountdown()"></mat-checkbox>
+        </div>
+    </div>
+    
+</form>
+
+<mat-form-field class="contador">
+    <mat-label>Descanço</mat-label>
+    <input matInput disabled="true" type="text" value="{{ minutes | number: '2.0' }}:{{ seconds | number: '2.0' }}">
+</mat-form-field>
+
+<mat-form-field class="contador">
+    <mat-label>Observação</mat-label>
+    <textarea matInput formControlName="descricao" type="text" [disabled]="true" value="{{observacoes}}"></textarea>
+</mat-form-field>
+
+<button mat-button class="btn-video" (click)="redirecionarVideo()">VIDEO EXEMPLO</button>
+<br>
+<button mat-button class="btn-video" (click)="completarExercicio()" [disabled]="exercicioTreino.form.invalid || desabilitaForm">COMPLETAR ATIVIDADE</button>

@@ -1,0 +1,76 @@
+.tela {
+    width: 100%;
+    height: 100%;
+    background-color: #464042;
+}
+.treino-total{
+    width: 100%;
+    padding-right: 8%;
+}
+.progress-bar{
+    height: 15%;
+}
+.exercicios-treino{
+    width: 100%;
+    height: 100%;
+    overflow-x: auto;
+    background-color: #464042; 
+}
+
+.card {
+    background-color: rgb(48, 48, 48);
+    border-radius: 1.5%;
+    margin-top: 2%;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+.formCore {
+    height: 100%;
+}
+
+.formCoreExercicios {
+    height: 85%;
+}
+.formCoreExerciciosBarra {
+    background-color: #464042;
+    height: 15%;
+}
+.barra-prgresso{
+    padding-top: 2%;
+}
+
+.comentario{
+    margin-top: 3%;
+    margin-left: 3%;
+    width: 95%;
+}
+
+.titulo{
+    width: 100%;
+    text-align: center;
+    margin-top: 1.5%;
+    color: white;
+}
+
+.btn-finalizar{
+    background-color: #eb1d63;
+    margin-top: 3%;
+    width: 90%;
+    margin-left: 5%;
+    margin-bottom: 3%;
+}
+.cronometro {
+    width: 80%;
+    margin-top: 2%;
+    margin-left: 10%;
+    text-align: center;
+    color: white;
+}
+.exercicios-feitos{
+    width: 100%;
+    text-align: center;
+    margin-top: -1%;
+    margin-bottom: -1%;
+    color: white;
+}

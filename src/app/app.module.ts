@@ -44,6 +44,9 @@ import { CadastroFichaComponent } from './features/cadastro-ficha/cadastro-ficha
 import { FichaService } from './shared/http-service/ficha-service/ficha.service';
 import { FichaUsuarioComponent } from './features/ficha-usuario/ficha-usuario.component';
 import { UsuarioTreinoComponent } from './features/usuario-treino/usuario-treino.component';
+import { UsuarioTreinoCoreComponent } from './features/usuario-treino-core/usuario-treino-core.component';
+import { HistoricoTreinoService } from './shared/http-service/historico-treino-service/historico-treino.service';
+import { ExercicioTreinoComponent } from './features/usuario-treino-core/components/exercicio-treino/exercicio-treino.component';
 
 @NgModule({
   declarations: [
@@ -66,6 +69,8 @@ import { UsuarioTreinoComponent } from './features/usuario-treino/usuario-treino
     CadastroFichaComponent,
     FichaUsuarioComponent,
     UsuarioTreinoComponent,
+    UsuarioTreinoCoreComponent,
+    ExercicioTreinoComponent,
   ],
   imports: [
     BrowserModule,
@@ -95,6 +100,7 @@ import { UsuarioTreinoComponent } from './features/usuario-treino/usuario-treino
     FichaService,
     AuthServiceGuard,
     AuthGuard,
+    HistoricoTreinoService,
     provideNgxMask(),
     LocalstorageService,
     {

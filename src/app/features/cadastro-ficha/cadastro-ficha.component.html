@@ -51,8 +51,6 @@
                     <div formArrayName="exercicios">
                         <div class="row" *ngFor="let exercicio of exercicios.controls; let i = index" [formGroupName]="i">
                             
-
-                            
                             <mat-form-field class="primeiroCampoExercicio">
                                 <mat-label>{{"cadastroFicha.nomeExercicio" | translate}}</mat-label>
                                 <mat-select formControlName="idExercicio">
