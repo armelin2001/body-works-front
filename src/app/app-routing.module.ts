@@ -32,7 +32,7 @@ const routes: Routes = [
   { path: 'cadastro-ficha-treino', component: CadastroFichaComponent, canActivate: [AuthGuard] },
   { path: 'usuario-ficha', component: FichaUsuarioComponent, canActivate: [AuthGuard]},
   { path: 'treino', component: UsuarioTreinoComponent, canActivate: [AuthGuard]},
-  { path: 'treino-core/:idFicha/:tipoTreino', component: UsuarioTreinoCoreComponent, canActivate: [AuthGuard]},
+  { path: 'treino-core/:idFicha/:tipoTreino/:qtdTreino', component: UsuarioTreinoCoreComponent, canActivate: [AuthGuard]},
   { path: '', redirectTo: '/login', pathMatch: 'full' },
 ];
 

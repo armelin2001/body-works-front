@@ -27,7 +27,7 @@
                         <textarea formControlName="comentario" matInput type="text"></textarea>
                     </mat-form-field>
                     <button mat-button class="btn-finalizar">CANCELAR TREINO</button>
-                    <button mat-button class="btn-finalizar" [disabled]="!bloqueiaEnvio">FINALIZAR TREINO</button>
+                    <button mat-button class="btn-finalizar" (click)="enviarTreino()" [disabled]="!bloqueiaEnvio">FINALIZAR TREINO</button>
                 </mat-card>
 
             </form>

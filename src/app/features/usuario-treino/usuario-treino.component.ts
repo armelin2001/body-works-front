@@ -18,6 +18,7 @@ export class UsuarioTreinoComponent implements OnInit {
   idFicha: string = '';
   quntidadeTreinoAtual: number = 0;
   quantidadeTreinoTotal: number = 0;
+  qtdTreinoAtual: number = 0;
 
   constructor(
     private localStorage: LocalstorageService,
@@ -44,7 +45,7 @@ export class UsuarioTreinoComponent implements OnInit {
             const ultimoTreino =
               fichasHistoricoOrdenada[fichasHistoricoOrdenada.length - 1];
             this.quntidadeTreinoAtual = ultimoTreino.qtdAtualTreino;
-
+            console.log(ultimoTreino);
             if (!ultimoTreino.tipoAtual) {
               this.tipoTreino = ultimoTreino.ficha.tiposGrupamento[0];
             } else {
@@ -53,6 +54,7 @@ export class UsuarioTreinoComponent implements OnInit {
               );
               const indicieAtualTreino =
                 ultimoTreino.ficha.tiposGrupamento.indexOf(tipoTreinoAtual);
+              this.qtdTreinoAtual = indicieAtualTreino;
               this.tipoTreino =
                 ultimoTreino.ficha.tiposGrupamento[indicieAtualTreino + 1];
             }
@@ -75,6 +77,13 @@ export class UsuarioTreinoComponent implements OnInit {
   }
 
   inciarTreino() {
-    this.router.navigate(['/treino-core/'+this.idFicha + '/' + this.tipoTreino]);
+    this.router.navigate([
+      '/treino-core/' +
+        this.idFicha +
+        '/' +
+        this.tipoTreino +
+        '/' +
+        this.qtdTreinoAtual,
+    ]);
   }
 }

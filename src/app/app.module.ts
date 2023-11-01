@@ -47,6 +47,7 @@ import { UsuarioTreinoComponent } from './features/usuario-treino/usuario-treino
 import { UsuarioTreinoCoreComponent } from './features/usuario-treino-core/usuario-treino-core.component';
 import { HistoricoTreinoService } from './shared/http-service/historico-treino-service/historico-treino.service';
 import { ExercicioTreinoComponent } from './features/usuario-treino-core/components/exercicio-treino/exercicio-treino.component';
+import { TreinoService } from './shared/http-service/treino-service/treino.service';
 
 @NgModule({
   declarations: [
@@ -101,6 +102,7 @@ import { ExercicioTreinoComponent } from './features/usuario-treino-core/compone
     AuthServiceGuard,
     AuthGuard,
     HistoricoTreinoService,
+    TreinoService,
     provideNgxMask(),
     LocalstorageService,
     {
