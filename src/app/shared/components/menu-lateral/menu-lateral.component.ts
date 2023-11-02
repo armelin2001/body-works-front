@@ -94,6 +94,9 @@ export class MenuLateralComponent {
     this.router.navigate(['usuario-ficha']);
   }
 
+  navegaParaFeedBacks() {
+    this.router.navigate(['feedback']);
+  }
   toggleSidebar() {
     const sidebarWidth = this.sidebarRef.nativeElement.style.width;
     if (sidebarWidth === '0px' || !sidebarWidth) {
