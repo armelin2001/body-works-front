@@ -20,7 +20,7 @@ export interface IExercicioDTO{
     tipoExercicio: ExercicioTipo;
     equipamentoNecessario: string;
     nivelDificuldade: ExercicioDificuldade;
-    tempoRecomendado: string;
+    tempoRecomendado: string; // tipagem errada
     videoDemonstrativo: string;
     instrucoesPassoAPasso: string;
     musculosTrabalhados: string;

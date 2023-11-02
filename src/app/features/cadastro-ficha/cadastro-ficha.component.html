@@ -30,6 +30,11 @@
             </mat-form-field>
             <br>    
             
+            <mat-form-field class="campoTotal">
+                <mat-label>{{"cadastroFicha.quantidadeTreinos" | translate}}</mat-label>
+                <input matInput type="number" formControlName="qtdTreino">
+            </mat-form-field>
+
             <div class="tiposTreino">
                 <h2 class="tipoTreino">{{"cadastroFicha.tiposTreino" | translate}}</h2>
                 <section [formGroup]="tiposExercicioCheckBox">
@@ -45,8 +50,6 @@
                 <mat-card-content class="card">
                     <div formArrayName="exercicios">
                         <div class="row" *ngFor="let exercicio of exercicios.controls; let i = index" [formGroupName]="i">
-                            
-
                             
                             <mat-form-field class="primeiroCampoExercicio">
                                 <mat-label>{{"cadastroFicha.nomeExercicio" | translate}}</mat-label>

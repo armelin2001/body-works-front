@@ -1,0 +1,48 @@
+
+<div class="formCore">
+    <div class="formCoreExercicios">
+        <div class="exercicios-treino">            
+            <mat-card class="card" *ngFor="let exercicio of exercicioTreino">
+                <mat-card-content>
+                    <app-exercicio-treino
+                    [exercicio]="exercicio"
+                    [series]="exercicio.series"
+                    [minutes]="exercicio.tempoIntervaloMinutos"
+                    [seconds]="exercicio.tempoIntervaloSegundos"
+                    [observacoes]="exercicio.observacoes"
+                    [nome]="exercicio.nome"
+                    [videoDemonstrativo]="exercicio.videoDemonstrativo"
+                    [idEquipamento]="exercicio.idEquipamento"
+                    (listaExercicios)="recebeExerciciosRealizados($event)"
+                    >
+                    </app-exercicio-treino>
+                </mat-card-content>
+            </mat-card>
+            <form [formGroup]="treinoForm">
+            
+                <mat-card class="card">
+                    <mat-card-title class="titulo">Anotações do Treino</mat-card-title>
+                    <mat-form-field class="comentario">
+                        <mat-label>Observações do treino</mat-label>
+                        <textarea formControlName="comentario" matInput type="text"></textarea>
+                    </mat-form-field>
+                    <button mat-button class="btn-finalizar">CANCELAR TREINO</button>
+                    <button mat-button class="btn-finalizar" (click)="enviarTreino()" [disabled]="!bloqueiaEnvio">FINALIZAR TREINO</button>
+                </mat-card>
+
+            </form>
+        </div>
+    </div>
+
+    <div class="formCoreExerciciosBarra">
+        
+        <mat-form-field class="cronometro">    
+            <mat-label>Tempo total de treino</mat-label>
+            <input matInput disabled="true" type="text" value="{{horas | number: '2.0'}}:{{ minutos | number: '2.0' }}:{{ segundos | number: '2.0' }}">
+        </mat-form-field>
+        <div class="exercicios-feitos">
+            {{exerciciosFeitos}}/{{qtdExercicios}}
+        </div>
+        <mat-progress-bar class="barra-prgresso" mode="determinate" value="{{progressoAtual}}"></mat-progress-bar>
+    </div>
+</div>

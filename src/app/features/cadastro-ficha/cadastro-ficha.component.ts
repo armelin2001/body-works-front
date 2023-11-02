@@ -23,13 +23,13 @@ interface TipoTreino {
   templateUrl: './cadastro-ficha.component.html',
   styleUrls: ['./cadastro-ficha.component.scss'],
 })
-export class CadastroFichaComponent {
+export class CadastroFichaComponent{
   fichaForm: FormGroup;
   tiposTreino: string[] = [];
   listaExercicios: IExercicioDTO[] = [];
   tiposExercicioCheckBox = this.formBuilder.group({
-    A: true,
-    B: true,
+    A: false,
+    B: false,
     C: false,
     D: false,
     E: false,
@@ -62,6 +62,7 @@ export class CadastroFichaComponent {
     });
     this.fichaForm = this.formBuilder.group({
       nome: ['', Validators.required],
+      qtdTreino: ['', Validators.required],
       tipoTreino: this.formBuilder.group(this.tiposExercicioCheckBox),
       descricao: [''],
       exercicios: this.formBuilder.array([this.criaExercicioFormGroup()]),
@@ -91,8 +92,8 @@ export class CadastroFichaComponent {
       idExercicio: new FormControl('', Validators.required),
       series: new FormControl('', Validators.required),
       repeticoes: new FormControl('', Validators.required),
-      tempoIntervaloMinutos: new FormControl('', Validators.required), // adicionar validação
-      tempoIntervaloSegundos: new FormControl('', Validators.required), // adicionar validação
+      tempoIntervaloMinutos: new FormControl('', Validators.required),
+      tempoIntervaloSegundos: new FormControl('', Validators.required), 
       tipoGrupamento: new FormControl('', Validators.required),
     });
   }
@@ -119,23 +120,10 @@ export class CadastroFichaComponent {
     });
     const usuario = this.localStorage.obter('usuario') as any;
     const idInstrutor = String(usuario.id);
-    /*const exercicios: IExercicioFicha[] = [];
-    console.log(formularioValues.exercicios);
-    formularioValues.exercicios.forEach((element: any) => {
-      this.exercicios.push(
-        {
-          idExercicio: element.nome,
-          series: element.series,
-          repeticoes: element.repeticoes,
-          tempoIntervaloMinutos: element.tempoIntervaloMinutos,
-          tempoIntervaloSegundos: element.tempoIntervaloSegundos,
-          tipoGrupamento: element.tipoTreino,
-        }
-      );
-    });*/
     const ficha = {
       idInstrutor: idInstrutor,
       nome: String(formularioValues.nome),
+      qtdTreino: Number(formularioValues.qtdTreino),
       descricao: String(formularioValues.descricao) || '',
       tiposGrupamento: tiposTreinoString,
       exercicios: formularioValues.exercicios,
