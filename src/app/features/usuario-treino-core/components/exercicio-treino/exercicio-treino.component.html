@@ -6,11 +6,11 @@
         <div class="listaLinhas" *ngFor="let linhaExercicio of linhasExercicio.controls; let i = index" [formGroupName]="i">
             
             <mat-form-field class="form-field">
-                <mat-label>Carga Kg</mat-label>
+                <mat-label>{{"treino.carga" | translate}}</mat-label>
                 <input matInput type="number" formControlName="carga" readonly="{{exercicioCompleto}}">
             </mat-form-field>
             <mat-form-field class="form-field">
-                <mat-label>Repetições</mat-label>
+                <mat-label>{{"treino.repiticoes" | translate}}</mat-label>
                 <input matInput type="number" formControlName="repeticoes" readonly="{{exercicioCompleto}}">
             </mat-form-field>
             
@@ -30,6 +30,6 @@
     <textarea matInput formControlName="descricao" type="text" [disabled]="true" value="{{observacoes}}"></textarea>
 </mat-form-field>
 
-<button mat-button class="btn-video" (click)="redirecionarVideo()">VIDEO EXEMPLO</button>
+<button mat-button class="btn-video" (click)="redirecionarVideo()">{{"treino.videoExemplo" | translate}}</button>
 <br>
-<button mat-button class="btn-video" (click)="completarExercicio()" [disabled]="exercicioTreino.form.invalid || desabilitaForm">COMPLETAR ATIVIDADE</button>
+<button mat-button class="btn-video" (click)="completarExercicio()" [disabled]="exercicioTreino.form.invalid || desabilitaForm">{{"treino.completarAtividade" | translate}}</button>

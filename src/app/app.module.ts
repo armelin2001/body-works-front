@@ -49,6 +49,7 @@ import { HistoricoTreinoService } from './shared/http-service/historico-treino-s
 import { ExercicioTreinoComponent } from './features/usuario-treino-core/components/exercicio-treino/exercicio-treino.component';
 import { TreinoService } from './shared/http-service/treino-service/treino.service';
 import { InstrutorFeedbackComponent } from './features/instrutor-feedback/instrutor-feedback.component';
+import { UsuarioHistoricoTreinoComponent } from './features/usuario-historico-treino/usuario-historico-treino.component';
 
 @NgModule({
   declarations: [
@@ -74,6 +75,7 @@ import { InstrutorFeedbackComponent } from './features/instrutor-feedback/instru
     UsuarioTreinoCoreComponent,
     ExercicioTreinoComponent,
     InstrutorFeedbackComponent,
+    UsuarioHistoricoTreinoComponent,
   ],
   imports: [
     BrowserModule,

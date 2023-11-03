@@ -114,7 +114,7 @@
         "menuStatus": "Status da conta:",
         "menuLogAdm": "LOGADO COMO ADMINISTRADOR",
         "menuEditar": "Editar Cadastro",
-        "menuTreino": "Ir para treinos",
+        "menuTreino": "Treinos",
         "menuAddInst": "Novo instrutor",
         "menuAddEquip": "Novo Equipamento",
         "menuListEquip": "Listar Equipamentos",
@@ -124,6 +124,7 @@
         "menuCadastroExercicio": "Cadastrar exercício",
         "menuFichaUsuario": "Usuario Fichas",
         "menuFeedBack": "Feedback",
+        "menuHistorico": "Histórico",
         "menuSair": "Sair"
     },
     "cadastroFicha": {
@@ -154,5 +155,16 @@
         "treino": "Treino",
         "data": "Data",
         "comentario": "comentario"
+    },
+    "treino": {
+        "videoExemplo": "VIDEO EXEMPLO",
+        "completarAtividade": "COMPLETAR ATIVIDADE",
+        "cancelaTreino": "CANCELAR TREINO",
+        "concluirTreino": "CONCLUIR TREINO",
+        "anotacoesTreino": "Anotações do Treino",
+        "observacoesTreino": "Observações do treino",
+        "tempoTotalTreino": "Tempo Total do Treino",
+        "repiticoes": "Repetições",
+        "carga": "Carga (kg)"
     }
 }

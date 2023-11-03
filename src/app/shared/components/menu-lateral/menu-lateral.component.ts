@@ -97,6 +97,11 @@ export class MenuLateralComponent {
   navegaParaFeedBacks() {
     this.router.navigate(['feedback']);
   }
+
+  navegaParaHistoricoTreino() {
+    this.router.navigate(['usuario-historico']);
+  }
+  
   toggleSidebar() {
     const sidebarWidth = this.sidebarRef.nativeElement.style.width;
     if (sidebarWidth === '0px' || !sidebarWidth) {
