@@ -16,7 +16,6 @@ export class UsuarioTreinoComponent implements OnInit {
   nomeTreino: string = '';
   usuarioId: string = '';
   idFicha: string = '';
-  quntidadeTreinoAtual: number = 0;
   quantidadeTreinoTotal: number = 0;
   qtdTreinoAtual: number = 0;
 
@@ -34,6 +33,7 @@ export class UsuarioTreinoComponent implements OnInit {
         .obterHistoricoUsuarioFicha(usuario.id, usuario.idFicha)
         .subscribe(
           (res) => {
+            console.log(res);
             this.nomeTreino = res[0].ficha.nome;
             this.quantidadeTreinoTotal = res[0].ficha.qtdTreino;
             this.idFicha = res[0].ficha.id;
@@ -41,13 +41,25 @@ export class UsuarioTreinoComponent implements OnInit {
             const fichasHistoricoOrdenada = res.sort((x: any) => {
               x.ficha.qtdTreino;
             });
-
+            const ficha = res[0].ficha;
+            const listaGrupos = ficha.tiposGrupamento;
+            const ultimoGrupo = listaGrupos[listaGrupos.length - 1];
+            console.log(ficha);
             const ultimoTreino =
               fichasHistoricoOrdenada[fichasHistoricoOrdenada.length - 1];
-            this.quntidadeTreinoAtual = ultimoTreino.qtdAtualTreino;
-            console.log(ultimoTreino);
+            this.qtdTreinoAtual = ultimoTreino.qtdAtualTreino;
+            //console.log(ultimoTreino);
+            console.log(ultimoTreino.tipoAtual);
+
             if (!ultimoTreino.tipoAtual) {
               this.tipoTreino = ultimoTreino.ficha.tiposGrupamento[0];
+            }
+
+            if (ultimoTreino.tipoAtual === ultimoGrupo) {
+              this.tipoTreino = ultimoTreino.ficha.tiposGrupamento[0];
+              this.qtdTreinoAtual = ultimoTreino.qtdAtualTreino + 1;
+              console.log(this.qtdTreinoAtual);
+              console.log('aqui');
             } else {
               const tipoTreinoAtual = ultimoTreino.ficha.tiposGrupamento.find(
                 (x: any) => x === ultimoTreino.tipoAtual

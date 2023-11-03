@@ -146,6 +146,10 @@ export class UsuarioTreinoCoreComponent implements OnInit {
       series: series,
     });
   }
+  
+  cancelaTreino() {
+    this.router.navigate(['/home-usuario/']);
+  }
 
   enviarTreino() {
     const formExercicio = this.treinoForm.value;
