@@ -123,6 +123,7 @@
         "menuCadastroFicha": "Cadastrar ficha",
         "menuCadastroExercicio": "Cadastrar exercício",
         "menuFichaUsuario": "Usuario Fichas",
+        "menuFeedBack": "Feedback",
         "menuSair": "Sair"
     },
     "cadastroFicha": {
@@ -147,5 +148,11 @@
         "nomeFicha": "Nome da Ficha",
         "nomeUsuario": "Nome do Usuário",
         "salvar": "Salvar"
+    },
+    "tabelaFeedBack": {
+        "aluno": "Aluno",
+        "treino": "Treino",
+        "data": "Data",
+        "comentario": "comentario"
     }
 }

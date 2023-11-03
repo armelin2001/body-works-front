@@ -10,7 +10,7 @@
     <div class="user-name">
         <p>{{"menu.menuInicio" | translate}}<br>{{nomeUsuario}}</p>
         <br>
-        <p *ngIf="!adm" > {{"menu.menuStatus" | translate}} <br>{{statusPagamento}}</p>
+        <p *ngIf="role === 'USUARIO' " > {{"menu.menuStatus" | translate}} <br>{{statusPagamento}}</p>
         <p *ngIf="adm" > {{"menu.menuLogAdm" | translate}} </p>
     </div>
   </div>
@@ -25,6 +25,7 @@
   <button mat-button class="sidebar-item" (click)="navegaParaCadastroExercicio()" *ngIf="role === 'INSTRUTOR' ">{{"menu.menuCadastroExercicio" | translate}}</button>
   <button mat-button class="sidebar-item" (click)="navegaParaFichaUsuario()" *ngIf="role === 'INSTRUTOR' ">{{"menu.menuFichaUsuario" | translate}}</button>
   <button mat-button class="sidebar-item" (click)="navegaParaCadastroFichaTreino()" *ngIf="role === 'INSTRUTOR' ">{{"menu.menuCadastroFicha" | translate}}</button>
+  <button mat-button class="sidebar-item" (click)="navegaParaFeedBacks()" *ngIf="role === 'INSTRUTOR' ">{{"menu.menuFeedBack" | translate}}</button>
   <div class="logout-container">
     <button mat-button class="logout-btn" (click)="logout()"> {{"menu.menuSair" | translate}} </button>
   </div>

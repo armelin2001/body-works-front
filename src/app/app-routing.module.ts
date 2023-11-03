@@ -16,6 +16,7 @@ import { CadastroFichaComponent } from './features/cadastro-ficha/cadastro-ficha
 import { FichaUsuarioComponent } from './features/ficha-usuario/ficha-usuario.component';
 import { UsuarioTreinoComponent } from './features/usuario-treino/usuario-treino.component';
 import { UsuarioTreinoCoreComponent } from './features/usuario-treino-core/usuario-treino-core.component';
+import { InstrutorFeedbackComponent } from './features/instrutor-feedback/instrutor-feedback.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -33,6 +34,7 @@ const routes: Routes = [
   { path: 'usuario-ficha', component: FichaUsuarioComponent, canActivate: [AuthGuard]},
   { path: 'treino', component: UsuarioTreinoComponent, canActivate: [AuthGuard]},
   { path: 'treino-core/:idFicha/:tipoTreino/:qtdTreino', component: UsuarioTreinoCoreComponent, canActivate: [AuthGuard]},
+  { path: 'feedback', component: InstrutorFeedbackComponent, canActivate: [AuthGuard]},
   { path: '', redirectTo: '/login', pathMatch: 'full' },
 ];
 
