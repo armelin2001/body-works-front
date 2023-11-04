@@ -13,6 +13,10 @@ export class TreinoService {
     return this.http.get(`${this.urlbase}/${id}`);
   }
 
+  obterTreinosPorIdUsuario(id: string): Observable<any> {
+    return this.http.get(`${this.urlbase}/usuario/${id}`);
+  }
+
   obterComentariosTreinoUsuario(idUsuario: string): Observable<any> {
     return this.http.get(`${this.urlbase}/usuario/comentarios/${idUsuario}`);
   }

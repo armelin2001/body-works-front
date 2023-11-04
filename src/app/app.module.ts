@@ -50,6 +50,7 @@ import { ExercicioTreinoComponent } from './features/usuario-treino-core/compone
 import { TreinoService } from './shared/http-service/treino-service/treino.service';
 import { InstrutorFeedbackComponent } from './features/instrutor-feedback/instrutor-feedback.component';
 import { UsuarioHistoricoTreinoComponent } from './features/usuario-historico-treino/usuario-historico-treino.component';
+import { HighchartsChartModule } from 'highcharts-angular';
 
 @NgModule({
   declarations: [
@@ -79,6 +80,7 @@ import { UsuarioHistoricoTreinoComponent } from './features/usuario-historico-tr
   ],
   imports: [
     BrowserModule,
+    HighchartsChartModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,

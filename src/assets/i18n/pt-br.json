@@ -166,5 +166,11 @@
         "tempoTotalTreino": "Tempo Total do Treino",
         "repiticoes": "Repetições",
         "carga": "Carga (kg)"
+    },
+    "historico": {
+        "nomeExercicio": "Nome do Exercício",
+        "cargaMaxima": "Carga Máxima (KG)",
+        "totalRepeticoes": "Total de Repetições",
+        "totalSeries": "Total de Séries"
     }
 }
