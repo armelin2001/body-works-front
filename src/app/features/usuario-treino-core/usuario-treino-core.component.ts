@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import * as moment from 'moment';
 import { ExercicioService } from 'src/app/shared/http-service/exercicio-service/exercicio.service';
 import { HistoricoTreinoService } from 'src/app/shared/http-service/historico-treino-service/historico-treino.service';
+import { PresencaService } from 'src/app/shared/http-service/presenca/presenca.service';
 import { TreinoService } from 'src/app/shared/http-service/treino-service/treino.service';
 import { LocalstorageService } from 'src/app/shared/local-storage/localstorage.service';
 import { IExercicioDTO } from 'src/app/shared/models/exercicio.dto';
@@ -14,6 +15,7 @@ import {
   TipoTreino,
 } from 'src/app/shared/models/ficha.dto';
 import { IHistoricoTreino } from 'src/app/shared/models/historico-treino.dto';
+import { IPresencaDTO } from 'src/app/shared/models/presenca.dto';
 import { ExercicioTreinoDto } from 'src/app/shared/models/treino.dto';
 
 @Component({
@@ -41,6 +43,7 @@ export class UsuarioTreinoCoreComponent implements OnInit {
   tipoTreino: TipoTreino = 'A';
   treinoForm: FormGroup;
   qtdTreinoAtual: number = 0;
+  presenca: IPresencaDTO;
 
   constructor(
     private localStorage: LocalstorageService,
@@ -50,8 +53,13 @@ export class UsuarioTreinoCoreComponent implements OnInit {
     private router: Router,
     private historicoTreinoService: HistoricoTreinoService,
     private snack: MatSnackBar,
+    private presencaService: PresencaService,
     private exercicioService: ExercicioService
   ) {
+    this.presenca = {
+      idUsuario: '',
+      dataInicio: moment().format('YYYY-MM-DD:HH:mm:ss').toString(),
+    };
     this.treinoForm = this.formBuilder.group({
       comentario: [''],
     });
@@ -59,10 +67,17 @@ export class UsuarioTreinoCoreComponent implements OnInit {
 
   ngOnInit(): void {
     const ficha = this.localStorage.obter('ficha') as any;
+
+    const usuario = this.localStorage.obter('usuario') as any;
+    const idUsuario = usuario.id;
+    this.presenca.idUsuario = idUsuario;
+    this.presencaService.criarPresenca(this.presenca).subscribe((res) => {
+      this.presenca.id = res.id;
+    });
+
     this.tipoTreino = this.activatedRoute.snapshot.params['tipoTreino'];
     this.qtdTreinoAtual = this.activatedRoute.snapshot.params['qtdTreino'];
     this.exercicioFicha = ficha.exercicios;
-    console.log(ficha);
 
     this.exercicioService.obterTodosExercicios().subscribe((res) => {
       const listaExercicios = res.dados;
@@ -100,12 +115,11 @@ export class UsuarioTreinoCoreComponent implements OnInit {
           this.segundos = 0;
           this.minutos++;
         }
-        
+
         if (this.minutos === 60) {
           this.minutos = 0;
           this.horas++;
         }
-
       }, 1000);
       this.cronometroRodando = true;
     }
@@ -125,7 +139,7 @@ export class UsuarioTreinoCoreComponent implements OnInit {
   recebeExerciciosRealizados(event: any) {
     this.exerciciosFeitos++;
     this.progressoAtual = this.progressoAtual + this.qtdExercicioBarra;
-    
+
     if (this.totalBarraProgresso === this.progressoAtual) {
       this.bloqueiaEnvio = true;
     }
@@ -146,7 +160,7 @@ export class UsuarioTreinoCoreComponent implements OnInit {
       series: series,
     });
   }
-  
+
   cancelaTreino() {
     this.router.navigate(['/home-usuario/']);
   }
@@ -157,7 +171,7 @@ export class UsuarioTreinoCoreComponent implements OnInit {
     const usuario = this.localStorage.obter('usuario') as any;
     const dataAtual = moment().toDate();
     const idUsuario = usuario.id;
-    
+
     const treino = {
       idUsuario: idUsuario,
       idFicha: ficha.id,
@@ -174,27 +188,34 @@ export class UsuarioTreinoCoreComponent implements OnInit {
       idUsuario: usuario.id,
       dataTreino: dataAtual,
     };
-    
-    this.treinoService.criarTreino(treino).subscribe(
-      (res) => {
-        const historicoTreinoEnvio = {
-          ...historicoTreino,
-          idTreino: res.id,
-        };
 
-        this.historicoTreinoService.cadastrarHistorico(historicoTreinoEnvio).subscribe(
-          (res) => {
-        
-            this.snack.open('Treino concluido com sucesso parabens!!!', 'Fechar', {
+    this.treinoService.criarTreino(treino).subscribe((res) => {
+      const historicoTreinoEnvio = {
+        ...historicoTreino,
+        idTreino: res.id,
+      };
+      const dataFim = moment().format('YYYY-MM-DD:HH:mm:ss').toString();
+      this.presenca.dataFim = dataFim;
+      this.presencaService
+        .atualizarPresenca(this.presenca, this.presenca.id || '')
+        .subscribe((res) => {
+          console.log(res);
+        });
+      this.historicoTreinoService
+        .cadastrarHistorico(historicoTreinoEnvio)
+        .subscribe((res) => {
+          this.snack.open(
+            'Treino concluido com sucesso parabens!!!',
+            'Fechar',
+            {
               duration: 3000,
               horizontalPosition: 'center',
               verticalPosition: 'top',
-            });
-        
-            this.router.navigate(['/home-usuario/']);
-          }
-        );
-      }
-    );
+            }
+          );
+
+          this.router.navigate(['/home-usuario/']);
+        });
+    });
   }
 }
