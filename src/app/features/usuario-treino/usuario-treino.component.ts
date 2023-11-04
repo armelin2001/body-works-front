@@ -98,4 +98,8 @@ export class UsuarioTreinoComponent implements OnInit {
         this.qtdTreinoAtual,
     ]);
   }
+
+  historicoUsuario() {
+    this.router.navigate(['/usuario-historico/']);
+  }
 }

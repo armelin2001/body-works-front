@@ -51,6 +51,7 @@ import { TreinoService } from './shared/http-service/treino-service/treino.servi
 import { InstrutorFeedbackComponent } from './features/instrutor-feedback/instrutor-feedback.component';
 import { UsuarioHistoricoTreinoComponent } from './features/usuario-historico-treino/usuario-historico-treino.component';
 import { HighchartsChartModule } from 'highcharts-angular';
+import { PresencaService } from './shared/http-service/presenca/presenca.service';
 
 @NgModule({
   declarations: [
@@ -108,6 +109,7 @@ import { HighchartsChartModule } from 'highcharts-angular';
     AuthServiceGuard,
     AuthGuard,
     HistoricoTreinoService,
+    PresencaService,
     TreinoService,
     provideNgxMask(),
     LocalstorageService,
