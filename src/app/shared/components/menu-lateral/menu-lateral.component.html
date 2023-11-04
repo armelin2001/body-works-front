@@ -4,7 +4,7 @@
   </button>
   <div class="sidebar">
     <div class="logo-container">
-      <img src="/assets/logo-com_nome-sem_fundo.png" alt="Logo" class="logo" />
+      <img src="/assets/logo-sem_nome-sem_fundo.png" alt="Logo" class="logo" />
     </div>
     <div class="user-info">
     <div class="user-name">
@@ -16,6 +16,7 @@
   </div>
   <button mat-button class="sidebar-item" (click)="navigateToEditCadastro()" *ngIf="!adm && !mostraEditInstrutor" > {{"menu.menuEditar" | translate}} </button>
   <button mat-button class="sidebar-item" (click)="navegarParaTreinos()" *ngIf="role === 'USUARIO' " > {{"menu.menuTreino" | translate}}  </button>
+  <button mat-button class="sidebar-item" (click)="navegaParaHistoricoTreino()" *ngIf="role === 'USUARIO' " > {{"menu.menuHistorico" | translate}}  </button>
   <button mat-button class="sidebar-item" (click)="navegaParaEditAdm()" *ngIf="mostraEditInstrutor" > {{"menu.menuEditar" | translate}} </button>
   <button mat-button class="sidebar-item" (click)="navegarParaCadastroInstrutor()" *ngIf="adm"> {{"menu.menuAddInst" | translate}} </button>
   <button mat-button class="sidebar-item" (click)="navegarParaCadastroEquipamento()" *ngIf="adm"> {{"menu.menuAddEquip" | translate}} </button>

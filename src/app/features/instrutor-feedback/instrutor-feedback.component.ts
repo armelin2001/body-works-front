@@ -13,6 +13,14 @@ export interface ComentarioUsuario {
   comentario: string;
 }
 
+const COMENTARIO_DATA: ComentarioUsuario[] = [
+  {
+    dataTreino: '10/10/2021',
+    usuarioNome: 'João',
+    nomeTreino: 'Treino A',
+    comentario: 'Treino muito bom!',
+  },
+];
 @Component({
   selector: 'app-instrutor-feedback',
   templateUrl: './instrutor-feedback.component.html',
@@ -37,6 +45,7 @@ export class InstrutorFeedbackComponent implements AfterViewInit {
     private treinoService: TreinoService
   ) {
     const usuario = this.localStorage.obter('usuario') as any;
+    this.dataSource = new MatTableDataSource(COMENTARIO_DATA);
     this.idInstrutor = String(usuario.id);
     this.treinoService
       .obterComentariosTreinosInstrutor(this.idInstrutor)
@@ -49,10 +58,9 @@ export class InstrutorFeedbackComponent implements AfterViewInit {
             comentario: element.comentario,
           });
         });
+        const users = this.listaComentarios;
+        this.dataSource = new MatTableDataSource(users);
       });
-    const users = this.listaComentarios;
-    this.dataSource = new MatTableDataSource(users);
-    this.dataSource._updateChangeSubscription();
   }
 
   ngAfterViewInit() {

@@ -21,13 +21,13 @@
             <form [formGroup]="treinoForm">
             
                 <mat-card class="card">
-                    <mat-card-title class="titulo">Anotações do Treino</mat-card-title>
+                    <mat-card-title class="titulo">{{"treino.anotacoesTreino" | translate}}</mat-card-title>
                     <mat-form-field class="comentario">
-                        <mat-label>Observações do treino</mat-label>
+                        <mat-label>{{"treino.observacoesTreino" | translate}}</mat-label>
                         <textarea formControlName="comentario" matInput type="text"></textarea>
                     </mat-form-field>
-                    <button mat-button class="btn-finalizar" (click)="cancelaTreino()">CANCELAR TREINO</button>
-                    <button mat-button class="btn-finalizar" (click)="enviarTreino()" [disabled]="!bloqueiaEnvio">FINALIZAR TREINO</button>
+                    <button mat-button class="btn-finalizar" (click)="cancelaTreino()">{{"treino.cancelaTreino" | translate}}</button>
+                    <button mat-button class="btn-finalizar" (click)="enviarTreino()" [disabled]="!bloqueiaEnvio">{{"treino.concluirTreino" | translate}}</button>
                 </mat-card>
 
             </form>
@@ -37,7 +37,7 @@
     <div class="formCoreExerciciosBarra">
         
         <mat-form-field class="cronometro">    
-            <mat-label>Tempo total de treino</mat-label>
+            <mat-label>{{"treino.tempoTotalTreino" | translate}}</mat-label>
             <input matInput disabled="true" type="text" value="{{horas | number: '2.0'}}:{{ minutos | number: '2.0' }}:{{ segundos | number: '2.0' }}">
         </mat-form-field>
         <div class="exercicios-feitos">
