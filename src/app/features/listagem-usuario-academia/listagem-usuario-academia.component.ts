@@ -1,105 +1,125 @@
-import { Component, Input, OnInit, ElementRef, ViewChild } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import {
+  Component,
+  Input,
+  OnInit,
+  ElementRef,
+  ViewChild,
+  AfterViewInit,
+} from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatSort } from '@angular/material/sort';
+import { MatTable, MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
+import * as moment from 'moment';
 import { UsuarioAcademiaService } from 'src/app/shared/http-service/usuario-academia/usuario-academia.service';
-import { LocalstorageService } from 'src/app/shared/local-storage/localstorage.service';
-import { UsuarioAcademiaAdmResumidoDto } from 'src/app/shared/models/usuario-academia.dto';
+export interface UsuarioAcademiaListagem {
+  id: string;
+  nome: string;
+  cpf: string;
+  dataNascimento: string;
+}
+
+const ELEMENT_DATA: UsuarioAcademiaListagem[] = [
+  {
+    id: '',
+    nome: 'instrutor',
+    cpf: '12345678910',
+    dataNascimento: '10/10/2021',
+  },
+];
 
 @Component({
   selector: 'app-listagem-usuario-academia',
   templateUrl: './listagem-usuario-academia.component.html',
   styleUrls: ['./listagem-usuario-academia.component.scss'],
 })
-export class ListagemUsuarioAcademiaComponent implements OnInit {
-  listaInstrutores: UsuarioAcademiaAdmResumidoDto[] = [];
-  id: string = '';
-  adm: boolean = false;
-  mostraEditInstrutor: boolean = false;
-  nomeUsuario: string = '';
-  statusPagamento: string = '';
-  @ViewChild('sidebarRef', { static: false }) sidebarRef!: ElementRef;
+export class ListagemUsuarioAcademiaComponent implements AfterViewInit {
+  listaInstrutores: UsuarioAcademiaListagem[] = [];
+
+  displayedColumns: string[] = ['nome', 'cpf', 'dataNascimento', 'actions'];
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
+  dataSource!: MatTableDataSource<UsuarioAcademiaListagem>;
+  @ViewChild(MatTable) table!: MatTable<UsuarioAcademiaListagem>;
 
   constructor(
     private usuarioAcademiaService: UsuarioAcademiaService,
     private router: Router,
-    private activatedRoute: ActivatedRoute,
-    private localStorage: LocalstorageService
-  ) {}
-
-  ngOnInit(): void {
-    const usuario = this.localStorage.obter('usuario') as any;
-    this.nomeUsuario = String(usuario.nome).split(' ')[0];
-    this.adm = usuario.adm;
-    if(!usuario.perfil){
-      this.mostraEditInstrutor = true;
-    }
-    this.id = usuario.id;
+    private snack: MatSnackBar
+  ) {
+    this.dataSource = new MatTableDataSource(ELEMENT_DATA);
     this.carregarListaInstrutores();
   }
 
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+  }
+
   carregarListaInstrutores() {
+    this.listaInstrutores.slice(0, this.listaInstrutores.length);
+    this.dataSource.data = [];
     this.usuarioAcademiaService
       .obterTodosUsuariosAcademia()
       .subscribe((res) => {
         res.dados.forEach((usuario: any) => {
           if (!usuario.adm) {
-            const usuarioAcademiaResumido: UsuarioAcademiaAdmResumidoDto = {
+            const usuarioAcademiaResumido: UsuarioAcademiaListagem = {
               id: usuario.id,
               nome: usuario.nome,
+              dataNascimento: moment(usuario.dataNascimento).format(
+                'DD/MM/YYYY'
+              ),
               cpf: usuario.cpf,
-              email: usuario.email,
-              adm: usuario.adm,
             };
             this.listaInstrutores.push(usuarioAcademiaResumido);
+            this.dataSource.data = this.listaInstrutores;
+            
           }
         });
       });
   }
 
-  removeItemListagem(event: any) {
-    if (event) {
-      this.listaInstrutores = [];
-      this.carregarListaInstrutores();
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
     }
   }
-  navegaParaEditAdm() {
-    this.router.navigate(['/edit-cadastro-adm/' + this.id + '/' + true]);
+
+  vaiParaEditarInstrutor(row: any) {
+    const id = row.id;
+    this.router.navigate(['/edit-cadastro-adm/' + id + '/' + true]);
   }
 
-  navegarParaCadastroInstrutor() {
-    this.router.navigate(['/edit-cadastro-adm/' + this.id + '/' + false]);
-  }
-
-  navegarParaListagemInstrutores() {
-    this.router.navigate(['/visualiza-instrutores']);
-  }
-
-  navegarParaCadastroEquipamento() {
-    this.router.navigate(['/equipamento-cadastro']);
-  }
-
-  navegarParaListagemEquipamentos() {
-    this.router.navigate(['/visualiza-equipamentos']);
-  }
-
-  navigateToEditCadastro(): void {
-    this.router.navigate(['/edit-cadastro/' + this.id]);
-  }
-
-  navegarParaListagemUsuario() {
-    this.router.navigate(['/visualiza-usuario']);
-  }
-
-  logout() {
-    this.localStorage.remover('usuario');
-    this.router.navigate(['/login']);
-  }
-  
-  toggleSidebar() {
-    const sidebarWidth = this.sidebarRef.nativeElement.style.width;
-    if (sidebarWidth === "0px" || !sidebarWidth) {
-        this.sidebarRef.nativeElement.style.width = "250px";
-    } else {
-        this.sidebarRef.nativeElement.style.width = "0px";
+  deletaInstrutor(row: any) {
+    const idInstrutor = row.id;
+    if (idInstrutor) {
+      this.usuarioAcademiaService.deletaUsuarioAcademia(idInstrutor).subscribe(
+        (res) => {
+          this.snack.open(
+            'Instrutor ' + res.nome + ' removido com sucesso!',
+            'OK',
+            {
+              duration: 3000,
+              horizontalPosition: 'center',
+              verticalPosition: 'top',
+            }
+          );
+          this.carregarListaInstrutores();
+        },
+        (err) => {
+          this.snack.open(err.error.message, 'OK', {
+            duration: 3000,
+            horizontalPosition: 'center',
+            verticalPosition: 'top',
+          });
+        }
+      );
     }
   }
 }
