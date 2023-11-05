@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import * as moment from 'moment';
 import { ExercicioService } from 'src/app/shared/http-service/exercicio-service/exercicio.service';
 import { HistoricoTreinoService } from 'src/app/shared/http-service/historico-treino-service/historico-treino.service';
@@ -53,6 +54,7 @@ export class UsuarioTreinoCoreComponent implements OnInit {
     private router: Router,
     private historicoTreinoService: HistoricoTreinoService,
     private snack: MatSnackBar,
+    private translate: TranslateService,
     private presencaService: PresencaService,
     private exercicioService: ExercicioService
   ) {
@@ -162,7 +164,13 @@ export class UsuarioTreinoCoreComponent implements OnInit {
   }
 
   cancelaTreino() {
-    this.router.navigate(['/home-usuario/']);
+    const dataFim = moment().format('YYYY-MM-DD:HH:mm:ss').toString();
+    this.presenca.dataFim = dataFim;
+    this.presencaService
+      .atualizarPresenca(this.presenca, this.presenca.id || '')
+      .subscribe(() => {
+        this.router.navigate(['/home-usuario/']);
+      });
   }
 
   enviarTreino() {
@@ -205,8 +213,8 @@ export class UsuarioTreinoCoreComponent implements OnInit {
         .cadastrarHistorico(historicoTreinoEnvio)
         .subscribe((res) => {
           this.snack.open(
-            'Treino concluido com sucesso parabens!!!',
-            'Fechar',
+            this.translate.instant('treino.msgSucesso'),
+            this.translate.instant('treino.fechar'),
             {
               duration: 3000,
               horizontalPosition: 'center',

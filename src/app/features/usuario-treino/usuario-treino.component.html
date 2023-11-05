@@ -13,28 +13,28 @@
         [colspan]="3"
         [rowspan]="1"
         class="visualizacao">
-            <mat-grid-list cols="1" rowHeight="fit" [style.height]="'80%'">
+            <mat-grid-list cols="1"  [style.height]="'80%'">
                 <mat-card class="informacoesTreino">
                     <mat-card-subtitle>{{qtdTreinoAtual}}/{{quantidadeTreinoTotal}}</mat-card-subtitle>
                     <mat-card-header>{{nomeTreino}}</mat-card-header>
                     <mat-card-subtitle>{{dataAtual}}</mat-card-subtitle>            
                 </mat-card>
                 <mat-card class="informacoesTreino">
-                    <mat-card-subtitle>TREINO</mat-card-subtitle>
+                    <mat-card-subtitle>{{"usuarioTreino.treino" | translate}}</mat-card-subtitle>
                     <mat-card-subtitle>{{tipoTreino}}</mat-card-subtitle>
                     <mat-card-actions>
                         <button mat-button (click)="inciarTreino()" class="botaoTelaInteira" class="btnSalvar">
-                            INICAR
+                            {{"usuarioTreino.btnIniciarTreino" | translate}}
                         </button>
                     </mat-card-actions>
                     
                 </mat-card>
                 
                 <mat-card class="informacoesTreino">
-                    <mat-card-header>HISTORICO COMPLETO</mat-card-header>
+                    <mat-card-header>{{"usuarioTreino.historicoCompleto" | translate}}</mat-card-header>
                     <mat-card-actions>
                         <button mat-button (click)="historicoUsuario()" class="botaoTelaInteira" class="btnSalvar">
-                            HISTORICO
+                            {{"usuarioTreino.btnHistorico" | translate}}
                         </button>
                     </mat-card-actions>
                 </mat-card>

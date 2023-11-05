@@ -5,10 +5,11 @@ import {
   transition,
   trigger,
 } from '@angular/animations';
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { TranslateService } from '@ngx-translate/core';
 import * as Highcharts from 'highcharts';
 import { ExercicioService } from 'src/app/shared/http-service/exercicio-service/exercicio.service';
 import { TreinoService } from 'src/app/shared/http-service/treino-service/treino.service';
@@ -72,7 +73,6 @@ const DATA_TREINO: TreinoElemento[] = [
       ],
     },
   },
-
 ];
 
 @Component({
@@ -124,6 +124,7 @@ export class UsuarioHistoricoTreinoComponent implements AfterViewInit {
   constructor(
     private exercicioService: ExercicioService,
     private treinoService: TreinoService,
+    private translate: TranslateService,
     private localStorage: LocalstorageService
   ) {
     this.dataSource = new MatTableDataSource(DATA_TREINO);
@@ -180,11 +181,14 @@ export class UsuarioHistoricoTreinoComponent implements AfterViewInit {
           totalSeries,
           chartOptionsCarga: {
             ...this.baseChardOptions,
+            title: {
+              text: this.translate.instant('historico.carga'),
+            },
             series: [
               {
                 type: 'line',
                 color: '#e04679',
-                name: 'Carga KG',
+                name: this.translate.instant('historico.carga'),
                 data: listaCarga,
               },
             ],
@@ -192,13 +196,13 @@ export class UsuarioHistoricoTreinoComponent implements AfterViewInit {
           chartOptionsRepeticoes: {
             ...this.baseChardOptions,
             title: {
-              text: 'Repetições',
+              text: this.translate.instant('historico.repeticoes'),
             },
             series: [
               {
                 type: 'line',
                 color: '#e04679',
-                name: 'Repetições',
+                name: this.translate.instant('historico.repeticoes'),
                 data: listaRepeticoes,
               },
             ],
@@ -217,9 +221,10 @@ export class UsuarioHistoricoTreinoComponent implements AfterViewInit {
           exercicio.nomeExercicio = exercicioFiltradoPorId.nome;
         });
       });
-      this.dataSource.data = exerciciosSemNome; 
+      this.dataSource.data = exerciciosSemNome;
     });
   }
+
   ngAfterViewInit(): void {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
