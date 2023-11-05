@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { LoginDto } from '../../models/login-dto';
-import { environment } from 'src/enviroments/environment';
+import { environment } from 'src/environments/environment';
 import { IEquipamentoDTO } from '../../models/equipamento.dto';
 
 @Injectable()
@@ -19,10 +19,15 @@ export class EquipamentoService {
     return this.http.get(`${this.urlbase}/${id}`);
   }
 
-  atualizaEquipamentoPorId(equipamentoAcademia: IEquipamentoDTO): Observable<any> {
-    return this.http.patch(`${this.urlbase}/${equipamentoAcademia.id}`, equipamentoAcademia);
+  atualizaEquipamentoPorId(
+    equipamentoAcademia: IEquipamentoDTO
+  ): Observable<any> {
+    return this.http.patch(
+      `${this.urlbase}/${equipamentoAcademia.id}`,
+      equipamentoAcademia
+    );
   }
-  
+
   obterTodosEquipamentos(): Observable<any> {
     return this.http.get(`${this.urlbase}`);
   }
