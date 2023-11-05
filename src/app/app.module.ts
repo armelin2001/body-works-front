@@ -23,7 +23,6 @@ import { LocalstorageService } from './shared/local-storage/localstorage.service
 import { EditAdmComponent } from './features/edit-adm/edit-adm.component';
 import { UsuarioAcademiaService } from './shared/http-service/usuario-academia/usuario-academia.service';
 import { ListagemUsuarioAcademiaComponent } from './features/listagem-usuario-academia/listagem-usuario-academia.component';
-import { CardUsuarioAcademiaComponent } from './features/listagem-usuario-academia/components/card-usuario-academia/card-usuario-academia.component';
 import { CadastroEquipamentoComponent } from './features/cadastro-equipamento/cadastro-equipamento.component';
 import { EquipamentoService } from './shared/http-service/equipamento-service/equipamento.service';
 import { MenuLateralComponent } from './shared/components/menu-lateral/menu-lateral.component';
@@ -62,7 +61,6 @@ import { PresencaService } from './shared/http-service/presenca/presenca.service
     HomeUsuarioComponent,
     EditAdmComponent,
     ListagemUsuarioAcademiaComponent,
-    CardUsuarioAcademiaComponent,
     CadastroEquipamentoComponent,
     MenuLateralComponent,
     ListagemEquipamentoComponent,
