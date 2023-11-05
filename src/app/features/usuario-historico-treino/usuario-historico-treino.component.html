@@ -44,17 +44,26 @@
                        [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
                     
                     <highcharts-chart
-                        class="grafico"
                         [Highcharts]="Highcharts"
                         [options]="element.chartOptionsCarga"
                     ></highcharts-chart>
             
+                    
                     <highcharts-chart
                         class="grafico"
                         [Highcharts]="Highcharts"
                         [options]="element.chartOptionsRepeticoes"
                     ></highcharts-chart>
                     
+                  </div>
+                  <div class="example-element-detail"
+                  [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+                    
+                    <highcharts-chart
+                        class="graficoCargaMedia"
+                        [Highcharts]="Highcharts"
+                        [options]="element.chartOptionsCargaMedia"
+                    ></highcharts-chart>
                   </div>
                 </td>
               </ng-container>

@@ -148,18 +148,38 @@ export class UsuarioTreinoCoreComponent implements OnInit {
 
     const carga: number[] = [];
     const repeticoes: number[] = [];
+    const listaCargaTotal: number[] = [];
     const series = event.length;
+    let totalRepeticoes = 0;
+    let totalCarga = 0;
+    let cargaMedia = 0;
 
     event.forEach((element: any) => {
       carga.push(element.carga);
       repeticoes.push(element.repeticoes);
     });
 
+    for (let i = 0; i < series; i++) {
+      listaCargaTotal.push(carga[i] * repeticoes[i]);
+    }
+
+    repeticoes.forEach((repeticao: number) => {
+      totalRepeticoes = totalRepeticoes + repeticao;
+    });
+
+    
+    listaCargaTotal.forEach((carga: number) => {
+      totalCarga = totalCarga + carga;
+    });
+
+    cargaMedia = totalCarga / totalRepeticoes;
+
     this.listaExerciciosConcluidos.push({
       idExercicio: event[0].idExercicio,
       carga: carga,
       repeticoes: repeticoes,
       series: series,
+      cargaMedia: Number(cargaMedia.toFixed(2)),
     });
   }
 

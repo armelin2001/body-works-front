@@ -22,6 +22,7 @@ export interface TreinoElemento {
   totalSeries: number;
   chartOptionsCarga: Highcharts.Options;
   chartOptionsRepeticoes: Highcharts.Options;
+  chartOptionsCargaMedia?: Highcharts.Options;
 }
 const baseChardOptions: Highcharts.Options = {
   chart: {
@@ -113,13 +114,32 @@ export class UsuarioHistoricoTreinoComponent implements AfterViewInit {
     },
     xAxis: {
       tickWidth: 0,
-      lineWidth: 1,
+      lineWidth: 1,      
+      visible: false,
       labels: {
         style: {
-          color: '#6b6969',
+          color: '#ffffff',
         },
       },
+      title: {
+        style: {
+          color: '#ffffff',
+        },
+      }
     },
+    yAxis: {
+      labels: {
+        style: {
+          color: '#ffffff',
+        },
+      },
+      title: {
+        text: 'KG',
+        style: {
+          color: '#ffffff',
+        },
+      },
+    }
   };
   constructor(
     private exercicioService: ExercicioService,
@@ -158,6 +178,7 @@ export class UsuarioHistoricoTreinoComponent implements AfterViewInit {
         );
         const listaCarga: number[] = [];
         const listaRepeticoes: number[] = [];
+        const listaCargaMedia: number[] = [];
         let totalRepeticoes: number = 0;
         let totalSeries: number = 0;
 
@@ -167,13 +188,16 @@ export class UsuarioHistoricoTreinoComponent implements AfterViewInit {
           exercicio.repeticoes.forEach((repeticao: number) =>
             listaRepeticoes.push(repeticao)
           );
+          if(exercicio.cargaMedia){
+            listaCargaMedia.push(exercicio.cargaMedia);
+          }
         });
 
         const cargaMaxima = Math.max(...listaCarga);
         totalRepeticoes = listaRepeticoes.reduce(
           (total, numero) => total + numero
         );
-
+        console.log(listaCargaMedia);
         const exercicio: TreinoElemento = {
           nomeExercicio: idExercicios,
           cargaMaxima,
@@ -183,10 +207,13 @@ export class UsuarioHistoricoTreinoComponent implements AfterViewInit {
             ...this.baseChardOptions,
             title: {
               text: this.translate.instant('historico.carga'),
+              style: {
+                color: '#ffffff',
+              },
             },
             series: [
               {
-                type: 'line',
+                type: 'column',
                 color: '#e04679',
                 name: this.translate.instant('historico.carga'),
                 data: listaCarga,
@@ -197,13 +224,33 @@ export class UsuarioHistoricoTreinoComponent implements AfterViewInit {
             ...this.baseChardOptions,
             title: {
               text: this.translate.instant('historico.repeticoes'),
+              style: {
+                color: '#ffffff',
+              },
             },
             series: [
               {
-                type: 'line',
+                type: 'column',
                 color: '#e04679',
                 name: this.translate.instant('historico.repeticoes'),
                 data: listaRepeticoes,
+              },
+            ],
+          },
+          chartOptionsCargaMedia: {
+            ...this.baseChardOptions,
+            title: {
+              text: this.translate.instant('historico.cargaMedia'),
+              style: {
+                color: '#ffffff',
+              },
+            },
+            series: [
+              {
+                type: 'column',
+                color: '#e04679',
+                name: this.translate.instant('historico.cargaMedia'),
+                data: listaCargaMedia,
               },
             ],
           },
