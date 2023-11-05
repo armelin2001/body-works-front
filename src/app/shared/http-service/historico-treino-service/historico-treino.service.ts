@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { environment } from 'src/enviroments/environment';
+import { environment } from 'src/environments/environment';
 import { IHistoricoTreino } from '../../models/historico-treino.dto';
 
 @Injectable()
@@ -22,7 +22,9 @@ export class HistoricoTreinoService {
     idUsuario: string,
     idFicha: string
   ): Observable<any> {
-    return this.http.get(`${this.urlbase}/usuario-ficha/${idUsuario}/${idFicha}`);
+    return this.http.get(
+      `${this.urlbase}/usuario-ficha/${idUsuario}/${idFicha}`
+    );
   }
 
   cadastrarHistorico(historicoTreino: IHistoricoTreino): Observable<any> {
