@@ -1,0 +1,20 @@
+<div class="container">
+    <app-menu-lateral></app-menu-lateral>
+    <div class="content">
+        <mat-grid-list cols="3">
+            <mat-grid-tile colspan="1" *ngFor="let exercicio of listaExercicios">
+                <app-card-exercicio
+                    [id]="exercicio.id"
+                    [nome]="exercicio.nome"
+                    [tipoExercicio]="exercicio.tipoExercicio"
+                    [equipamentoNecessario]="exercicio.equipamentoNecessario"
+                    [nivelDificuldade]="exercicio.nivelDificuldade"
+                    [videoDemonstrativo]="exercicio.videoDemonstrativo"
+                    [musculosTrabalhados]="exercicio.musculosTrabalhados"
+                    (removido)="removeItemListagem($event)">
+                    
+                </app-card-exercicio>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </div>
+  </div>

@@ -52,6 +52,9 @@ import { InstrutorFeedbackComponent } from './features/instrutor-feedback/instru
 import { UsuarioHistoricoTreinoComponent } from './features/usuario-historico-treino/usuario-historico-treino.component';
 import { HighchartsChartModule } from 'highcharts-angular';
 import { PresencaService } from './shared/http-service/presenca/presenca.service';
+import { EditExercicioComponent } from './features/edit-exercicio/edit-exercicio.component';
+import { ListagemExercicioComponent } from './features/listagem-exercicio/listagem-exercicio.component';
+import { CardExercicioComponent } from './features/listagem-exercicio/componente/card-exercicio/card-exercicio.component';
 
 @NgModule({
   declarations: [
@@ -78,6 +81,9 @@ import { PresencaService } from './shared/http-service/presenca/presenca.service
     ExercicioTreinoComponent,
     InstrutorFeedbackComponent,
     UsuarioHistoricoTreinoComponent,
+    EditExercicioComponent,
+    ListagemExercicioComponent,
+    CardExercicioComponent,
   ],
   imports: [
     BrowserModule,

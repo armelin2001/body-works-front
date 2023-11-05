@@ -1,0 +1,32 @@
+.card {
+    text-align: center;
+    border-radius: 5%;
+    background-color: #ffffff;
+}
+button {
+    border: 2px solid #ddd;
+    margin-left: 2px;
+    background-color: #d4d4d4;
+    color: #000;
+}
+
+.card mat-card-title {
+    color: #000;
+}
+
+.card button {
+    color: #000;
+
+    &:hover {
+        background-color: #EB1D63;
+        color: #cccccc;
+    }
+}
+
+.item {
+    width: 100%;
+}
+
+.teste {
+    display: flex;
+}

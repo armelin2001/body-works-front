@@ -10,9 +10,7 @@ export class UsuarioAcademiaService {
 
   constructor(private http: HttpClient) {}
 
-  cadastrarUsuarioAcademia(
-    usuarioAcademia: UsuarioAcademiaAdmDto
-  ): Observable<any> {
+  cadastrarUsuarioAcademia(usuarioAcademia: UsuarioAcademiaAdmDto): Observable<any> {
     return this.http.post(`${this.urlBase}`, usuarioAcademia);
   }
 

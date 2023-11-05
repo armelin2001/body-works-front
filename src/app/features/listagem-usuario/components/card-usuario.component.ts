@@ -11,7 +11,10 @@ export class CardUsuarioComponent {
   @Input() usuario: any;
   @Output() statusChanged = new EventEmitter<any>();
 
-  constructor(private usuarioService: UsuarioService, private router: Router) {}
+  constructor(
+    private usuarioService: UsuarioService,
+    private router: Router
+    ) {}
 
   atualizarStatusPagamento() {
     this.usuarioService

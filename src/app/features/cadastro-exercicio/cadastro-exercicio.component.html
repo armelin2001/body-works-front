@@ -9,10 +9,6 @@
                 <input formControlName="nome" type="text" matInput placeholder="Nome do Exercício">
             </mat-form-field>
   
-            <mat-form-field>
-                <textarea formControlName="descricao" matInput placeholder="Descrição"></textarea>
-            </mat-form-field>
-  
             <mat-form-field appearance="fill">
                 <mat-label>Tipo de Exercício</mat-label>
                 <mat-select formControlName="tipoExercicio">
@@ -36,25 +32,13 @@
                     <mat-option *ngFor="let nivel of dificuldadesExercicio" [value]="nivel">{{ nivel }}</mat-option>
                 </mat-select>
             </mat-form-field>
-  
-            <mat-form-field>
-                <input formControlName="tempoRecomendado" type="text" matInput placeholder="Tempo Recomendado (ex: 15 minutos)">
-            </mat-form-field>
 
             <mat-form-field>
                 <input formControlName="videoDemonstrativo" type="url" matInput placeholder="Link do Vídeo Demonstrativo">
             </mat-form-field>
   
             <mat-form-field>
-                <textarea formControlName="instrucoesPassoAPasso" matInput placeholder="Instruções Passo a Passo"></textarea>
-            </mat-form-field>
-  
-            <mat-form-field>
                 <input formControlName="musculosTrabalhados" type="text" matInput placeholder="Músculos Trabalhados (ex: Bíceps, Tríceps)">
-            </mat-form-field>
-
-            <mat-form-field>
-                <textarea formControlName="observacoes" matInput placeholder="Observações"></textarea>
             </mat-form-field>
   
             <button mat-button (click)="goBack()">Voltar</button>

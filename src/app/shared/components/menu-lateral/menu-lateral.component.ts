@@ -74,6 +74,10 @@ export class MenuLateralComponent {
     this.router.navigate(['/visualiza-equipamentos']);
   }
 
+  navegarParaListagemExercicios() {
+    this.router.navigate(['/visualiza-exercicios']);
+  }
+
   navegarParaListagemUsuario() {
     this.router.navigate(['/visualiza-usuario']);
   }

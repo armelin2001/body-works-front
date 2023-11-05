@@ -1,16 +1,17 @@
 import { Component, Input, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { EquipamentoService } from 'src/app/shared/http-service/equipamento-service/equipamento.service';
+import { ExercicioService } from 'src/app/shared/http-service/exercicio-service/exercicio.service';
 import { LocalstorageService } from 'src/app/shared/local-storage/localstorage.service';
-import { IEquipamentoDTO } from 'src/app/shared/models/equipamento.dto';
+import { IExercicioDTO } from 'src/app/shared/models/exercicio.dto';
+
 
 @Component({
-  selector: 'app-listagem-equipamento',
-  templateUrl: './listagem-equipamento.component.html',
-  styleUrls: ['./listagem-equipamento.component.scss'],
+  selector: 'app-listagem-exercicio',
+  templateUrl: './listagem-exercicio.component.html',
+  styleUrls: ['./listagem-exercicio.component.scss']
 })
-export class ListagemEquipamentoComponent implements OnInit {
-  listaEquipamentos: IEquipamentoDTO[] = [];
+export class ListagemExercicioComponent {
+  listaExercicios: IExercicioDTO[] = [];
   id: string = '';
   adm: boolean = false;
   nomeUsuario: string = '';
@@ -19,7 +20,7 @@ export class ListagemEquipamentoComponent implements OnInit {
   @ViewChild('sidebarRef', { static: false }) sidebarRef!: ElementRef;
 
   constructor(
-    private equipamentoSerivice: EquipamentoService,
+    private exercicioSerivice: ExercicioService,
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private localStorage: LocalstorageService
@@ -33,19 +34,23 @@ export class ListagemEquipamentoComponent implements OnInit {
       this.mostraEditInstrutor = true;
     }
     this.id = usuario.id;
-    this.carregarListaEquipamentos();
+    this.carregarListaExercicios();
   }
 
-  carregarListaEquipamentos() {
-    this.equipamentoSerivice.obterTodosEquipamentos().subscribe(
+  carregarListaExercicios() {
+    this.exercicioSerivice.obterTodosExercicios().subscribe(
       (res) => {
-        res.dados.forEach((equipamento: any) => {
-          const equipamentoDto: IEquipamentoDTO = {
-            id: equipamento.id,
-            nome: equipamento.nome,
-            tipo: equipamento.tipo,
+        res.dados.forEach((exercicio: any) => {
+          const exercicioDto: IExercicioDTO = {
+            id: exercicio.id,
+            nome: exercicio.nome,
+            tipoExercicio: exercicio.tipoExercicio,
+            equipamentoNecessario: exercicio.equipamentoNecessario,
+            nivelDificuldade: exercicio.nivelDificuldade,
+            videoDemonstrativo: exercicio.videoDemonstrativo,
+            musculosTrabalhados: exercicio.musculosTrabalhados
           };
-          this.listaEquipamentos.push(equipamentoDto);
+          this.listaExercicios.push(exercicioDto);
         });
       },
       (err) => {}
@@ -54,8 +59,8 @@ export class ListagemEquipamentoComponent implements OnInit {
 
   removeItemListagem(event: any) {
     if (event) {
-      this.listaEquipamentos = [];
-      this.carregarListaEquipamentos();
+      this.listaExercicios = [];
+      this.carregarListaExercicios();
     }
   }
 
@@ -77,10 +82,6 @@ export class ListagemEquipamentoComponent implements OnInit {
 
   navegarParaListagemEquipamentos() {
     this.router.navigate(['/visualiza-equipamentos']);
-  }
-
-  navegarParaListagemExercicios() {
-    this.router.navigate(['/visualiza-exercicio']);
   }
   
   navegarParaListagemUsuario() {

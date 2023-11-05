@@ -26,15 +26,11 @@ export class CadastroExercicioComponent implements OnInit{
   ) {
     this.formularioExercicio = this.formBuilder.group({
     nome: ['', [Validators.required]],
-    descricao: ['', [Validators.required]],
     tipoExercicio: ['', [Validators.required]],
     equipamentoNecessario: ['', [Validators.required]],
     nivelDificuldade: ['', [Validators.required]],
-    tempoRecomendado: ['', [Validators.required]],
     videoDemonstrativo: ['', [Validators.required]],
-    instrucoesPassoAPasso: ['', [Validators.required]],
     musculosTrabalhados: ['', [Validators.required]],
-    observacoes: ['', [Validators.required]],
   })}
 
   ngOnInit() {
@@ -86,15 +82,11 @@ export class CadastroExercicioComponent implements OnInit{
     const formularioExercicio = this.formularioExercicio.value;
     const exercicio: IExercicioDTO = {
       nome: formularioExercicio.nome,
-      descricao: formularioExercicio.descricao,
       tipoExercicio: formularioExercicio.tipoExercicio,
       equipamentoNecessario: formularioExercicio.equipamentoNecessario,
       nivelDificuldade: formularioExercicio.nivelDificuldade,
-      tempoRecomendado: formularioExercicio.tempoRecomendado,
-      instrucoesPassoAPasso: formularioExercicio.instrucoes,
-      musculosTrabalhados: formularioExercicio.musculosTrabalhados,
-      observacoes: formularioExercicio.observacoes,
-      videoDemonstrativo: formularioExercicio.videoDemonstrativo
+      videoDemonstrativo: formularioExercicio.videoDemonstrativo,
+      musculosTrabalhados: formularioExercicio.musculosTrabalhados
     }
     return exercicio;
   }

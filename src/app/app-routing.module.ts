@@ -9,6 +9,8 @@ import { ListagemUsuarioAcademiaComponent } from './features/listagem-usuario-ac
 import { CadastroEquipamentoComponent } from './features/cadastro-equipamento/cadastro-equipamento.component';
 import { ListagemEquipamentoComponent } from './features/listagem-equipamento/listagem-equipamento.component';
 import { EditEquipamentoComponent } from './features/edit-equipamento/edit-equipamento.component';
+import { ListagemExercicioComponent } from './features/listagem-exercicio/listagem-exercicio.component';
+import { EditExercicioComponent } from './features/edit-exercicio/edit-exercicio.component';
 import { CadastroExercicioComponent } from './features/cadastro-exercicio/cadastro-exercicio.component';
 import { ListagemUsuarioComponent } from './features/listagem-usuario/listagem-usuario.component';
 import { AuthGuard } from './shared/guards/auth.guard';
@@ -28,7 +30,9 @@ const routes: Routes = [
   { path: 'visualiza-instrutores', component: ListagemUsuarioAcademiaComponent, canActivate: [AuthGuard] },
   { path: 'equipamento-cadastro', component: CadastroEquipamentoComponent, canActivate: [AuthGuard] },
   { path: 'visualiza-equipamentos', component: ListagemEquipamentoComponent, canActivate: [AuthGuard] },
+  { path: 'visualiza-exercicios', component: ListagemExercicioComponent, canActivate: [AuthGuard] },
   { path: 'edita-equipamento/:id', component: EditEquipamentoComponent, canActivate: [AuthGuard] },
+  { path: 'edita-exercicio/:id', component: EditExercicioComponent, canActivate: [AuthGuard] },
   { path: 'cadastro-exercicio', component: CadastroExercicioComponent, canActivate: [AuthGuard] },
   { path: 'visualiza-usuario', component: ListagemUsuarioComponent, canActivate: [AuthGuard] },
   { path: 'cadastro-ficha-treino', component: CadastroFichaComponent, canActivate: [AuthGuard] },
