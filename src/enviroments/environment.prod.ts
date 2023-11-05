@@ -1,4 +1,4 @@
 export const environment = {
     production: true,
-    host: 'http://localhost:3010',
+    host: 'https://body-works-back-15b851e3bab3.herokuapp.com/',
 };
