@@ -9,6 +9,7 @@ export interface TreinoDto {
 
 export interface ExercicioTreinoDto {
     idExercicio: string;
+    cargaMedia?: number;
     series: number;
     repeticoes: number[];
     carga: number[];

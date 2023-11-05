@@ -48,7 +48,7 @@
     },
     "editarAdm": {
         "editarCad": "Editar cadastro",
-        "nomeAdm": "Nome administrador",
+        "nomeAdm": "Nome",
         "errorNomeAdm": "Insira um nome válido",
         "dataNascAdm": "Data de nascimento",
         "errorDataNascAdm": "Insira uma data válida",
@@ -177,7 +177,8 @@
         "totalRepeticoes": "Total de Repetições",
         "totalSeries": "Total de Séries",
         "carga": "Carga (kg)",
-        "repeticoes": "Repetições"
+        "repeticoes": "Repetições",
+        "cargaMedia": "Carga Média (KG)"
     },
     "usuarioTreino": {
         "treino": "TREINO",

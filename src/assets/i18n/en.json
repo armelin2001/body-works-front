@@ -48,7 +48,7 @@
     },
     "editarAdm": {
         "editarCad": "Edit registration",
-        "nomeAdm": "Administrator name",
+        "nomeAdm": "Name",
         "errorNomeAdm": "Enter a valid name",
         "dataNascAdm": "Date of birth",
         "errorDataNascAdm": "Enter a valid date",
