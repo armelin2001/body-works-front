@@ -148,6 +148,7 @@
     "usuarioFicha": {
         "nomeFicha": "Nome da Ficha",
         "nomeUsuario": "Nome do Usuário",
+        "msgUsuarioSemFicha": "Sem ficha cadastrada, favor entrar em contato com instrutor",
         "salvar": "Salvar"
     },
     "tabelaFeedBack": {
@@ -165,12 +166,33 @@
         "observacoesTreino": "Observações do treino",
         "tempoTotalTreino": "Tempo Total do Treino",
         "repiticoes": "Repetições",
-        "carga": "Carga (kg)"
+        "carga": "Carga (kg)",
+        "msgSucesso": "Treino concluído com sucesso!",
+        "fechar": "Fechar"
     },
     "historico": {
+        "filtro": "Filtro",
         "nomeExercicio": "Nome do Exercício",
         "cargaMaxima": "Carga Máxima (KG)",
         "totalRepeticoes": "Total de Repetições",
-        "totalSeries": "Total de Séries"
+        "totalSeries": "Total de Séries",
+        "carga": "Carga (kg)",
+        "repeticoes": "Repetições"
+    },
+    "usuarioTreino": {
+        "treino": "TREINO",
+        "btnIniciarTreino": "Iniciar",
+        "historicoCompleto": "Histórico Completo",
+        "btnHistorico": "Histórico"
+    },
+    "instrutorFeedBack": {
+        "tabela": {
+            "filtro": "Filtro",
+            "dataTreino": "Data Treino",
+            "aluno": "aluno",
+            "treino": "Treino",
+            "comentario": "Comentario",
+            "msgSemDados": "Nada Encontrado para"
+        }
     }
 }

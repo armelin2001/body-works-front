@@ -4,6 +4,7 @@ import { HistoricoTreinoService } from 'src/app/shared/http-service/historico-tr
 import { LocalstorageService } from 'src/app/shared/local-storage/localstorage.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-usuario-treino',
@@ -22,6 +23,7 @@ export class UsuarioTreinoComponent implements OnInit {
   constructor(
     private localStorage: LocalstorageService,
     private snack: MatSnackBar,
+    private translate: TranslateService,
     private router: Router,
     private historicoTreinoService: HistoricoTreinoService
   ) {}
@@ -33,7 +35,6 @@ export class UsuarioTreinoComponent implements OnInit {
         .obterHistoricoUsuarioFicha(usuario.id, usuario.idFicha)
         .subscribe(
           (res) => {
-            console.log(res);
             this.nomeTreino = res[0].ficha.nome;
             this.quantidadeTreinoTotal = res[0].ficha.qtdTreino;
             this.idFicha = res[0].ficha.id;
@@ -47,9 +48,11 @@ export class UsuarioTreinoComponent implements OnInit {
             console.log(ficha);
             const ultimoTreino =
               fichasHistoricoOrdenada[fichasHistoricoOrdenada.length - 1];
-            this.qtdTreinoAtual = ultimoTreino.qtdAtualTreino;
-            //console.log(ultimoTreino);
-            console.log(ultimoTreino.tipoAtual);
+            this.qtdTreinoAtual = res.length - 1;
+            
+            if(this.qtdTreinoAtual === -1){
+              this.qtdTreinoAtual = 0;
+            }
 
             if (!ultimoTreino.tipoAtual) {
               this.tipoTreino = ultimoTreino.ficha.tiposGrupamento[0];
@@ -57,16 +60,14 @@ export class UsuarioTreinoComponent implements OnInit {
 
             if (ultimoTreino.tipoAtual === ultimoGrupo) {
               this.tipoTreino = ultimoTreino.ficha.tiposGrupamento[0];
-              this.qtdTreinoAtual = ultimoTreino.qtdAtualTreino + 1;
-              console.log(this.qtdTreinoAtual);
-              console.log('aqui');
+              
             } else {
               const tipoTreinoAtual = ultimoTreino.ficha.tiposGrupamento.find(
                 (x: any) => x === ultimoTreino.tipoAtual
               );
               const indicieAtualTreino =
                 ultimoTreino.ficha.tiposGrupamento.indexOf(tipoTreinoAtual);
-              this.qtdTreinoAtual = indicieAtualTreino;
+              
               this.tipoTreino =
                 ultimoTreino.ficha.tiposGrupamento[indicieAtualTreino + 1];
             }
@@ -74,7 +75,7 @@ export class UsuarioTreinoComponent implements OnInit {
           },
           (err) => {
             this.snack.open(
-              'Sem ficha cadastrada, favor entrar em contato com instrutor',
+              this.translate.instant('usuarioFicha.msgUsuarioSemFicha'),
               'OK',
               {
                 duration: 3000,
