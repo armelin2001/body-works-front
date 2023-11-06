@@ -20,7 +20,7 @@
             <mat-option value = "Cardiovascular" > <mat-label> {{"editarExerc.cardiovascular" | translate}} </mat-label> </mat-option>
             <mat-option value = "Força" > <mat-label> {{"editarExerc.forca" | translate}} </mat-label> </mat-option>
             <mat-option value = "Flexibilidade" > <mat-label> {{"editarExerc.flexibilidade" | translate}} </mat-label> </mat-option> 
-            </mat-select> 
+          </mat-select>
         </mat-form-field>
 
         <mat-error *ngIf="tipoExercicio.errors && tipoExercicio.touched">
@@ -42,12 +42,10 @@
 
         <mat-form-field>
             <mat-label> {{"editarExerc.nivelDificuldade" | translate}} </mat-label>
-              <mat-select formControlName="nivelDificuldade"> 
-              <mat-option value = "Iniciante" > <mat-label> {{"editarExerc.iniciante" | translate}} </mat-label> </mat-option>
-              <mat-option value = "Intermediario" > <mat-label> {{"editarExerc.intermediario" | translate}} </mat-label> </mat-option>
-              <mat-option value = "Avançado" > <mat-label> {{"editarExerc.avancado" | translate}} </mat-label> </mat-option> 
-              </mat-select> 
-          </mat-form-field>
+            <mat-select formControlName="nivelDificuldade">
+              <mat-option *ngFor="let nivel of dificuldadesExercicio" [value]="nivel">{{ nivel }}</mat-option>
+            </mat-select>
+        </mat-form-field>
   
         <mat-error *ngIf="tipoExercicio.errors && tipoExercicio.touched">
             <mat-label> {{"editarExerc.errorNivelDificuldadeInv" | translate}} </mat-label>

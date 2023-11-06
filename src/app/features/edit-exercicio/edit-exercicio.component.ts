@@ -6,7 +6,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { ExercicioService } from 'src/app/shared/http-service/exercicio-service/exercicio.service';
-import { IExercicioDTO } from 'src/app/shared/models/exercicio.dto';
+import { IExercicioDTO, TIPO_EXERCICIO, NIVEL_DIFICULDADE } from 'src/app/shared/models/exercicio.dto';
 import { Location } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -18,10 +18,12 @@ import { EquipamentoService } from 'src/app/shared/http-service/equipamento-serv
   templateUrl: './edit-exercicio.component.html',
   styleUrls: ['./edit-exercicio.component.scss']
 })
-export class EditExercicioComponent {
+export class EditExercicioComponent implements OnInit{
   formularioExercicio: FormGroup;
   equipamentos: any[] = [];
   id: string = '';
+  tiposExercicio = TIPO_EXERCICIO;
+  dificuldadesExercicio = NIVEL_DIFICULDADE;
 
   constructor(
     private location: Location,
@@ -41,6 +43,7 @@ export class EditExercicioComponent {
       musculosTrabalhados: ['', [Validators.required]],
     });
   }
+
 
   submitFormExercicio() {
     const exercicio = this.getExercicio();

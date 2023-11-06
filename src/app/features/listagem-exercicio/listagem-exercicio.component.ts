@@ -1,108 +1,96 @@
-import { Component, Input, OnInit, ElementRef, ViewChild } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import {
+  Component,
+  Input,
+  OnInit,
+  ElementRef,
+  ViewChild,
+  AfterViewInit,
+} from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatSort } from '@angular/material/sort';
+import { MatTable, MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
+import * as moment from 'moment';
 import { ExercicioService } from 'src/app/shared/http-service/exercicio-service/exercicio.service';
-import { LocalstorageService } from 'src/app/shared/local-storage/localstorage.service';
-import { IExercicioDTO } from 'src/app/shared/models/exercicio.dto';
+export interface ExercicioListagem {
+  id: string;
+  nome: string;
+  tipoExercicio: string;
+  equipamentoNecessario: string;
+  musculosTrabalhados: string;
+}
 
+const ELEMENT_DATA: ExercicioListagem[] = [
+  {
+    id: '',
+    nome: 'Supino',
+    tipoExercicio: 'Força',
+    equipamentoNecessario: 'Banco Supino',
+    musculosTrabalhados: 'Peito',
+  },
+];
 
 @Component({
   selector: 'app-listagem-exercicio',
   templateUrl: './listagem-exercicio.component.html',
   styleUrls: ['./listagem-exercicio.component.scss']
 })
-export class ListagemExercicioComponent {
-  listaExercicios: IExercicioDTO[] = [];
-  id: string = '';
-  adm: boolean = false;
-  nomeUsuario: string = '';
-  mostraEditInstrutor: boolean = false;
-  statusPagamento: string = '';
-  @ViewChild('sidebarRef', { static: false }) sidebarRef!: ElementRef;
+export class ListagemExercicioComponent implements AfterViewInit {
+  listaExercicio: ExercicioListagem[] = [];
+
+  displayedColumns: string[] = ['nome', 'tipoExercicio', 'equipamentoNecessario', 'musculosTrabalhados', 'actions'];
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
+  dataSource!: MatTableDataSource<ExercicioListagem>;
+  @ViewChild(MatTable) table!: MatTable<ExercicioListagem>;
 
   constructor(
     private exercicioSerivice: ExercicioService,
     private router: Router,
-    private activatedRoute: ActivatedRoute,
-    private localStorage: LocalstorageService
-  ) {}
-
-  ngOnInit(): void {
-    const usuario = this.localStorage.obter('usuario') as any;
-    this.nomeUsuario = String(usuario.nome).split(' ')[0];
-    this.adm = usuario.adm;
-    if(!usuario.perfil){
-      this.mostraEditInstrutor = true;
-    }
-    this.id = usuario.id;
+    private snack: MatSnackBar
+  ) {
+    this.dataSource = new MatTableDataSource(ELEMENT_DATA);
     this.carregarListaExercicios();
   }
 
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+  }
+
   carregarListaExercicios() {
-    this.exercicioSerivice.obterTodosExercicios().subscribe(
-      (res) => {
+    this.listaExercicio.slice(0, this.listaExercicio.length);
+    this.dataSource.data = [];
+    this.exercicioSerivice
+      .obterTodosExercicios()
+      .subscribe((res) => {
         res.dados.forEach((exercicio: any) => {
-          const exercicioDto: IExercicioDTO = {
-            id: exercicio.id,
-            nome: exercicio.nome,
-            tipoExercicio: exercicio.tipoExercicio,
-            equipamentoNecessario: exercicio.equipamentoNecessario,
-            nivelDificuldade: exercicio.nivelDificuldade,
-            videoDemonstrativo: exercicio.videoDemonstrativo,
-            musculosTrabalhados: exercicio.musculosTrabalhados
-          };
-          this.listaExercicios.push(exercicioDto);
+            const ExercicioResumido: ExercicioListagem = {
+              id: exercicio.id,
+              nome: exercicio.nome,
+              tipoExercicio: exercicio.tipoExercicio,
+              equipamentoNecessario: exercicio.equipamentoNecessario,
+              musculosTrabalhados: exercicio.musculosTrabalhados
+            };
+            this.listaExercicio.push(ExercicioResumido);
+            this.dataSource.data = this.listaExercicio;
         });
-      },
-      (err) => {}
-    );
+      });
   }
 
-  removeItemListagem(event: any) {
-    if (event) {
-      this.listaExercicios = [];
-      this.carregarListaExercicios();
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
     }
   }
 
-  navegaParaEditAdm() {
-    this.router.navigate(['/edit-cadastro-adm/' + this.id + '/' + true]);
-  }
-
-  navegarParaCadastroInstrutor() {
-    this.router.navigate(['/edit-cadastro-adm/' + this.id + '/' + false]);
-  }
-
-  navegarParaListagemInstrutores() {
-    this.router.navigate(['/visualiza-instrutores']);
-  }
-
-  navegarParaCadastroEquipamento() {
-    this.router.navigate(['/equipamento-cadastro']);
-  }
-
-  navegarParaListagemEquipamentos() {
-    this.router.navigate(['/visualiza-equipamentos']);
-  }
-  
-  navegarParaListagemUsuario() {
-    this.router.navigate(['/visualiza-usuario']);
-  }
-
-  navigateToEditCadastro(): void {
-    this.router.navigate(['/edit-cadastro/' + this.id]);
-  }
-
-  logout() {
-    this.localStorage.remover('usuario');
-    this.router.navigate(['/login']);
-  }
-
-  toggleSidebar() {
-    const sidebarWidth = this.sidebarRef.nativeElement.style.width;
-    if (sidebarWidth === "0px" || !sidebarWidth) {
-        this.sidebarRef.nativeElement.style.width = "250px";
-    } else {
-        this.sidebarRef.nativeElement.style.width = "0px";
-    }
+  vaiParaEditarExercicio(row: any) {
+    const id = row.id;
+    this.router.navigate(['/edita-exercicio/' + id]);
   }
 }
