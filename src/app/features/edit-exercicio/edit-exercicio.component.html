@@ -1,77 +1,72 @@
-<div class="container">
-    <div class="card">
-      <img src="/assets/logo-com_nome-com_fundo.png" alt="Logo" class="logo" />
-      <button class="back-btn" (click)="goBack()">&#x2190;</button>
-      <h1>{{"editarExerc.editarExerc" | translate}}</h1>
-      <form [formGroup]="formularioExercicio" (ngSubmit)="submitFormExercicio()" #exercicio="ngForm">
-  
-        <mat-form-field>
-          <mat-label> {{"editarExerc.nomeExerc" | translate}} </mat-label>
-          <input formControlName="nome" type="text" matInput>
-        </mat-form-field>
-   
-        <mat-error *ngIf="nome.errors && nome.touched">
-          <mat-label> {{"editarExerc.errorNomeCad" | translate}} </mat-label>
-        </mat-error>
-  
-        <mat-form-field>
-          <mat-label> {{"editarExerc.tipoExercicio" | translate}} </mat-label>
-            <mat-select formControlName="tipoExercicio"> 
-            <mat-option value = "Cardiovascular" > <mat-label> {{"editarExerc.cardiovascular" | translate}} </mat-label> </mat-option>
-            <mat-option value = "Força" > <mat-label> {{"editarExerc.forca" | translate}} </mat-label> </mat-option>
-            <mat-option value = "Flexibilidade" > <mat-label> {{"editarExerc.flexibilidade" | translate}} </mat-label> </mat-option> 
-          </mat-select>
-        </mat-form-field>
 
-        <mat-error *ngIf="tipoExercicio.errors && tipoExercicio.touched">
-          <mat-label> {{"editarExerc.errorTipoValido" | translate}} </mat-label>
-        </mat-error>
+<mat-grid-list cols="4" gutterSize="-20px" rowHeight="100%" class="tela">
+  <mat-grid-tile 
+        [rowspan]="1"
+        [colspan]="1"
+    >
+      <div class="menuLateral">
+          <app-menu-lateral>
+          </app-menu-lateral>    
+      </div>
+  </mat-grid-tile>
+  <mat-grid-tile
+    [colspan]="3"
+    [rowspan]="1">
+    <div class="formCore">
+      <div class="formCoreExercicios">
+        <div class="exercicios-treino">
+          <mat-card class="card">
+            <form [formGroup]="formularioExercicio">
+              <mat-card-title class="titulo">Edição exercicio</mat-card-title>
+              <!--<h1 class="titulo"></h1>-->
+              <mat-form-field class="inputForm">
+                <mat-label> nome do Exercicio </mat-label>
+                <input formControlName="nome" type="text" matInput>
+              </mat-form-field>
+    
+              <mat-form-field class="inputForm">
+                <mat-label> Tipo </mat-label>
+                  <mat-select formControlName="tipoExercicio"> 
+                    <mat-option *ngFor="let tipo of tiposExercicio" [value]="tipo">{{ tipo }}</mat-option>
+                  </mat-select>
+              </mat-form-field>
+              
+              <br>
 
-        <mat-form-field appearance="fill" class="full-width">
-            <mat-label> {{"editarExerc.equipamentoNecessario" | translate}} </mat-label>
-            <mat-select formControlName="equipamentoNecessario">
-                <mat-option *ngFor="let equipamento of equipamentos" [value]="equipamento.id">
-                {{ equipamento.nome }}
-                </mat-option>
-            </mat-select>
-        </mat-form-field>
-     
-        <mat-error *ngIf="nome.errors && nome.touched">
-            <mat-label> {{"editarExerc.errorEquipamento" | translate}} </mat-label>
-        </mat-error>
-
-        <mat-form-field>
-            <mat-label> {{"editarExerc.nivelDificuldade" | translate}} </mat-label>
-            <mat-select formControlName="nivelDificuldade">
-              <mat-option *ngFor="let nivel of dificuldadesExercicio" [value]="nivel">{{ nivel }}</mat-option>
-            </mat-select>
-        </mat-form-field>
-  
-        <mat-error *ngIf="tipoExercicio.errors && tipoExercicio.touched">
-            <mat-label> {{"editarExerc.errorNivelDificuldadeInv" | translate}} </mat-label>
-        </mat-error>
-
-        <mat-form-field>
-            <mat-label> {{"editarExerc.videoDemonstrativo" | translate}} </mat-label>
-            <input formControlName="videoDemonstrativo" type="text" matInput>
-          </mat-form-field>
-     
-        <mat-error *ngIf="nome.errors && nome.touched">
-            <mat-label> {{"editarExerc.errorVideoDemonstrativo" | translate}} </mat-label>
-        </mat-error>
-
-        <mat-form-field>
-            <mat-label> {{"editarExerc.musculosTrabalhados" | translate}} </mat-label>
-            <input formControlName="musculosTrabalhados" type="text" matInput>
-          </mat-form-field>
-     
-        <mat-error *ngIf="nome.errors && nome.touched">
-            <mat-label> {{"editarExerc.errormusculosTrabalhados" | translate}} </mat-label>
-        </mat-error>
-
-        <button mat-button (click)="goBack()"> <mat-label> {{"editarEquip.voltar" | translate}} </mat-label> </button>
-        <button mat-button type="submit"> <mat-label> {{"editarEquip.salvar" | translate}} </mat-label> </button>
-      </form>
+              <mat-form-field class="inputForm">
+                <mat-label> Equipamento </mat-label>
+                <mat-select formControlName="equipamentoNecessario">
+                    <mat-option *ngFor="let equipamento of equipamentos" [value]="equipamento.id">
+                    {{ equipamento.nome }}
+                    </mat-option>
+                </mat-select>
+              </mat-form-field>
+              <br>
+              <mat-form-field class="inputForm">
+                <mat-label> Dificuldade </mat-label>
+                <mat-select formControlName="nivelDificuldade">
+                  <mat-option *ngFor="let nivel of dificuldadesExercicio" [value]="nivel">{{ nivel }}</mat-option>
+                </mat-select>
+              </mat-form-field>
+              <br>
+              <mat-form-field class="inputForm">
+                <mat-label> video </mat-label>
+                <input formControlName="videoDemonstrativo" type="text" matInput>
+              </mat-form-field>
+              <br>
+              <mat-form-field class="inputForm">
+                <mat-label> Musculo </mat-label>
+                <input formControlName="musculosTrabalhados" type="text" matInput>
+              </mat-form-field>
+              <br>
+              <button mat-button class="btnForm" (click)="goBack()"> <mat-label> Voltar </mat-label> </button>
+              <br>
+              <button mat-button class="btnForm" type="submit"> <mat-label> Salvar </mat-label> </button>
+              </form>
+          </mat-card>
+          
+        </div>
+      </div>
     </div>
-  </div>
-  
+  </mat-grid-tile>
+</mat-grid-list>
