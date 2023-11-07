@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ExercicioService } from 'src/app/shared/http-service/exercicio-service/exercicio.service';
 import { IExercicioDTO, TIPO_EXERCICIO, NIVEL_DIFICULDADE } from 'src/app/shared/models/exercicio.dto';
-import { Location } from '@angular/common';
 import { Router } from '@angular/router';
 import { EquipamentoService } from 'src/app/shared/http-service/equipamento-service/equipamento.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-cadastro-exercicio',
@@ -19,9 +19,9 @@ export class CadastroExercicioComponent implements OnInit{
 
   constructor(
     private formBuilder: FormBuilder,
-    private location: Location,
     private router: Router,
     private equipamentoService: EquipamentoService,
+    private snack: MatSnackBar,
     private exercicioService: ExercicioService
   ) {
     this.formularioExercicio = this.formBuilder.group({
@@ -46,12 +46,27 @@ export class CadastroExercicioComponent implements OnInit{
       const exercicio: IExercicioDTO = this.formularioExercicio.value;
       this.exercicioService.cadastroExercicio(exercicio).subscribe(
         () => {
-          alert('Exercício cadastrado com sucesso!');
-          this.formularioExercicio.reset();
+          this.snack.open(
+            'Exercicio cadastrado com sucesso!',
+            'OK',
+            {
+              duration: 3000,
+              horizontalPosition: 'center',
+              verticalPosition: 'top',
+            }
+          );
+          this.router.navigate(['/visualiza-exercicios/']);
         },
         error => {
-          console.error("Erro ao cadastrar exercício:", error);
-          alert('Erro ao cadastrar exercício. Por favor, tente novamente.');
+          this.snack.open(
+            'Erro ao cadastrar exercicio!',
+            'OK',
+            {
+              duration: 3000,
+              horizontalPosition: 'center',
+              verticalPosition: 'top',
+            }
+          );
         }
       );
     } else {
