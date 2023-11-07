@@ -13,14 +13,7 @@ export interface ComentarioUsuario {
   comentario: string;
 }
 
-const COMENTARIO_DATA: ComentarioUsuario[] = [
-  {
-    dataTreino: '10/10/2021',
-    usuarioNome: 'João',
-    nomeTreino: 'Treino A',
-    comentario: 'Treino muito bom!',
-  },
-];
+const COMENTARIO_DATA: ComentarioUsuario[] = [];
 @Component({
   selector: 'app-instrutor-feedback',
   templateUrl: './instrutor-feedback.component.html',
