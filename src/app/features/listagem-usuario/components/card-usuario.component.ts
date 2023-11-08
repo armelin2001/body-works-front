@@ -54,7 +54,7 @@ export class CardUsuarioComponent {
     }
     this.usuarioService.excluirUsuario(this.usuario.id).subscribe(
       (res) => {
-        this.router.navigate(['/home-usuario/']);
+        this.router.navigate(['/visualiza-usuario/']);
       },
       (err) => {
         console.error('Erro ao excluir usuário:', err);
