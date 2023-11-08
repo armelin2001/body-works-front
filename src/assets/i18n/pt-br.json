@@ -195,5 +195,6 @@
             "comentario": "Comentario",
             "msgSemDados": "Sem dados de Feedback"
         }
-    }
+    },
+    "barraCancelamentoUsuario": "Status do usuário diferente de Cancelado"
 }
