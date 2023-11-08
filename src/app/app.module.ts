@@ -27,7 +27,6 @@ import { CadastroEquipamentoComponent } from './features/cadastro-equipamento/ca
 import { EquipamentoService } from './shared/http-service/equipamento-service/equipamento.service';
 import { MenuLateralComponent } from './shared/components/menu-lateral/menu-lateral.component';
 import { ListagemEquipamentoComponent } from './features/listagem-equipamento/listagem-equipamento.component';
-import { CardEquipamentoComponent } from './features/listagem-equipamento/componente/card-equipamento/card-equipamento.component';
 import { EditEquipamentoComponent } from './features/edit-equipamento/edit-equipamento.component';
 import { CadastroExercicioComponent } from './features/cadastro-exercicio/cadastro-exercicio.component';
 import { ExercicioService } from './shared/http-service/exercicio-service/exercicio.service';
@@ -53,7 +52,6 @@ import { HighchartsChartModule } from 'highcharts-angular';
 import { PresencaService } from './shared/http-service/presenca/presenca.service';
 import { EditExercicioComponent } from './features/edit-exercicio/edit-exercicio.component';
 import { ListagemExercicioComponent } from './features/listagem-exercicio/listagem-exercicio.component';
-import { CardExercicioComponent } from './features/listagem-exercicio/componente/card-exercicio/card-exercicio.component';
 
 @NgModule({
   declarations: [
@@ -67,7 +65,6 @@ import { CardExercicioComponent } from './features/listagem-exercicio/componente
     CadastroEquipamentoComponent,
     MenuLateralComponent,
     ListagemEquipamentoComponent,
-    CardEquipamentoComponent,
     EditEquipamentoComponent,
     CadastroExercicioComponent,
     ListagemUsuarioComponent,
@@ -81,7 +78,6 @@ import { CardExercicioComponent } from './features/listagem-exercicio/componente
     UsuarioHistoricoTreinoComponent,
     EditExercicioComponent,
     ListagemExercicioComponent,
-    CardExercicioComponent,
   ],
   imports: [
     BrowserModule,
