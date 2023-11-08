@@ -14,6 +14,8 @@
         <p *ngIf="adm" > {{"menu.menuLogAdm" | translate}} </p>
     </div>
   </div>
+  <button mat-button class="sidebar-item" (click)="trocaLinguaEn()"> EN </button>
+  <button mat-button class="sidebar-item" (click)="trocaLinguaPt()"> PT-BR </button>
   <button mat-button class="sidebar-item" (click)="navigateToEditCadastro()" *ngIf="!adm && !mostraEditInstrutor" > {{"menu.menuEditar" | translate}} </button>
   <button mat-button class="sidebar-item" (click)="navegarParaTreinos()" *ngIf="role === 'USUARIO' " > {{"menu.menuTreino" | translate}}  </button>
   <button mat-button class="sidebar-item" (click)="navegaParaHistoricoTreino()" *ngIf="role === 'USUARIO' " > {{"menu.menuHistorico" | translate}}  </button>
@@ -21,6 +23,7 @@
   <button mat-button class="sidebar-item" (click)="navegarParaCadastroInstrutor()" *ngIf="adm"> {{"menu.menuAddInst" | translate}} </button>
   <button mat-button class="sidebar-item" (click)="navegarParaCadastroEquipamento()" *ngIf="adm"> {{"menu.menuAddEquip" | translate}} </button>
   <button mat-button class="sidebar-item" (click)="navegarParaListagemEquipamentos()" *ngIf="adm"> {{"menu.menuListEquip" | translate}} </button>
+  <button mat-button class="sidebar-item" (click)="navegarParaListagemExercicios()" *ngIf="role === 'INSTRUTOR'"> {{"menu.menuListExerc" | translate}} </button>
   <button mat-button class="sidebar-item" (click)="navegarParaListagemUsuario()" *ngIf="adm"> {{"menu.menuListUsu" | translate}} </button>
   <button mat-button class="sidebar-item" (click)="navegarParaListagemInstrutores()" *ngIf="adm"> {{"menu.menuListInst" | translate}} </button>
   <button mat-button class="sidebar-item" (click)="navegaParaCadastroExercicio()" *ngIf="role === 'INSTRUTOR' ">{{"menu.menuCadastroExercicio" | translate}}</button>

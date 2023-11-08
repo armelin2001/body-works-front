@@ -193,7 +193,8 @@
             "aluno": "aluno",
             "treino": "Treino",
             "comentario": "Comentario",
-            "msgSemDados": "Nada Encontrado para"
+            "msgSemDados": "Sem dados de Feedback"
         }
-    }
+    },
+    "barraCancelamentoUsuario": "Status do usuário diferente de Cancelado"
 }

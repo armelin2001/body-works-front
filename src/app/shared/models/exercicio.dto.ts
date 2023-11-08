@@ -16,13 +16,9 @@ export const TIPO_EXERCICIO = [ //ESTE VAI PARA O CAMPO EM HTML
 export interface IExercicioDTO{
     id?: string;
     nome: string;
-    descricao: string;
     tipoExercicio: ExercicioTipo;
     equipamentoNecessario: string;
     nivelDificuldade: ExercicioDificuldade;
-    tempoRecomendado: string; // tipagem errada
     videoDemonstrativo: string;
-    instrucoesPassoAPasso: string;
     musculosTrabalhados: string;
-    observacoes: string;
 }

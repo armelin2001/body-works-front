@@ -23,12 +23,10 @@ import { LocalstorageService } from './shared/local-storage/localstorage.service
 import { EditAdmComponent } from './features/edit-adm/edit-adm.component';
 import { UsuarioAcademiaService } from './shared/http-service/usuario-academia/usuario-academia.service';
 import { ListagemUsuarioAcademiaComponent } from './features/listagem-usuario-academia/listagem-usuario-academia.component';
-import { CardUsuarioAcademiaComponent } from './features/listagem-usuario-academia/components/card-usuario-academia/card-usuario-academia.component';
 import { CadastroEquipamentoComponent } from './features/cadastro-equipamento/cadastro-equipamento.component';
 import { EquipamentoService } from './shared/http-service/equipamento-service/equipamento.service';
 import { MenuLateralComponent } from './shared/components/menu-lateral/menu-lateral.component';
 import { ListagemEquipamentoComponent } from './features/listagem-equipamento/listagem-equipamento.component';
-import { CardEquipamentoComponent } from './features/listagem-equipamento/componente/card-equipamento/card-equipamento.component';
 import { EditEquipamentoComponent } from './features/edit-equipamento/edit-equipamento.component';
 import { CadastroExercicioComponent } from './features/cadastro-exercicio/cadastro-exercicio.component';
 import { ExercicioService } from './shared/http-service/exercicio-service/exercicio.service';
@@ -52,6 +50,8 @@ import { InstrutorFeedbackComponent } from './features/instrutor-feedback/instru
 import { UsuarioHistoricoTreinoComponent } from './features/usuario-historico-treino/usuario-historico-treino.component';
 import { HighchartsChartModule } from 'highcharts-angular';
 import { PresencaService } from './shared/http-service/presenca/presenca.service';
+import { EditExercicioComponent } from './features/edit-exercicio/edit-exercicio.component';
+import { ListagemExercicioComponent } from './features/listagem-exercicio/listagem-exercicio.component';
 
 @NgModule({
   declarations: [
@@ -62,11 +62,9 @@ import { PresencaService } from './shared/http-service/presenca/presenca.service
     HomeUsuarioComponent,
     EditAdmComponent,
     ListagemUsuarioAcademiaComponent,
-    CardUsuarioAcademiaComponent,
     CadastroEquipamentoComponent,
     MenuLateralComponent,
     ListagemEquipamentoComponent,
-    CardEquipamentoComponent,
     EditEquipamentoComponent,
     CadastroExercicioComponent,
     ListagemUsuarioComponent,
@@ -78,6 +76,8 @@ import { PresencaService } from './shared/http-service/presenca/presenca.service
     ExercicioTreinoComponent,
     InstrutorFeedbackComponent,
     UsuarioHistoricoTreinoComponent,
+    EditExercicioComponent,
+    ListagemExercicioComponent,
   ],
   imports: [
     BrowserModule,

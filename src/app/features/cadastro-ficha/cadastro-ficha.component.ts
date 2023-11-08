@@ -47,15 +47,11 @@ export class CadastroFichaComponent{
         const exercicio: IExercicioDTO = {
           id: element.id,
           nome: element.nome,
-          descricao: element.descricao,
           tipoExercicio: element.tipoExercicio,
           equipamentoNecessario: element.equipamentoNecessario,
           nivelDificuldade: element.nivelDificuldade,
-          tempoRecomendado: element.tempoRecomendado,
           videoDemonstrativo: element.videoDemonstrativo,
-          instrucoesPassoAPasso: element.instrucoesPassoAPasso,
           musculosTrabalhados: element.musculosTrabalhados,
-          observacoes: element.observacoes,
         };
         this.listaExercicios.push(exercicio);
       });

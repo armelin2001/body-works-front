@@ -2,8 +2,6 @@
   width: 100%;
   overflow-y: auto;
   background-color: #464042;
-  
-  overflow-y: auto;
 }
 
 .menuLateral {
@@ -20,9 +18,9 @@
 }
 
 .exercicios-treino{
+  width: 100%;
   height: 100%;
   background-color: #464042; 
-  overflow: auto;
 }
 
 
@@ -30,18 +28,17 @@
   background-color: rgb(48, 48, 48);
   border-radius: 1.5%;
   margin-top: 10%;
+  margin-left: 15%;
   margin-right: 15%;
-  
-
+  width: 110%;
+  height: 60%;
 }
 .btnForm{
   margin-left: 10%;
   width: 85%;
-  margin-top: 2%;
-  margin-bottom: 5%;
+  margin-top: 5%;
   background-color: #eb1d63;
 }
-
 .inputForm{
   padding-left: 10%;
   width: 85%;

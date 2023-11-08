@@ -1,103 +1,98 @@
-import { Component, Input, OnInit, ElementRef, ViewChild } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import {
+  Component,
+  Input,
+  OnInit,
+  ElementRef,
+  ViewChild,
+  AfterViewInit,
+} from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatSort } from '@angular/material/sort';
+import { MatTable, MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
+import * as moment from 'moment';
+import {
+  IEquipamentoDTO,
+  EQUIPAMENTO_TIPO
+} from 'src/app/shared/models/equipamento.dto';
 import { EquipamentoService } from 'src/app/shared/http-service/equipamento-service/equipamento.service';
-import { LocalstorageService } from 'src/app/shared/local-storage/localstorage.service';
-import { IEquipamentoDTO } from 'src/app/shared/models/equipamento.dto';
+export interface EquipamentoListagem {
+  id: string;
+  nome: string;
+  tipo: string;
+}
+
+const ELEMENT_DATA: EquipamentoListagem[] = [
+  {
+    id: '',
+    nome: 'Supino',
+    tipo: 'Livre'
+  },
+];
 
 @Component({
   selector: 'app-listagem-equipamento',
   templateUrl: './listagem-equipamento.component.html',
   styleUrls: ['./listagem-equipamento.component.scss'],
 })
-export class ListagemEquipamentoComponent implements OnInit {
-  listaEquipamentos: IEquipamentoDTO[] = [];
-  id: string = '';
-  adm: boolean = false;
-  nomeUsuario: string = '';
-  mostraEditInstrutor: boolean = false;
-  statusPagamento: string = '';
-  @ViewChild('sidebarRef', { static: false }) sidebarRef!: ElementRef;
+export class ListagemEquipamentoComponent{
+  listaEquipamentos: EquipamentoListagem[] = [];
+
+  displayedColumns: string[] = [
+    'nome',
+    'tipo',
+    'actions'
+  ];
+  equipamentos: any[] = [];
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
+  dataSource!: MatTableDataSource<EquipamentoListagem>;
+  @ViewChild(MatTable) table!: MatTable<EquipamentoListagem>;
 
   constructor(
     private equipamentoSerivice: EquipamentoService,
     private router: Router,
-    private activatedRoute: ActivatedRoute,
-    private localStorage: LocalstorageService
-  ) {}
-
-  ngOnInit(): void {
-    const usuario = this.localStorage.obter('usuario') as any;
-    this.nomeUsuario = String(usuario.nome).split(' ')[0];
-    this.adm = usuario.adm;
-    if(!usuario.perfil){
-      this.mostraEditInstrutor = true;
-    }
-    this.id = usuario.id;
+    private snack: MatSnackBar
+  ) {
+    this.dataSource = new MatTableDataSource(ELEMENT_DATA);
     this.carregarListaEquipamentos();
   }
 
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+  }
+
   carregarListaEquipamentos() {
-    this.equipamentoSerivice.obterTodosEquipamentos().subscribe(
-      (res) => {
-        res.dados.forEach((equipamento: any) => {
-          const equipamentoDto: IEquipamentoDTO = {
-            id: equipamento.id,
-            nome: equipamento.nome,
-            tipo: equipamento.tipo,
-          };
-          this.listaEquipamentos.push(equipamentoDto);
+    this.listaEquipamentos.slice(0, this.listaEquipamentos.length);
+    this.dataSource.data = [];
+    this.equipamentoSerivice.obterTodosEquipamentos().subscribe((res) => {
+
+          res.dados.forEach((equipamentos: any) => {
+            const equipamentoResumido: EquipamentoListagem = {
+              id: equipamentos.id,
+              nome: equipamentos.nome,
+              tipo: equipamentos.tipo,
+            };
+            this.listaEquipamentos.push(equipamentoResumido);
+            this.dataSource.data = this.listaEquipamentos;
+          });
         });
-      },
-      (err) => {}
-    );
-  }
-
-  removeItemListagem(event: any) {
-    if (event) {
-      this.listaEquipamentos = [];
-      this.carregarListaEquipamentos();
     }
-  }
 
-  navegaParaEditAdm() {
-    this.router.navigate(['/edit-cadastro-adm/' + this.id + '/' + true]);
-  }
-
-  navegarParaCadastroInstrutor() {
-    this.router.navigate(['/edit-cadastro-adm/' + this.id + '/' + false]);
-  }
-
-  navegarParaListagemInstrutores() {
-    this.router.navigate(['/visualiza-instrutores']);
-  }
-
-  navegarParaCadastroEquipamento() {
-    this.router.navigate(['/equipamento-cadastro']);
-  }
-
-  navegarParaListagemEquipamentos() {
-    this.router.navigate(['/visualiza-equipamentos']);
-  }
+    applyFilter(event: Event) {
+      const filterValue = (event.target as HTMLInputElement).value;
   
-  navegarParaListagemUsuario() {
-    this.router.navigate(['/visualiza-usuario']);
-  }
-
-  navigateToEditCadastro(): void {
-    this.router.navigate(['/edit-cadastro/' + this.id]);
-  }
-
-  logout() {
-    this.localStorage.remover('usuario');
-    this.router.navigate(['/login']);
-  }
-
-  toggleSidebar() {
-    const sidebarWidth = this.sidebarRef.nativeElement.style.width;
-    if (sidebarWidth === "0px" || !sidebarWidth) {
-        this.sidebarRef.nativeElement.style.width = "250px";
-    } else {
-        this.sidebarRef.nativeElement.style.width = "0px";
+      this.dataSource.filter = filterValue.trim().toLowerCase();
+  
+      if (this.dataSource.paginator) {
+        this.dataSource.paginator.firstPage();
+      }
     }
-  }
+
+    vaiParaEditarEquipamentos(row: any) {
+      const id = row.id;
+      this.router.navigate(['/edita-equipamento/' + id]);
+    }
 }

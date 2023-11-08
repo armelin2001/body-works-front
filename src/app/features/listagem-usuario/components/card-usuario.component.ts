@@ -1,5 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { UsuarioService } from 'src/app/shared/http-service/usuario-service/usuario.service'; // Atualize este caminho
 
 @Component({
@@ -11,7 +13,12 @@ export class CardUsuarioComponent {
   @Input() usuario: any;
   @Output() statusChanged = new EventEmitter<any>();
 
-  constructor(private usuarioService: UsuarioService, private router: Router) {}
+  constructor(
+    private snack: MatSnackBar,
+    private usuarioService: UsuarioService,
+    private router: Router,
+    private translateService: TranslateService,
+    ) {}
 
   atualizarStatusPagamento() {
     this.usuarioService
@@ -33,10 +40,21 @@ export class CardUsuarioComponent {
     )}-${cpf.substr(9, 2)}`;
   }
   excluirUsuario() {
-    console.log('aqui');
+    if(this.usuario.statusPagamento !== 'cancelado'){
+      this.snack.open(
+        this.translateService.instant('barraCancelamentoUsuario'),
+        'OK',
+        {
+          duration: 3000,
+          horizontalPosition: 'center',
+          verticalPosition: 'top',
+        }
+      );
+      return;
+    }
     this.usuarioService.excluirUsuario(this.usuario.id).subscribe(
       (res) => {
-        this.router.navigate(['/home-usuario/']);
+        this.router.navigate(['/visualiza-usuario/']);
       },
       (err) => {
         console.error('Erro ao excluir usuário:', err);
