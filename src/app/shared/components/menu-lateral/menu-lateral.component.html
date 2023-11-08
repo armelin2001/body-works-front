@@ -14,6 +14,8 @@
         <p *ngIf="adm" > {{"menu.menuLogAdm" | translate}} </p>
     </div>
   </div>
+  <button mat-button class="sidebar-item" (click)="trocaLinguaEn()"> EN </button>
+  <button mat-button class="sidebar-item" (click)="trocaLinguaPt()"> PT-BR </button>
   <button mat-button class="sidebar-item" (click)="navigateToEditCadastro()" *ngIf="!adm && !mostraEditInstrutor" > {{"menu.menuEditar" | translate}} </button>
   <button mat-button class="sidebar-item" (click)="navegarParaTreinos()" *ngIf="role === 'USUARIO' " > {{"menu.menuTreino" | translate}}  </button>
   <button mat-button class="sidebar-item" (click)="navegaParaHistoricoTreino()" *ngIf="role === 'USUARIO' " > {{"menu.menuHistorico" | translate}}  </button>

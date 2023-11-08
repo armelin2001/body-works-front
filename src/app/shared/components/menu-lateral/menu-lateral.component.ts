@@ -1,6 +1,7 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { LocalstorageService } from '../../local-storage/localstorage.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-menu-lateral',
@@ -19,7 +20,8 @@ export class MenuLateralComponent {
 
   constructor(
     private router: Router,
-    private localStorage: LocalstorageService
+    private localStorage: LocalstorageService,
+    private translateService: TranslateService,
   ) {}
 
   ngOnInit() {
@@ -114,4 +116,15 @@ export class MenuLateralComponent {
       this.sidebarRef.nativeElement.style.width = '0px';
     }
   }
+
+  trocaLinguaEn() {
+    console.log(this.translateService.currentLang)
+    this.translateService.use('en');
+  }
+
+  trocaLinguaPt() {
+    console.log(this.translateService.currentLang)
+    this.translateService.use('pt-br');
+  }
+
 }
