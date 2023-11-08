@@ -50,7 +50,7 @@ export class EditExercicioComponent implements OnInit {
     const exercicio = this.getExercicio();
     this.exercicioService.atualizaExercicioPorId(exercicio).subscribe(
       (res) => {
-        this.router.navigate(['/visualiza-exercicio']);
+        this.router.navigate(['/visualiza-exercicios']);
       },
       (err) => {}
     );
@@ -84,7 +84,7 @@ export class EditExercicioComponent implements OnInit {
   }
 
   goBack() {
-    this.router.navigate(['/home-usuario/']);
+    this.router.navigate(['/visualiza-exercicios/']);
   }
 
   get nome(): FormControl {
