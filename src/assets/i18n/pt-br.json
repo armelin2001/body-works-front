@@ -52,7 +52,6 @@
         "barraCadErro": "Erro ao cadastrar exercicio!",
         "alertCadExercicio": "Por favor, preencha todos os campos corretamente."
     },
-
     "cadastroFicha": {
         "nomeFicha": "Nome da Ficha",
         "descricaoFicha": "Descrição da Ficha",
@@ -70,16 +69,6 @@
             "criarFicha": "Criar Ficha",
             "voltar": "Voltar"
         }
-    },
-
-    "login": {
-        "boasVindas": "Seja bem-vindo!",
-	    "crieConta": "Ainda não tem conta?",
-        "cadastrar": "Cadastre-se",
-        "email": "E-mail",
-        "senha": "Senha",
-        "esqueceuSenha": "Esqueceu a senha?",
-        "entrar": "Entrar"
     },
     "editarAdm": {
         "editarCad": "Editar cadastro",
@@ -100,6 +89,22 @@
         "errorSenha": "Insira uma senha válida",
         "voltar": "Voltar",
         "salvar": "Salvar"
+    },
+    "tsEditAdm": {
+        "barraEditSucesso" : "Edição feita com sucesso!",
+        "barraCadInstSucesso" : "Instrutor cadastrado com sucesso!"
+    },
+
+
+
+    "login": {
+        "boasVindas": "Seja bem-vindo!",
+	    "crieConta": "Ainda não tem conta?",
+        "cadastrar": "Cadastre-se",
+        "email": "E-mail",
+        "senha": "Senha",
+        "esqueceuSenha": "Esqueceu a senha?",
+        "entrar": "Entrar"
     },
     "editarCad": {
         "editarCad": "Editar Cadastro",

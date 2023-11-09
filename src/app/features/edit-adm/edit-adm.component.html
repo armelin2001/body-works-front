@@ -2,9 +2,6 @@
     <div class="card">
       <img src="/assets/logo-com_nome-com_fundo.png" alt="Logo" class="logo" />
       <button class="back-btn" (click)="goBack()">&#x2190;</button>
-      <h1>
-        <mat-label> {{"editarAdm.editarCad" | translate}} </mat-label>
-      </h1>
       <form [formGroup]="formularioUsuario" (ngSubmit)="submitFormUsuario()" #usuario="ngForm">
   
         <mat-form-field>

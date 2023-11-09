@@ -70,16 +70,6 @@
             "voltar": "Back"
         }
     },
-
-    "login": {
-        "boasVindas": "Welcome!",
-	    "crieConta": "Don't have an account yet?",
-        "cadastrar": "Register",
-        "email": "E-mail",
-        "senha": "Password",
-        "esqueceuSenha": "Forgot password?",
-        "entrar": "To enter"
-    },
     "editarAdm": {
         "editarCad": "Edit registration",
         "nomeAdm": "Name",
@@ -99,6 +89,20 @@
         "errorSenha": "Enter a valid password",
         "voltar": "Back",
         "salvar": "Save"
+    },
+    "tsEditAdm": {
+        "barraEditSucesso" : "Editing done successfully!",
+        "barraCadInstSucesso" : "Instructor successfully registered!"
+    },
+
+    "login": {
+        "boasVindas": "Welcome!",
+	    "crieConta": "Don't have an account yet?",
+        "cadastrar": "Register",
+        "email": "E-mail",
+        "senha": "Password",
+        "esqueceuSenha": "Forgot password?",
+        "entrar": "To enter"
     },
     "editarCad": {
         "editarCad": "Edit Registration",
