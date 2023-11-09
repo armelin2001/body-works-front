@@ -52,6 +52,24 @@
         "barraCadErro": "Error registering exercise!",
         "alertCadExercicio": "Please fill in all fields correctly."
     },
+    "cadastroFicha": {
+        "nomeFicha": "Name of the Training Sheet",
+        "descricaoFicha": "Description of the Training Sheet",
+        "quantidadeTreinos": "Number of workouts",
+        "tiposTreino": "Types of Training",
+        "nomeExercicio": "Exercise Name",
+        "tipoTreino": "Type of Training",
+        "series": "Series",
+        "repeticoes": "Reps",
+        "minutos": "Minutes",
+        "segundos": "Seconds",
+        "botoes": {
+            "remover": "To remove",
+            "adicionaExercicio": "Add Exercise",
+            "criarFicha": "Create Training Sheet",
+            "voltar": "Back"
+        }
+    },
 
     "login": {
         "boasVindas": "Welcome!",

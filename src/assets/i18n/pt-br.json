@@ -53,6 +53,25 @@
         "alertCadExercicio": "Por favor, preencha todos os campos corretamente."
     },
 
+    "cadastroFicha": {
+        "nomeFicha": "Nome da Ficha",
+        "descricaoFicha": "Descrição da Ficha",
+        "quantidadeTreinos": "Quantidade de treinos",
+        "tiposTreino": "Tipos de Treino",
+        "nomeExercicio": "Nome do Exercício",
+        "tipoTreino": "Tipo de Treino",
+        "series": "Séries",
+        "repeticoes": "Repetições",
+        "minutos": "Minutos",
+        "segundos": "Segundos",
+        "botoes": {
+            "remover": "Remover",
+            "adicionaExercicio": "Adicionar Exercício",
+            "criarFicha": "Criar Ficha",
+            "voltar": "Voltar"
+        }
+    },
+
     "login": {
         "boasVindas": "Seja bem-vindo!",
 	    "crieConta": "Ainda não tem conta?",
@@ -142,24 +161,6 @@
         "menuFeedBack": "Feedback",
         "menuHistorico": "Histórico",
         "menuSair": "Sair"
-    },
-    "cadastroFicha": {
-        "nomeFicha": "Nome da Ficha",
-        "descricaoFicha": "Descrição da Ficha",
-        "tiposTreino": "Tipos de Treino",
-        "nomeExercicio": "Nome do Exercício",
-        "tipoTreino": "Tipo de Treino",
-        "series": "Séries",
-        "repeticoes": "Repetições",
-        "minutos": "Minutos",
-        "segundos": "Segundos",
-        "quantidadeTreinos": "Quantidade de treinos",
-        "botoes": {
-            "remover": "Remover",
-            "adicionaExercicio": "Adicionar Exercício",
-            "voltar": "Voltar",
-            "criarFicha": "Criar Ficha"
-        }
     },
     "usuarioFicha": {
         "nomeFicha": "Nome da Ficha",
