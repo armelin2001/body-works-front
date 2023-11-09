@@ -141,6 +141,12 @@
         "voltar": "Voltar",
         "salvar": "Salvar"
     },
+    "usuarioFicha": {
+        "nomeFicha": "Nome da Ficha",
+        "nomeUsuario": "Nome do Usuário",
+        "msgUsuarioSemFicha": "Sem ficha cadastrada, favor entrar em contato com instrutor.",
+        "salvar": "Salvar"
+    },
 
 
     "login": {
@@ -176,12 +182,6 @@
         "menuFeedBack": "Feedback",
         "menuHistorico": "Histórico",
         "menuSair": "Sair"
-    },
-    "usuarioFicha": {
-        "nomeFicha": "Nome da Ficha",
-        "nomeUsuario": "Nome do Usuário",
-        "msgUsuarioSemFicha": "Sem ficha cadastrada, favor entrar em contato com instrutor",
-        "salvar": "Salvar"
     },
     "tabelaFeedBack": {
         "aluno": "Aluno",

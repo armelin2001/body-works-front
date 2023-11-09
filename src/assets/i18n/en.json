@@ -141,6 +141,12 @@
         "voltar": "Back",
         "salvar": "Save"
     },
+    "usuarioFicha": {
+        "nomeFicha": "Name of the Training Sheet",
+        "nomeUsuario": "Username",
+        "msgUsuarioSemFicha": "Without a registered Training Sheet, please contact the instructor.",
+        "salvar": "Save"
+    },
 
     "login": {
         "boasVindas": "Welcome!",
