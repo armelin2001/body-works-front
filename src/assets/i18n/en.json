@@ -199,7 +199,6 @@
         "btnEditar": "Edit",
         "btnExcluir": "Delete"
     },
-
     "login": {
         "boasVindas": "Welcome!",
 	    "crieConta": "Don't have an account yet?",
@@ -209,6 +208,17 @@
         "esqueceuSenha": "Forgot password?",
         "entrar": "To enter"
     },
+    "historico": {
+        "filtro": "Filter",
+        "nomeExercicio": "Exercise Name",
+        "cargaMaxima": "Maximum Weight (KG)",
+        "totalRepeticoes": "Total Reps",
+        "totalSeries": "Total Series",
+        "carga": "Weight (kg)",
+        "repeticoes": "Reps",
+        "cargaMedia": "Average Weight (KG)"
+    },
+
     "menu": {
         "menuInicio": "Welcome!",
         "menuStatus": "Account status:",

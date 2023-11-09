@@ -199,8 +199,6 @@
         "btnEditar": "Editar",
         "btnExcluir": "Excluir"
     },
-
-
     "login": {
         "boasVindas": "Seja bem-vindo!",
 	    "crieConta": "Ainda não tem conta?",
@@ -210,6 +208,17 @@
         "esqueceuSenha": "Esqueceu a senha?",
         "entrar": "Entrar"
     },
+    "historico": {
+        "filtro": "Filtro",
+        "nomeExercicio": "Nome do Exercício",
+        "cargaMaxima": "Carga Máxima (KG)",
+        "totalRepeticoes": "Total de Repetições",
+        "totalSeries": "Total de Séries",
+        "carga": "Carga (kg)",
+        "repeticoes": "Repetições",
+        "cargaMedia": "Carga Média (KG)"
+    },
+
     "menu": {
         "menuInicio": "Bem vindo!",
         "menuStatus": "Status da conta:",
@@ -240,16 +249,6 @@
         "carga": "Carga (kg)",
         "msgSucesso": "Treino concluído com sucesso!",
         "fechar": "Fechar"
-    },
-    "historico": {
-        "filtro": "Filtro",
-        "nomeExercicio": "Nome do Exercício",
-        "cargaMaxima": "Carga Máxima (KG)",
-        "totalRepeticoes": "Total de Repetições",
-        "totalSeries": "Total de Séries",
-        "carga": "Carga (kg)",
-        "repeticoes": "Repetições",
-        "cargaMedia": "Carga Média (KG)"
     },
     "usuarioTreino": {
         "treino": "TREINO",
