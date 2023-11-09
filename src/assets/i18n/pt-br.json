@@ -147,6 +147,16 @@
         "msgUsuarioSemFicha": "Sem ficha cadastrada, favor entrar em contato com instrutor.",
         "salvar": "Salvar"
     },
+    "instrutorFeedBack": {
+        "tabela": {
+            "filtro": "Filtro",
+            "dataTreino": "Data Treino",
+            "aluno": "aluno",
+            "treino": "Treino",
+            "comentario": "Comentário",
+            "msgSemDados": "Sem dados de Feedback"
+        }
+    },
 
 
     "login": {
@@ -217,16 +227,6 @@
         "btnIniciarTreino": "Iniciar",
         "historicoCompleto": "Histórico Completo",
         "btnHistorico": "Histórico"
-    },
-    "instrutorFeedBack": {
-        "tabela": {
-            "filtro": "Filtro",
-            "dataTreino": "Data Treino",
-            "aluno": "aluno",
-            "treino": "Treino",
-            "comentario": "Comentario",
-            "msgSemDados": "Sem dados de Feedback"
-        }
     },
     "barraCancelamentoUsuario": "Status do usuário diferente de Cancelado"
 }

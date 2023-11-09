@@ -147,6 +147,16 @@
         "msgUsuarioSemFicha": "Without a registered Training Sheet, please contact the instructor.",
         "salvar": "Save"
     },
+    "instrutorFeedBack": {
+        "tabela": {
+            "filtro": "Filter",
+            "dataTreino": "Training Date",
+            "aluno": "Student",
+            "treino": "Training",
+            "comentario": "Comment",
+            "msgSemDados": "No Feedback data"
+        }
+    },
 
     "login": {
         "boasVindas": "Welcome!",
