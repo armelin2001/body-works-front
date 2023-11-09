@@ -30,9 +30,9 @@
     },
     "cadastroEquipamento": {
         "cadEquipamento": "Cadastro de Equipamentos",
-        "nomeEquip": "Nome equipamento",
+        "nomeEquip": "Nome Equipamento",
         "errorNomeEquip": "Insira um nome válido",
-        "tipoEquip": "Tipo equipamento",
+        "tipoEquip": "Tipo Equipamento",
         "equipCross": "Cross",
         "equipLivre": "Livre",
         "equipBarra": "Barra",
@@ -156,6 +156,14 @@
             "comentario": "Comentário",
             "msgSemDados": "Sem dados de Feedback"
         }
+    },
+    "listagemEquipamento": {
+        "tabela": {
+            "filtro": "Filtro",
+            "nomeEquipamento": "Nome Equipamento",
+            "tipoEquipamento": "Tipo Equipamento"
+        },
+        "btnEditar": "Editar"
     },
 
 

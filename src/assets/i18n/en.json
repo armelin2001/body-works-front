@@ -157,6 +157,14 @@
             "msgSemDados": "No Feedback data"
         }
     },
+    "listagemEquipamento": {
+        "tabela": {
+            "filtro": "Filter",
+            "nomeEquipamento": "Equipment Name",
+            "tipoEquipamento": "Equipment Type"
+        },
+        "btnEditar": "Edit"
+    },
 
     "login": {
         "boasVindas": "Welcome!",
