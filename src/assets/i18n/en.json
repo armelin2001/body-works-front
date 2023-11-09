@@ -130,6 +130,17 @@
         "voltar": "To go back",
         "salvar": "To save"
     },
+    "editarExercicio": {
+        "editarExe": "Edit Exercise",
+        "nomeExe": "Exercise Name",
+        "tipoExe": "Type of Exercise",
+        "equipNecessario": "Necessary equipment",
+        "nivelDificuldade": "Difficulty Level",
+        "linkYoutube": "Demo Video Link",
+        "musculosTrabalhados": "Muscles Worked (ex: Biceps, Triceps)",
+        "voltar": "Back",
+        "salvar": "Save"
+    },
 
     "login": {
         "boasVindas": "Welcome!",

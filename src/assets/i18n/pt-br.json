@@ -130,7 +130,17 @@
         "voltar": "Voltar",
         "salvar": "Salvar"
     },
-
+    "editarExercicio": {
+        "editarExe": "Editar Exercício",
+        "nomeExe": "Nome Exercício",
+        "tipoExe": "Tipo de Exercício",
+        "equipNecessario": "Equipamento Necessário",
+        "nivelDificuldade": "Nível de Dificuldade",
+        "linkYoutube": "Link do Vídeo Demonstrativo",
+        "musculosTrabalhados": "Músculos Trabalhados (ex: Bíceps, Tríceps)",
+        "voltar": "Voltar",
+        "salvar": "Salvar"
+    },
 
 
     "login": {

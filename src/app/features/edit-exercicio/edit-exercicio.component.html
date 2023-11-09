@@ -17,15 +17,15 @@
         <div class="exercicios-treino">
           <mat-card class="card">
             <form [formGroup]="formularioExercicio">
-              <mat-card-title class="titulo">Edição exercicio</mat-card-title>
+              <mat-card-title class="titulo"> {{"editarExercicio.editarExe" | translate}} </mat-card-title>
               <!--<h1 class="titulo"></h1>-->
               <mat-form-field class="inputForm">
-                <mat-label> nome do Exercicio </mat-label>
+                <mat-label> {{"editarExercicio.nomeExe" | translate}} </mat-label>
                 <input formControlName="nome" type="text" matInput>
               </mat-form-field>
     
               <mat-form-field class="inputForm">
-                <mat-label> Tipo </mat-label>
+                <mat-label> {{"editarExercicio.tipoExe" | translate}} </mat-label>
                   <mat-select formControlName="tipoExercicio"> 
                     <mat-option *ngFor="let tipo of tiposExercicio" [value]="tipo">{{ tipo }}</mat-option>
                   </mat-select>
@@ -34,7 +34,7 @@
               <br>
 
               <mat-form-field class="inputForm">
-                <mat-label> Equipamento </mat-label>
+                <mat-label> {{"editarExercicio.equipNecessario" | translate}} </mat-label>
                 <mat-select formControlName="equipamentoNecessario">
                     <mat-option *ngFor="let equipamento of equipamentos" [value]="equipamento.id">
                     {{ equipamento.nome }}
@@ -43,25 +43,25 @@
               </mat-form-field>
               <br>
               <mat-form-field class="inputForm">
-                <mat-label> Dificuldade </mat-label>
+                <mat-label> {{"editarExercicio.nivelDificuldade" | translate}} </mat-label>
                 <mat-select formControlName="nivelDificuldade">
                   <mat-option *ngFor="let nivel of dificuldadesExercicio" [value]="nivel">{{ nivel }}</mat-option>
                 </mat-select>
               </mat-form-field>
               <br>
               <mat-form-field class="inputForm">
-                <mat-label> video </mat-label>
+                <mat-label> {{"editarExercicio.linkYoutube" | translate}} </mat-label>
                 <input formControlName="videoDemonstrativo" type="text" matInput>
               </mat-form-field>
               <br>
               <mat-form-field class="inputForm">
-                <mat-label> Musculo </mat-label>
+                <mat-label> {{"editarExercicio.musculosTrabalhados" | translate}} </mat-label>
                 <input formControlName="musculosTrabalhados" type="text" matInput>
               </mat-form-field>
               <br>
-              <button mat-button class="btnForm" (click)="goBack()"> <mat-label> Voltar </mat-label> </button>
+              <button mat-button class="btnForm" (click)="goBack()"> <mat-label> {{"editarExercicio.voltar" | translate}} </mat-label> </button>
               <br>
-              <button mat-button class="btnForm" (click)="submitFormExercicio()" type="submit"> <mat-label> Salvar </mat-label> </button>
+              <button mat-button class="btnForm" (click)="submitFormExercicio()" type="submit"> <mat-label> {{"editarExercicio.salvar" | translate}} </mat-label> </button>
               </form>
           </mat-card>
           
