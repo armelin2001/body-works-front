@@ -224,18 +224,41 @@
         "historicoCompleto": "Full History",
         "btnHistorico": "History"
     },
-
+    "treino": {
+        "videoExemplo": "EXAMPLE VIDEO",
+        "completarAtividade": "COMPLETE ACTIVITY",
+        "cancelaTreino": "CANCEL TRAINING",
+        "concluirTreino": "COMPLETE TRAINING",
+        "anotacoesTreino": "Training Notes",
+        "observacoesTreino": "Training observations",
+        "tempoTotalTreino": "Total Training Time",
+        "repiticoes": "Reps",
+        "carga": "Weight (kg)",
+        "msgSucesso": "Training completed successfully!",
+        "fechar": "Close"
+    },
     "menu": {
         "menuInicio": "Welcome!",
         "menuStatus": "Account status:",
         "menuLogAdm": "LOGGED IN AS ADMINISTRATOR",
         "menuEditar": "Edit Registration",
-        "menuTreino": "Go to workouts",
-        "menuAddInst": "New instructor",
+        "menuTreino": "Workouts",
+        "menuAddInst": "New Instructor",
         "menuAddEquip": "New Equipment",
         "menuListEquip": "List Equipment",
         "menuListUsu": "List Users",
         "menuListInst": "List Instructors",
-        "menuSair": "To go out"
+        "menuCadastroFicha": "Register Form",
+        "menuCadastroExercicio": "Register Exercise",
+        "menuFichaUsuario": "User Sheets",
+        "menuFeedBack": "Feedback",
+        "menuHistorico": "Historic",
+        "menuListExerc": "List Exercise",
+        "menuSair": "Go Out"
+    },
+    "statusUsuario": {
+        "ativo": "Active",
+        "atraso": "Late Monthly Payment",
+        "contaSusp": "Suspended Account"
     }
 }

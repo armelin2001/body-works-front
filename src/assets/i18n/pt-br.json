@@ -224,25 +224,6 @@
         "historicoCompleto": "Histórico Completo",
         "btnHistorico": "Histórico"
     },
-
-    "menu": {
-        "menuInicio": "Bem vindo!",
-        "menuStatus": "Status da conta:",
-        "menuLogAdm": "LOGADO COMO ADMINISTRADOR",
-        "menuEditar": "Editar Cadastro",
-        "menuTreino": "Treinos",
-        "menuAddInst": "Novo instrutor",
-        "menuAddEquip": "Novo Equipamento",
-        "menuListEquip": "Listar Equipamentos",
-        "menuListUsu": "Listar Usuários",
-        "menuListInst": "Listar Instrutores",
-        "menuCadastroFicha": "Cadastrar ficha",
-        "menuCadastroExercicio": "Cadastrar exercício",
-        "menuFichaUsuario": "Usuario Fichas",
-        "menuFeedBack": "Feedback",
-        "menuHistorico": "Histórico",
-        "menuSair": "Sair"
-    },
     "treino": {
         "videoExemplo": "VIDEO EXEMPLO",
         "completarAtividade": "COMPLETAR ATIVIDADE",
@@ -255,5 +236,29 @@
         "carga": "Carga (kg)",
         "msgSucesso": "Treino concluído com sucesso!",
         "fechar": "Fechar"
+    },
+    "menu": {
+        "menuInicio": "Bem vindo!",
+        "menuStatus": "Status da conta:",
+        "menuLogAdm": "LOGADO COMO ADMINISTRADOR",
+        "menuEditar": "Editar Cadastro",
+        "menuTreino": "Treinos",
+        "menuAddInst": "Novo Instrutor",
+        "menuAddEquip": "Novo Equipamento",
+        "menuListEquip": "Listar Equipamentos",
+        "menuListUsu": "Listar Usuários",
+        "menuListInst": "Listar Instrutores",
+        "menuCadastroFicha": "Cadastrar Ficha",
+        "menuCadastroExercicio": "Cadastrar Exercício",
+        "menuFichaUsuario": "Ficha de Usuário",
+        "menuFeedBack": "Feedback",
+        "menuHistorico": "Histórico",
+        "menuListExerc": "Listar Exercício",
+        "menuSair": "Sair"
+    },
+    "statusUsuario": {
+        "ativo": "Ativo",
+        "atraso": "Mensalidade em Atraso",
+        "contaSusp": "Conta Suspensa"
     }
 }
