@@ -31,6 +31,8 @@ export class ExercicioTreinoComponent implements OnInit {
   videoDemonstrativo: string | undefined;
   @Input()
   idEquipamento: string = '';
+  @Input()
+  repeticoes: number = 0;
 
   @Output()
   listaExercicios = new EventEmitter<IExercicio[]>();
@@ -58,7 +60,9 @@ export class ExercicioTreinoComponent implements OnInit {
     this.equipamentoService
       .obterEquipamentoPorId(this.idEquipamento)
       .subscribe((res) => {
-        const equipamento = res.dados.find((element: any) => element.id === this.idEquipamento);
+        const equipamento = res.dados.find(
+          (element: any) => element.id === this.idEquipamento
+        );
         this.nomeEquipamento = equipamento.nome;
         this.tipoEquipamento = equipamento.tipo;
       });
@@ -69,6 +73,7 @@ export class ExercicioTreinoComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log('EXERCICIO', this.exercicio);
     this.tempoIntervaloMinutos = this.minutes;
     this.tempoIntervaloSegundos = this.seconds;
     const linhasExercicio: FormGroup[] = [];
@@ -83,10 +88,11 @@ export class ExercicioTreinoComponent implements OnInit {
   }
 
   private criaLinhaExercicio(): FormGroup {
-    return new FormGroup({
+    const linhaExercicio = new FormGroup({
       carga: new FormControl('', Validators.required),
-      repeticoes: new FormControl('', Validators.required),
+      repeticoes: new FormControl(String(this.exercicio.repeticoes), Validators.required),
     });
+    return linhaExercicio;
   }
 
   startCountdown() {

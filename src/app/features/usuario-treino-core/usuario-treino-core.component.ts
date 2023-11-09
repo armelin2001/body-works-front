@@ -101,6 +101,7 @@ export class UsuarioTreinoCoreComponent implements OnInit {
         }
       });
 
+      console.log("LISTA EXERCICIOS -> ", this.exercicioTreino);
       this.qtdExercicios = this.exercicioTreino.length;
       this.qtdExercicioBarra = this.totalBarraProgresso / this.qtdExercicios;
     });
@@ -157,7 +158,7 @@ export class UsuarioTreinoCoreComponent implements OnInit {
 
     event.forEach((element: any) => {
       carga.push(element.carga);
-      repeticoes.push(element.repeticoes);
+      repeticoes.push(Number(element.repeticoes));
     });
 
     for (let i = 0; i < series; i++) {
@@ -168,7 +169,6 @@ export class UsuarioTreinoCoreComponent implements OnInit {
       totalRepeticoes = totalRepeticoes + repeticao;
     });
 
-    
     listaCargaTotal.forEach((carga: number) => {
       totalCarga = totalCarga + carga;
     });
