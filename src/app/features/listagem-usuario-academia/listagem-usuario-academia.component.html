@@ -14,7 +14,7 @@
     [rowspan]="1">
     <div class="tabela-feed-back">
         <mat-form-field>
-            <mat-label>{{"listagem-usuario-academia.tabela.filtro" | translate}}</mat-label>
+            <mat-label>{{"listagemUsuarioAcademia.tabela.filtro" | translate}}</mat-label>
             <input matInput (keyup)="applyFilter($event)" #input>
         </mat-form-field>
 
@@ -22,22 +22,22 @@
                 
             <table mat-table [dataSource]="dataSource" matSort>
                 <ng-container matColumnDef="nome">
-                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Nome </th>
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> {{"listagemUsuarioAcademia.tabela.nome" | translate}} </th>
                     <td mat-cell *matCellDef="let row"> {{row.nome}} </td>
                 </ng-container>
                 <ng-container matColumnDef="cpf">
-                    <th mat-header-cell *matHeaderCellDef mat-sort-header> CPF </th>
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> {{"listagemUsuarioAcademia.tabela.cpf" | translate}} </th>
                     <td mat-cell *matCellDef="let row"> {{row.cpf}} </td>
                 </ng-container>
                 <ng-container matColumnDef="dataNascimento">
-                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Data nascimento </th>
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> {{"listagemUsuarioAcademia.tabela.dataNascimento" | translate}} </th>
                     <td mat-cell *matCellDef="let row"> {{row.dataNascimento}} </td>
                 </ng-container>
                 <ng-container matColumnDef="actions">
                     <th mat-header-cell *matHeaderCellDef></th>
                     <td mat-cell *matCellDef="let row">
-                      <button mat-button class="btnAcao" (click)="vaiParaEditarInstrutor(row)">Editar</button>
-                      <button mat-button class="btnAcao" (click)="deletaInstrutor(row)">Excluir</button>
+                      <button mat-button class="btnAcao" (click)="vaiParaEditarInstrutor(row)"> {{"listagemUsuarioAcademia.btnEditar" | translate}} </button>
+                      <button mat-button class="btnAcao" (click)="deletaInstrutor(row)"> {{"listagemUsuarioAcademia.btnExcluir" | translate}} </button>
                     </td>
                 </ng-container>
 

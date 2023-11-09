@@ -185,6 +185,21 @@
     "tsCardUsuario": {
         "barraCancelamentoUsuario": "Status do usuário diferente de Cancelado"
     },
+    "tsListagemUsuarioAcad": {
+        "barraIntrutor": "Intrutor ",
+        "barraRemovidoSucesso": " removido com sucesso!"
+    },
+    "listagemUsuarioAcademia": {
+        "tabela": {
+            "filtro": "Filtro",
+            "nome": "Nome",
+            "cpf": "CPF",
+            "dataNascimento": "Data de Nascimento"
+        },
+        "btnEditar": "Editar",
+        "btnExcluir": "Excluir"
+    },
+
 
     "login": {
         "boasVindas": "Seja bem-vindo!",
@@ -212,12 +227,6 @@
         "menuFeedBack": "Feedback",
         "menuHistorico": "Histórico",
         "menuSair": "Sair"
-    },
-    "tabelaFeedBack": {
-        "aluno": "Aluno",
-        "treino": "Treino",
-        "data": "Data",
-        "comentario": "comentario"
     },
     "treino": {
         "videoExemplo": "VIDEO EXEMPLO",

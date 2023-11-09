@@ -185,6 +185,20 @@
     "tsCardUsuario": {
         "barraCancelamentoUsuario": "User status other than Canceled"
     },
+    "tsListagemUsuarioAcad": {
+        "barraIntrutor": "Instructor ",
+        "barraRemovidoSucesso": " removed successfully!"
+    },
+    "listagemUsuarioAcademia": {
+        "tabela": {
+            "filtro": "Filter",
+            "nome": "Name",
+            "cpf": "CPF",
+            "dataNascimento": "Date of birth"
+        },
+        "btnEditar": "Edit",
+        "btnExcluir": "Delete"
+    },
 
     "login": {
         "boasVindas": "Welcome!",

@@ -11,6 +11,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import * as moment from 'moment';
 import { UsuarioAcademiaService } from 'src/app/shared/http-service/usuario-academia/usuario-academia.service';
 export interface UsuarioAcademiaListagem {
@@ -46,7 +47,8 @@ export class ListagemUsuarioAcademiaComponent implements AfterViewInit {
   constructor(
     private usuarioAcademiaService: UsuarioAcademiaService,
     private router: Router,
-    private snack: MatSnackBar
+    private snack: MatSnackBar,
+    private translateService: TranslateService,
   ) {
     this.dataSource = new MatTableDataSource(ELEMENT_DATA);
     this.carregarListaInstrutores();
@@ -101,7 +103,7 @@ export class ListagemUsuarioAcademiaComponent implements AfterViewInit {
       this.usuarioAcademiaService.deletaUsuarioAcademia(idInstrutor).subscribe(
         (res) => {
           this.snack.open(
-            'Instrutor ' + res.nome + ' removido com sucesso!',
+            this.translateService.instant('tsListagemUsuarioAcad.barraIntrutor') + res.nome + this.translateService.instant('tsListagemUsuarioAcad.barraRemovidoSucesso'),
             'OK',
             {
               duration: 3000,
