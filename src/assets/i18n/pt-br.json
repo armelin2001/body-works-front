@@ -175,6 +175,16 @@
         },
         "btnEditar": "Editar"
     },
+    "listarUsuario": {
+        "listaCPF": "CPF:",
+        "listaEmail": "E-mail:",
+        "listaAtivo": "Ativo",
+        "listaAtraso": "Em atraso",
+        "listaCancelado": "Cancelado"
+    },
+    "tsCardUsuario": {
+        "barraCancelamentoUsuario": "Status do usuário diferente de Cancelado"
+    },
 
     "login": {
         "boasVindas": "Seja bem-vindo!",
@@ -184,13 +194,6 @@
         "senha": "Senha",
         "esqueceuSenha": "Esqueceu a senha?",
         "entrar": "Entrar"
-    },
-    "listarUsuario": {
-        "listaCPF": "CPF:",
-        "listaEmail": "E-mail:",
-        "listaAtivo": "Ativo",
-        "listaAtraso": "Em atraso",
-        "listaCancelado": "Cancelado"
     },
     "menu": {
         "menuInicio": "Bem vindo!",
@@ -244,6 +247,5 @@
         "btnIniciarTreino": "Iniciar",
         "historicoCompleto": "Histórico Completo",
         "btnHistorico": "Histórico"
-    },
-    "barraCancelamentoUsuario": "Status do usuário diferente de Cancelado"
+    }
 }

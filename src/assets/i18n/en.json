@@ -175,6 +175,16 @@
         },
         "btnEditar": "Edit"
     },
+    "listarUsuario": {
+        "listaCPF": "CPF:",
+        "listaEmail": "E-mail:",
+        "listaAtivo": "Active",
+        "listaAtraso": "Overdue",
+        "listaCancelado": "Canceled"
+    },
+    "tsCardUsuario": {
+        "barraCancelamentoUsuario": "User status other than Canceled"
+    },
 
     "login": {
         "boasVindas": "Welcome!",
@@ -184,13 +194,6 @@
         "senha": "Password",
         "esqueceuSenha": "Forgot password?",
         "entrar": "To enter"
-    },
-    "listarUsuario": {
-        "listaCPF": "CPF:",
-        "listaEmail": "E-mail:",
-        "listaAtivo": "Active",
-        "listaAtraso": "Overdue",
-        "listaCancelado": "Canceled"
     },
     "menu": {
         "menuInicio": "Welcome!",

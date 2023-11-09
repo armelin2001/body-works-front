@@ -42,7 +42,7 @@ export class CardUsuarioComponent {
   excluirUsuario() {
     if(this.usuario.statusPagamento !== 'cancelado'){
       this.snack.open(
-        this.translateService.instant('barraCancelamentoUsuario'),
+        this.translateService.instant('tsCardUsuario.barraCancelamentoUsuario'),
         'OK',
         {
           duration: 3000,
