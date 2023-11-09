@@ -5,6 +5,7 @@ import { IExercicioDTO, TIPO_EXERCICIO, NIVEL_DIFICULDADE } from 'src/app/shared
 import { Router } from '@angular/router';
 import { EquipamentoService } from 'src/app/shared/http-service/equipamento-service/equipamento.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-cadastro-exercicio',
@@ -22,7 +23,8 @@ export class CadastroExercicioComponent implements OnInit{
     private router: Router,
     private equipamentoService: EquipamentoService,
     private snack: MatSnackBar,
-    private exercicioService: ExercicioService
+    private exercicioService: ExercicioService,
+    private translateService: TranslateService,
   ) {
     this.formularioExercicio = this.formBuilder.group({
     nome: ['', [Validators.required]],
@@ -47,7 +49,7 @@ export class CadastroExercicioComponent implements OnInit{
       this.exercicioService.cadastroExercicio(exercicio).subscribe(
         () => {
           this.snack.open(
-            'Exercicio cadastrado com sucesso!',
+            this.translateService.instant('tsCadExercicio.barraCadSucesso'),
             'OK',
             {
               duration: 3000,
@@ -59,7 +61,7 @@ export class CadastroExercicioComponent implements OnInit{
         },
         error => {
           this.snack.open(
-            'Erro ao cadastrar exercicio!',
+            this.translateService.instant('tsCadExercicio.barraCadErro'),
             'OK',
             {
               duration: 3000,
@@ -70,7 +72,7 @@ export class CadastroExercicioComponent implements OnInit{
         }
       );
     } else {
-      alert('Por favor, preencha todos os campos corretamente.');
+      alert(this.translateService.instant('tsCadExercicio.alertCadExercicio'),);
     }
   }
 

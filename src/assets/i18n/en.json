@@ -4,6 +4,7 @@
     "excluir": "Delete",
     "salvar": "Save",
     "voltar": "Back",
+    "criar": "To Create",
     "cadastroUsuario": {
         "registro": "Register your user!",
         "campoNome": "Name",
@@ -36,6 +37,20 @@
         "equipLivre": "Free",
         "equipBarra": "Bar",
         "errorTipo": "Please enter a valid type"
+    },
+    "cadastroExercicio": {
+        "cadExercicio": "Exercise Registration",
+        "nomeExe": "Exercise Name",
+        "tipoExe": "Type of Exercise",
+        "equipNecessario": "Necessary equipment",
+        "nivelDificuldade": "Difficulty Level",
+        "linkYoutube": "Demo Video Link",
+        "musculosTrabalhados": "Muscles Worked (ex: Biceps, Triceps)"
+    },
+    "tsCadExercicio": {
+        "barraCadSucesso": "Exercise successfully registered!",
+        "barraCadErro": "Error registering exercise!",
+        "alertCadExercicio": "Please fill in all fields correctly."
     },
 
     "login": {

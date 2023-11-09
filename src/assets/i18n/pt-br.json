@@ -4,8 +4,9 @@
     "excluir": "Excluir",
     "salvar": "Salvar",
     "voltar": "Voltar",
+    "criar": "Criar",
     "cadastroUsuario": {
-        "registro": "Registe seu usuário!",
+        "registro": "Registre seu usuário!",
         "campoNome": "Nome",
         "errorNome": "Insira um nome válido",
         "campoCPF": "CPF - Documento",
@@ -37,14 +38,20 @@
         "equipBarra": "Barra",
         "errorTipo": "Insira um tipo válido"
     },
-
     "cadastroExercicio": {
-        "cadExercicio": "Cadastro de Exercícios",
-        "nomeExe": "Nome exercício",
+        "cadExercicio": "Cadastro de Exercícioss",
+        "nomeExe": "Nome Exercício",
         "tipoExe": "Tipo de Exercício",
-        "equipNecessario": "Equipamento Necessário"
+        "equipNecessario": "Equipamento Necessário",
+        "nivelDificuldade": "Nível de Dificuldade",
+        "linkYoutube": "Link do Vídeo Demonstrativo",
+        "musculosTrabalhados": "Músculos Trabalhados (ex: Bíceps, Tríceps)"
     },
-
+    "tsCadExercicio": {
+        "barraCadSucesso": "Exercicio cadastrado com sucesso!",
+        "barraCadErro": "Erro ao cadastrar exercicio!",
+        "alertCadExercicio": "Por favor, preencha todos os campos corretamente."
+    },
 
     "login": {
         "boasVindas": "Seja bem-vindo!",
