@@ -2,49 +2,73 @@
     "titulo": "Title",
     "editar": "To edit",
     "excluir": "Delete",
+    "salvar": "Save",
+    "voltar": "Back",
+    "criar": "To Create",
     "cadastroUsuario": {
         "registro": "Register your user!",
         "campoNome": "Name",
+        "errorNome": "Enter a valid name",
         "campoCPF": "CPF - Document",
-        "dataNascimento": "Date of Birth",
+        "errorCPF": "Enter a valid CPF",
+        "dataNascimento": "Date of birth",
+        "errorData": "Enter a valid date",
         "genero": "Gender",
+        "errorGenero": "Please enter a valid gender",
         "masc": "Male",
-        "fem": "Female",
+        "fem": "Famale",
         "outro": "Other",
         "email": "E-mail",
+        "errorEmail": "Enter a valid e-mail",
         "senha": "Password",
+        "errorSenha": "Enter a valid password",
         "adm": "Administrator",
         "codCad": "Registration Code",
         "cadastrar": "Register",
         "infosAdc": "*After registration we will ask for more personal information.",
-        "criarConta": "Already have an account?",
-        "errorNome": "Enter a valid Name",
-        "errorCPF": "Enter a valid CPF",
-        "errorData": "Enter a valid Date",
-        "errorGenero": "Please enter a valid Gender",
-        "errorEmail": "Enter a valid e-mail",
-        "errorSenha": "Enter a valid Password"
-    },
-    "login": {
-        "boasVindas": "Welcome!",
-	    "crieConta": "Don't have an account yet?",
-        "cadastrar": "Register",
-        "email": "E-mail",
-        "senha": "Password",
-        "esqueceuSenha": "Forgot password?",
-        "entrar": "To enter"
+        "criarConta": "Already have an account?"
     },
     "cadastroEquipamento": {
-        "editarCad": "Edit registration",
+        "cadEquipamento": "Equipment Registration",
         "nomeEquip": "Equipment name",
         "errorNomeEquip": "Enter a valid name",
         "tipoEquip": "Equipment type",
         "equipCross": "Cross",
         "equipLivre": "Free",
         "equipBarra": "Bar",
-        "errorTipo": "Please enter a valid type",
-        "voltar": "Back",
-        "salvar": "Save"
+        "errorTipo": "Please enter a valid type"
+    },
+    "cadastroExercicio": {
+        "cadExercicio": "Exercise Registration",
+        "nomeExe": "Exercise Name",
+        "tipoExe": "Type of Exercise",
+        "equipNecessario": "Necessary equipment",
+        "nivelDificuldade": "Difficulty Level",
+        "linkYoutube": "Demo Video Link",
+        "musculosTrabalhados": "Muscles Worked (ex: Biceps, Triceps)"
+    },
+    "tsCadExercicio": {
+        "barraCadSucesso": "Exercise successfully registered!",
+        "barraCadErro": "Error registering exercise!",
+        "alertCadExercicio": "Please fill in all fields correctly."
+    },
+    "cadastroFicha": {
+        "nomeFicha": "Name of the Training Sheet",
+        "descricaoFicha": "Description of the Training Sheet",
+        "quantidadeTreinos": "Number of workouts",
+        "tiposTreino": "Types of Training",
+        "nomeExercicio": "Exercise Name",
+        "tipoTreino": "Type of Training",
+        "series": "Series",
+        "repeticoes": "Reps",
+        "minutos": "Minutes",
+        "segundos": "Seconds",
+        "botoes": {
+            "remover": "To remove",
+            "adicionaExercicio": "Add Exercise",
+            "criarFicha": "Create Training Sheet",
+            "voltar": "Back"
+        }
     },
     "editarAdm": {
         "editarCad": "Edit registration",
@@ -65,6 +89,10 @@
         "errorSenha": "Enter a valid password",
         "voltar": "Back",
         "salvar": "Save"
+    },
+    "tsEditAdm": {
+        "barraEditSucesso" : "Editing done successfully!",
+        "barraCadInstSucesso" : "Instructor successfully registered!"
     },
     "editarCad": {
         "editarCad": "Edit Registration",
@@ -102,6 +130,51 @@
         "voltar": "To go back",
         "salvar": "To save"
     },
+    "editarExercicio": {
+        "editarExe": "Edit Exercise",
+        "nomeExe": "Exercise Name",
+        "tipoExe": "Type of Exercise",
+        "equipNecessario": "Necessary equipment",
+        "nivelDificuldade": "Difficulty Level",
+        "linkYoutube": "Demo Video Link",
+        "musculosTrabalhados": "Muscles Worked (ex: Biceps, Triceps)",
+        "voltar": "Back",
+        "salvar": "Save"
+    },
+    "usuarioFicha": {
+        "nomeFicha": "Name of the Training Sheet",
+        "nomeUsuario": "Username",
+        "msgUsuarioSemFicha": "Without a registered Training Sheet, please contact the instructor.",
+        "salvar": "Save"
+    },
+    "instrutorFeedBack": {
+        "tabela": {
+            "filtro": "Filter",
+            "dataTreino": "Training Date",
+            "aluno": "Student",
+            "treino": "Training",
+            "comentario": "Comment",
+            "msgSemDados": "No Feedback data"
+        }
+    },
+    "listagemEquipamento": {
+        "tabela": {
+            "filtro": "Filter",
+            "nomeEquipamento": "Equipment Name",
+            "tipoEquipamento": "Equipment Type"
+        },
+        "btnEditar": "Edit"
+    },
+    "listagemExercicio": {
+        "tabela": {
+            "filtro": "Filter",
+            "nomeExe": "Name Exercise",
+            "tipoExe": "Type of Exercise",
+            "equipNecessario": "Necessary equipment",
+            "musculosTrabalhados": "Muscles Worked (ex: Biceps, Triceps)"
+        },
+        "btnEditar": "Edit"
+    },
     "listarUsuario": {
         "listaCPF": "CPF:",
         "listaEmail": "E-mail:",
@@ -109,17 +182,83 @@
         "listaAtraso": "Overdue",
         "listaCancelado": "Canceled"
     },
+    "tsCardUsuario": {
+        "barraCancelamentoUsuario": "User status other than Canceled"
+    },
+    "tsListagemUsuarioAcad": {
+        "barraIntrutor": "Instructor ",
+        "barraRemovidoSucesso": " removed successfully!"
+    },
+    "listagemUsuarioAcademia": {
+        "tabela": {
+            "filtro": "Filter",
+            "nome": "Name",
+            "cpf": "CPF",
+            "dataNascimento": "Date of birth"
+        },
+        "btnEditar": "Edit",
+        "btnExcluir": "Delete"
+    },
+    "login": {
+        "boasVindas": "Welcome!",
+	    "crieConta": "Don't have an account yet?",
+        "cadastrar": "Register",
+        "email": "E-mail",
+        "senha": "Password",
+        "esqueceuSenha": "Forgot password?",
+        "entrar": "To enter"
+    },
+    "historico": {
+        "filtro": "Filter",
+        "nomeExercicio": "Exercise Name",
+        "cargaMaxima": "Maximum Weight (KG)",
+        "totalRepeticoes": "Total Reps",
+        "totalSeries": "Total Series",
+        "carga": "Weight (kg)",
+        "repeticoes": "Reps",
+        "cargaMedia": "Average Weight (KG)"
+    },
+    "usuarioTreino": {
+        "treino": "TRAINING",
+        "btnIniciarTreino": "Start",
+        "historicoCompleto": "Full History",
+        "btnHistorico": "History"
+    },
+    "treino": {
+        "videoExemplo": "EXAMPLE VIDEO",
+        "completarAtividade": "COMPLETE ACTIVITY",
+        "cancelaTreino": "CANCEL TRAINING",
+        "concluirTreino": "COMPLETE TRAINING",
+        "anotacoesTreino": "Training Notes",
+        "observacoesTreino": "Training observations",
+        "tempoTotalTreino": "Total Training Time",
+        "repiticoes": "Reps",
+        "carga": "Weight (kg)",
+        "msgSucesso": "Training completed successfully!",
+        "fechar": "Close"
+    },
     "menu": {
         "menuInicio": "Welcome!",
         "menuStatus": "Account status:",
         "menuLogAdm": "LOGGED IN AS ADMINISTRATOR",
         "menuEditar": "Edit Registration",
-        "menuTreino": "Go to workouts",
-        "menuAddInst": "New instructor",
+        "menuTreino": "Workouts",
+        "menuAddInst": "New Instructor",
         "menuAddEquip": "New Equipment",
         "menuListEquip": "List Equipment",
         "menuListUsu": "List Users",
         "menuListInst": "List Instructors",
-        "menuSair": "To go out"
+        "menuCadastroFicha": "Register Form",
+        "menuCadastroExercicio": "Register Exercise",
+        "menuFichaUsuario": "User Sheets",
+        "menuFeedBack": "Feedback",
+        "menuHistorico": "Historic",
+        "menuListExerc": "List Exercise",
+        "menuSair": "Go Out"
+    },
+    "statusUsuario": {
+        "ativo": "Active",
+        "atraso": "Late Monthly Payment",
+        "contaSusp": "Suspended Account"
     }
 }

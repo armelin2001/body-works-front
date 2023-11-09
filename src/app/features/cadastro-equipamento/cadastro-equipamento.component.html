@@ -4,7 +4,7 @@
       <img src="/assets/logo-com_nome-com_fundo.png" alt="Logo" class="logo" />
       <button class="back-btn" (click)="goBack()">&#x2190;</button>
       <h1>
-        <mat-label> {{"cadastroEquipamento.editarCad" | translate}} </mat-label>
+        <mat-label> {{"cadastroEquipamento.cadEquipamento" | translate}} </mat-label>
       </h1>
       <form [formGroup]="formularioEquipamento" (ngSubmit)="submitFormEquipamento()" #equipamento="ngForm">
   
@@ -37,10 +37,10 @@
         </mat-error>
         
         <button mat-button (click)="goBack()">
-          <mat-label> {{"cadastroEquipamento.voltar" | translate}} </mat-label>
+          <mat-label> {{"voltar" | translate}} </mat-label>
         </button>
         <button mat-button type="submit">
-          <mat-label> {{"cadastroEquipamento.salvar" | translate}} </mat-label>
+          <mat-label> {{"salvar" | translate}} </mat-label>
         </button>
       </form>
     </div>

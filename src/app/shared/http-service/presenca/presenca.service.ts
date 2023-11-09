@@ -6,7 +6,7 @@ import { IPresencaDTO } from '../../models/presenca.dto';
 
 @Injectable()
 export class PresencaService {
-  urlbase = environment.host + '/presenca';
+  urlbase = environment.host + '/usuario-presenca';
 
   constructor(private http: HttpClient) {}
 

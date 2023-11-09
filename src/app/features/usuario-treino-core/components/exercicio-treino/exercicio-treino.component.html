@@ -11,7 +11,7 @@
             </mat-form-field>
             <mat-form-field class="form-field">
                 <mat-label>{{"treino.repiticoes" | translate}}</mat-label>
-                <input matInput type="number" formControlName="repeticoes" readonly="{{exercicioCompleto}}">
+                <input matInput type="number" formControlName="repeticoes" readonly="{{exercicioCompleto}}" >
             </mat-form-field>
             
             <mat-checkbox (click)="startCountdown()"></mat-checkbox>
@@ -25,10 +25,10 @@
     <input matInput disabled="true" type="text" value="{{ minutes | number: '2.0' }}:{{ seconds | number: '2.0' }}">
 </mat-form-field>
 
-<mat-form-field class="contador">
+<!--<mat-form-field class="contador">
     <mat-label>Observação</mat-label>
     <textarea matInput formControlName="descricao" type="text" [disabled]="true" value="{{observacoes}}"></textarea>
-</mat-form-field>
+</mat-form-field>-->
 
 <button mat-button class="btn-video" (click)="redirecionarVideo()">{{"treino.videoExemplo" | translate}}</button>
 <br>

@@ -12,6 +12,8 @@ import { LocalstorageService } from 'src/app/shared/local-storage/localstorage.s
 import { UsuarioAcademiaAdmDto } from 'src/app/shared/models/usuario-academia.dto';
 import { Location } from '@angular/common';
 import * as moment from 'moment';
+import { LoginService } from 'src/app/shared/http-service/login-service/login.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-edit-adm',
@@ -29,8 +31,10 @@ export class EditAdmComponent {
     private usuarioAcademiaService: UsuarioAcademiaService,
     private activatedRoute: ActivatedRoute,
     private snack: MatSnackBar,
+    private loginService: LoginService,
     private router: Router,
-    private localStorage: LocalstorageService
+    private localStorage: LocalstorageService,
+    private translateService: TranslateService,
   ) {
     let emailregex: RegExp =
       /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -155,11 +159,19 @@ export class EditAdmComponent {
       }
       this.usuarioAcademiaService.atualizaUsuarioAcademia(usuarioAdm).subscribe(
         (res) => {
-          if(this.id === usuario.id){
+          this.loginService.realizaLogin(usuario).subscribe((res) => {
+            this.snack.open(
+              this.translateService.instant('tsEditAdm.barraEditSucesso'),
+              'OK',
+              {
+                duration: 3000,
+                horizontalPosition: 'center',
+                verticalPosition: 'top',
+              });
             this.localStorage.remover('usuario');
             this.localStorage.adicionar('usuario', res);
-          }
-          this.goBack();
+            this.goBack();
+          });
         },
         (err) => {}
       );
@@ -168,11 +180,14 @@ export class EditAdmComponent {
         .cadastrarUsuarioAcademia(usuarioAdm)
         .subscribe(
           (res) => {
-            this.snack.open('Instrutor cadastrado com sucesso!', 'OK', {
-              duration: 3000,
-              horizontalPosition: 'center',
-              verticalPosition: 'top',
-            });
+            this.snack.open(
+              this.translateService.instant('tsEditAdm.barraCadInstSucesso'),
+              'OK',
+              {
+                duration: 3000,
+                horizontalPosition: 'center',
+                verticalPosition: 'top',
+              });
             this.goBack();
           },
           (err) => {

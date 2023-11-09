@@ -2,49 +2,73 @@
     "titulo": "Título",
     "editar": "Editar",
     "excluir": "Excluir",
+    "salvar": "Salvar",
+    "voltar": "Voltar",
+    "criar": "Criar",
     "cadastroUsuario": {
-        "registro": "Registe seu usuário!",
+        "registro": "Registre seu usuário!",
         "campoNome": "Nome",
+        "errorNome": "Insira um nome válido",
         "campoCPF": "CPF - Documento",
+        "errorCPF": "Insira um CPF válido",
         "dataNascimento": "Data de Nascimento",
+        "errorData": "Insira uma data válida",
         "genero": "Gênero",
+        "errorGenero": "Insira um gênero válido",
         "masc": "Masculino",
         "fem": "Feminino",
         "outro": "Outro",
         "email": "E-mail",
+        "errorEmail": "Insira um e-mail válido",
         "senha": "Senha",
+        "errorSenha": "Insira uma senha válida",
         "adm": "Administrador",
         "codCad": "Código de Cadastro",
         "cadastrar": "Cadastre-se",
         "infosAdc": "*Após cadastro pediremos mais informações pessoais.",
-        "criarConta": "Já tem uma conta?",
-        "errorNome": "Insira um nome válido",
-        "errorCPF": "Insira um CPF válido",
-        "errorData": "Insira uma data válida",
-        "errorGenero": "Insira um gênero válido",
-        "errorEmail": "Insira um e-mail válido",
-        "errorSenha": "Insira uma senha válida"
-    },
-    "login": {
-        "boasVindas": "Seja bem-vindo!",
-	    "crieConta": "Ainda não tem conta?",
-        "cadastrar": "Cadastre-se",
-        "email": "E-mail",
-        "senha": "Senha",
-        "esqueceuSenha": "Esqueceu a senha?",
-        "entrar": "Entrar"
+        "criarConta": "Já tem uma conta?"
     },
     "cadastroEquipamento": {
-        "editarCad": "Editar cadastro",
-        "nomeEquip": "Nome equipamento",
+        "cadEquipamento": "Cadastro de Equipamentos",
+        "nomeEquip": "Nome Equipamento",
         "errorNomeEquip": "Insira um nome válido",
-        "tipoEquip": "Tipo equipamento",
+        "tipoEquip": "Tipo Equipamento",
         "equipCross": "Cross",
         "equipLivre": "Livre",
         "equipBarra": "Barra",
-        "errorTipo": "Insira um tipo válido",
-        "voltar": "Voltar",
-        "salvar": "Salvar"
+        "errorTipo": "Insira um tipo válido"
+    },
+    "cadastroExercicio": {
+        "cadExercicio": "Cadastro de Exercícioss",
+        "nomeExe": "Nome Exercício",
+        "tipoExe": "Tipo de Exercício",
+        "equipNecessario": "Equipamento Necessário",
+        "nivelDificuldade": "Nível de Dificuldade",
+        "linkYoutube": "Link do Vídeo Demonstrativo",
+        "musculosTrabalhados": "Músculos Trabalhados (ex: Bíceps, Tríceps)"
+    },
+    "tsCadExercicio": {
+        "barraCadSucesso": "Exercicio cadastrado com sucesso!",
+        "barraCadErro": "Erro ao cadastrar exercicio!",
+        "alertCadExercicio": "Por favor, preencha todos os campos corretamente."
+    },
+    "cadastroFicha": {
+        "nomeFicha": "Nome da Ficha",
+        "descricaoFicha": "Descrição da Ficha",
+        "quantidadeTreinos": "Quantidade de treinos",
+        "tiposTreino": "Tipos de Treino",
+        "nomeExercicio": "Nome do Exercício",
+        "tipoTreino": "Tipo de Treino",
+        "series": "Séries",
+        "repeticoes": "Repetições",
+        "minutos": "Minutos",
+        "segundos": "Segundos",
+        "botoes": {
+            "remover": "Remover",
+            "adicionaExercicio": "Adicionar Exercício",
+            "criarFicha": "Criar Ficha",
+            "voltar": "Voltar"
+        }
     },
     "editarAdm": {
         "editarCad": "Editar cadastro",
@@ -65,6 +89,10 @@
         "errorSenha": "Insira uma senha válida",
         "voltar": "Voltar",
         "salvar": "Salvar"
+    },
+    "tsEditAdm": {
+        "barraEditSucesso" : "Edição feita com sucesso!",
+        "barraCadInstSucesso" : "Instrutor cadastrado com sucesso!"
     },
     "editarCad": {
         "editarCad": "Editar Cadastro",
@@ -102,6 +130,51 @@
         "voltar": "Voltar",
         "salvar": "Salvar"
     },
+    "editarExercicio": {
+        "editarExe": "Editar Exercício",
+        "nomeExe": "Nome Exercício",
+        "tipoExe": "Tipo de Exercício",
+        "equipNecessario": "Equipamento Necessário",
+        "nivelDificuldade": "Nível de Dificuldade",
+        "linkYoutube": "Link do Vídeo Demonstrativo",
+        "musculosTrabalhados": "Músculos Trabalhados (ex: Bíceps, Tríceps)",
+        "voltar": "Voltar",
+        "salvar": "Salvar"
+    },
+    "usuarioFicha": {
+        "nomeFicha": "Nome da Ficha",
+        "nomeUsuario": "Nome do Usuário",
+        "msgUsuarioSemFicha": "Sem ficha cadastrada, favor entrar em contato com instrutor.",
+        "salvar": "Salvar"
+    },
+    "instrutorFeedBack": {
+        "tabela": {
+            "filtro": "Filtro",
+            "dataTreino": "Data Treino",
+            "aluno": "aluno",
+            "treino": "Treino",
+            "comentario": "Comentário",
+            "msgSemDados": "Sem dados de Feedback"
+        }
+    },
+    "listagemEquipamento": {
+        "tabela": {
+            "filtro": "Filtro",
+            "nomeEquipamento": "Nome Equipamento",
+            "tipoEquipamento": "Tipo Equipamento"
+        },
+        "btnEditar": "Editar"
+    },
+    "listagemExercicio": {
+        "tabela": {
+            "filtro": "Filtro",
+            "nomeExe": "Nome Exercício",
+            "tipoExe": "Tipo de Exercício",
+            "equipNecessario": "Equipamento Necessário",
+            "musculosTrabalhados": "Músculos Trabalhados (ex: Bíceps, Tríceps)"
+        },
+        "btnEditar": "Editar"
+    },
     "listarUsuario": {
         "listaCPF": "CPF:",
         "listaEmail": "E-mail:",
@@ -109,66 +182,31 @@
         "listaAtraso": "Em atraso",
         "listaCancelado": "Cancelado"
     },
-    "menu": {
-        "menuInicio": "Bem vindo!",
-        "menuStatus": "Status da conta:",
-        "menuLogAdm": "LOGADO COMO ADMINISTRADOR",
-        "menuEditar": "Editar Cadastro",
-        "menuTreino": "Treinos",
-        "menuAddInst": "Novo instrutor",
-        "menuAddEquip": "Novo Equipamento",
-        "menuListEquip": "Listar Equipamentos",
-        "menuListUsu": "Listar Usuários",
-        "menuListInst": "Listar Instrutores",
-        "menuCadastroFicha": "Cadastrar ficha",
-        "menuCadastroExercicio": "Cadastrar exercício",
-        "menuFichaUsuario": "Usuario Fichas",
-        "menuFeedBack": "Feedback",
-        "menuHistorico": "Histórico",
-        "menuSair": "Sair"
+    "tsCardUsuario": {
+        "barraCancelamentoUsuario": "Status do usuário diferente de Cancelado"
     },
-    "cadastroFicha": {
-        "nomeFicha": "Nome da Ficha",
-        "descricaoFicha": "Descrição da Ficha",
-        "tiposTreino": "Tipos de Treino",
-        "nomeExercicio": "Nome do Exercício",
-        "tipoTreino": "Tipo de Treino",
-        "series": "Séries",
-        "repeticoes": "Repetições",
-        "minutos": "Minutos",
-        "segundos": "Segundos",
-        "quantidadeTreinos": "Quantidade de treinos",
-        "botoes": {
-            "remover": "Remover",
-            "adicionaExercicio": "Adicionar Exercício",
-            "voltar": "Voltar",
-            "criarFicha": "Criar Ficha"
-        }
+    "tsListagemUsuarioAcad": {
+        "barraIntrutor": "Intrutor ",
+        "barraRemovidoSucesso": " removido com sucesso!"
     },
-    "usuarioFicha": {
-        "nomeFicha": "Nome da Ficha",
-        "nomeUsuario": "Nome do Usuário",
-        "msgUsuarioSemFicha": "Sem ficha cadastrada, favor entrar em contato com instrutor",
-        "salvar": "Salvar"
+    "listagemUsuarioAcademia": {
+        "tabela": {
+            "filtro": "Filtro",
+            "nome": "Nome",
+            "cpf": "CPF",
+            "dataNascimento": "Data de Nascimento"
+        },
+        "btnEditar": "Editar",
+        "btnExcluir": "Excluir"
     },
-    "tabelaFeedBack": {
-        "aluno": "Aluno",
-        "treino": "Treino",
-        "data": "Data",
-        "comentario": "comentario"
-    },
-    "treino": {
-        "videoExemplo": "VIDEO EXEMPLO",
-        "completarAtividade": "COMPLETAR ATIVIDADE",
-        "cancelaTreino": "CANCELAR TREINO",
-        "concluirTreino": "CONCLUIR TREINO",
-        "anotacoesTreino": "Anotações do Treino",
-        "observacoesTreino": "Observações do treino",
-        "tempoTotalTreino": "Tempo Total do Treino",
-        "repiticoes": "Repetições",
-        "carga": "Carga (kg)",
-        "msgSucesso": "Treino concluído com sucesso!",
-        "fechar": "Fechar"
+    "login": {
+        "boasVindas": "Seja bem-vindo!",
+	    "crieConta": "Ainda não tem conta?",
+        "cadastrar": "Cadastre-se",
+        "email": "E-mail",
+        "senha": "Senha",
+        "esqueceuSenha": "Esqueceu a senha?",
+        "entrar": "Entrar"
     },
     "historico": {
         "filtro": "Filtro",
@@ -186,15 +224,41 @@
         "historicoCompleto": "Histórico Completo",
         "btnHistorico": "Histórico"
     },
-    "instrutorFeedBack": {
-        "tabela": {
-            "filtro": "Filtro",
-            "dataTreino": "Data Treino",
-            "aluno": "aluno",
-            "treino": "Treino",
-            "comentario": "Comentario",
-            "msgSemDados": "Sem dados de Feedback"
-        }
+    "treino": {
+        "videoExemplo": "VIDEO EXEMPLO",
+        "completarAtividade": "COMPLETAR ATIVIDADE",
+        "cancelaTreino": "CANCELAR TREINO",
+        "concluirTreino": "CONCLUIR TREINO",
+        "anotacoesTreino": "Anotações do Treino",
+        "observacoesTreino": "Observações do treino",
+        "tempoTotalTreino": "Tempo Total do Treino",
+        "repiticoes": "Repetições",
+        "carga": "Carga (kg)",
+        "msgSucesso": "Treino concluído com sucesso!",
+        "fechar": "Fechar"
     },
-    "barraCancelamentoUsuario": "Status do usuário diferente de Cancelado"
+    "menu": {
+        "menuInicio": "Bem vindo!",
+        "menuStatus": "Status da conta:",
+        "menuLogAdm": "LOGADO COMO ADMINISTRADOR",
+        "menuEditar": "Editar Cadastro",
+        "menuTreino": "Treinos",
+        "menuAddInst": "Novo Instrutor",
+        "menuAddEquip": "Novo Equipamento",
+        "menuListEquip": "Listar Equipamentos",
+        "menuListUsu": "Listar Usuários",
+        "menuListInst": "Listar Instrutores",
+        "menuCadastroFicha": "Cadastrar Ficha",
+        "menuCadastroExercicio": "Cadastrar Exercício",
+        "menuFichaUsuario": "Ficha de Usuário",
+        "menuFeedBack": "Feedback",
+        "menuHistorico": "Histórico",
+        "menuListExerc": "Listar Exercício",
+        "menuSair": "Sair"
+    },
+    "statusUsuario": {
+        "ativo": "Ativo",
+        "atraso": "Mensalidade em Atraso",
+        "contaSusp": "Conta Suspensa"
+    }
 }

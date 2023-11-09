@@ -16,20 +16,21 @@
         <div class="exercicios-treino">
             <mat-card class="card">
                 <form [formGroup]="formularioExercicio" (ngSubmit)="submitFormExercicio()" #exercicio="ngForm">
-                    <mat-card-title class="titulo">Cadastro de exercicio</mat-card-title>
+                    <mat-card-title class="titulo"> {{"cadastroExercicio.cadExercicio" | translate}} </mat-card-title>
                     <mat-form-field class="inputForm">
-                        <input formControlName="nome" type="text" matInput placeholder="Nome do Exercício">
+                        <mat-label> {{"cadastroExercicio.nomeExe" | translate}} </mat-label>
+                        <input formControlName="nome" type="text" matInput>
                     </mat-form-field>
           
                     <mat-form-field class="inputForm"> 
-                        <mat-label>Tipo de Exercício</mat-label>
+                        <mat-label>{{"cadastroExercicio.tipoExe" | translate}}</mat-label>
                         <mat-select formControlName="tipoExercicio">
                             <mat-option *ngFor="let tipo of tiposExercicio" [value]="tipo">{{ tipo }}</mat-option>
                         </mat-select>
                     </mat-form-field>
           
                     <mat-form-field class="inputForm">
-                        <mat-label>Equipamento Necessário</mat-label>
+                        <mat-label>{{"cadastroExercicio.equipNecessario" | translate}}</mat-label>
                         <mat-select formControlName="equipamentoNecessario">
                             <mat-option *ngFor="let equipamento of equipamentos" [value]="equipamento.id">
                             {{ equipamento.nome }}
@@ -39,22 +40,24 @@
                       
         
                     <mat-form-field class="inputForm">
-                        <mat-label>Nível de Dificuldade</mat-label>
+                        <mat-label>{{"cadastroExercicio.nivelDificuldade" | translate}}</mat-label>
                         <mat-select formControlName="nivelDificuldade">
                             <mat-option *ngFor="let nivel of dificuldadesExercicio" [value]="nivel">{{ nivel }}</mat-option>
                         </mat-select>
                     </mat-form-field>
         
                     <mat-form-field class="inputForm">
-                        <input formControlName="videoDemonstrativo" type="url" matInput placeholder="Link do Vídeo Demonstrativo">
+                        <mat-label>{{"cadastroExercicio.linkYoutube" | translate}}</mat-label>
+                        <input formControlName="videoDemonstrativo" type="url" matInput>
                     </mat-form-field>
           
                     <mat-form-field class="inputForm">
-                        <input formControlName="musculosTrabalhados" type="text" matInput placeholder="Músculos Trabalhados (ex: Bíceps, Tríceps)">
+                        <mat-label>{{"cadastroExercicio.musculosTrabalhados" | translate}}</mat-label>
+                        <input formControlName="musculosTrabalhados" type="text" matInput>
                     </mat-form-field>
           
-                    <button mat-button class="btnForm" (click)="goBack()"> <mat-label> Voltar </mat-label></button>
-                    <button mat-button class="btnForm" [disabled]="formularioExercicio.invalid" type="submit"> <mat-label> Criar </mat-label></button>
+                    <button mat-button class="btnForm" (click)="goBack()"> <mat-label> {{"voltar" | translate}}  </mat-label></button>
+                    <button mat-button class="btnForm" [disabled]="formularioExercicio.invalid" type="submit"> <mat-label> {{"criar" | translate}} </mat-label></button>
                 </form>
             </mat-card>
         </div>
