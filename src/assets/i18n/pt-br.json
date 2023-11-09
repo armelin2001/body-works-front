@@ -218,6 +218,12 @@
         "repeticoes": "Repetições",
         "cargaMedia": "Carga Média (KG)"
     },
+    "usuarioTreino": {
+        "treino": "TREINO",
+        "btnIniciarTreino": "Iniciar",
+        "historicoCompleto": "Histórico Completo",
+        "btnHistorico": "Histórico"
+    },
 
     "menu": {
         "menuInicio": "Bem vindo!",
@@ -249,11 +255,5 @@
         "carga": "Carga (kg)",
         "msgSucesso": "Treino concluído com sucesso!",
         "fechar": "Fechar"
-    },
-    "usuarioTreino": {
-        "treino": "TREINO",
-        "btnIniciarTreino": "Iniciar",
-        "historicoCompleto": "Histórico Completo",
-        "btnHistorico": "Histórico"
     }
 }

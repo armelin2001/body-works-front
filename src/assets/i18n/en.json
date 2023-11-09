@@ -218,6 +218,12 @@
         "repeticoes": "Reps",
         "cargaMedia": "Average Weight (KG)"
     },
+    "usuarioTreino": {
+        "treino": "TRAINING",
+        "btnIniciarTreino": "Start",
+        "historicoCompleto": "Full History",
+        "btnHistorico": "History"
+    },
 
     "menu": {
         "menuInicio": "Welcome!",
