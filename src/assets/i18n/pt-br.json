@@ -118,18 +118,6 @@
         "voltar": "Voltar",
         "salvar": "Salvar"
     },
-
-
-
-    "login": {
-        "boasVindas": "Seja bem-vindo!",
-	    "crieConta": "Ainda não tem conta?",
-        "cadastrar": "Cadastre-se",
-        "email": "E-mail",
-        "senha": "Senha",
-        "esqueceuSenha": "Esqueceu a senha?",
-        "entrar": "Entrar"
-    },
     "editarEquip": {
         "editarEquip": "Editar Equipamento",
         "nomeEquip": "Nome",
@@ -141,6 +129,18 @@
         "errorTipoValido": "Insira um tipo válido",
         "voltar": "Voltar",
         "salvar": "Salvar"
+    },
+
+
+
+    "login": {
+        "boasVindas": "Seja bem-vindo!",
+	    "crieConta": "Ainda não tem conta?",
+        "cadastrar": "Cadastre-se",
+        "email": "E-mail",
+        "senha": "Senha",
+        "esqueceuSenha": "Esqueceu a senha?",
+        "entrar": "Entrar"
     },
     "listarUsuario": {
         "listaCPF": "CPF:",

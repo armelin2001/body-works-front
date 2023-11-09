@@ -118,16 +118,6 @@
         "voltar": "To go back",
         "salvar": "To save"
     },
-
-    "login": {
-        "boasVindas": "Welcome!",
-	    "crieConta": "Don't have an account yet?",
-        "cadastrar": "Register",
-        "email": "E-mail",
-        "senha": "Password",
-        "esqueceuSenha": "Forgot password?",
-        "entrar": "To enter"
-    },
     "editarEquip": {
         "editarEquip": "Edit Equipment",
         "nomeEquip": "Name",
@@ -139,6 +129,16 @@
         "errorTipoValido": "Please enter a valid type",
         "voltar": "To go back",
         "salvar": "To save"
+    },
+
+    "login": {
+        "boasVindas": "Welcome!",
+	    "crieConta": "Don't have an account yet?",
+        "cadastrar": "Register",
+        "email": "E-mail",
+        "senha": "Password",
+        "esqueceuSenha": "Forgot password?",
+        "entrar": "To enter"
     },
     "listarUsuario": {
         "listaCPF": "CPF:",
