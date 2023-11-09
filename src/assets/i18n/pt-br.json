@@ -94,18 +94,6 @@
         "barraEditSucesso" : "Edição feita com sucesso!",
         "barraCadInstSucesso" : "Instrutor cadastrado com sucesso!"
     },
-
-
-
-    "login": {
-        "boasVindas": "Seja bem-vindo!",
-	    "crieConta": "Ainda não tem conta?",
-        "cadastrar": "Cadastre-se",
-        "email": "E-mail",
-        "senha": "Senha",
-        "esqueceuSenha": "Esqueceu a senha?",
-        "entrar": "Entrar"
-    },
     "editarCad": {
         "editarCad": "Editar Cadastro",
         "nomeCad": "Nome",
@@ -129,6 +117,18 @@
         "errorGeneroAdm": "Insira um gênero válido",
         "voltar": "Voltar",
         "salvar": "Salvar"
+    },
+
+
+
+    "login": {
+        "boasVindas": "Seja bem-vindo!",
+	    "crieConta": "Ainda não tem conta?",
+        "cadastrar": "Cadastre-se",
+        "email": "E-mail",
+        "senha": "Senha",
+        "esqueceuSenha": "Esqueceu a senha?",
+        "entrar": "Entrar"
     },
     "editarEquip": {
         "editarEquip": "Editar Equipamento",

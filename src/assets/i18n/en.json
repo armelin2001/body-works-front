@@ -94,16 +94,6 @@
         "barraEditSucesso" : "Editing done successfully!",
         "barraCadInstSucesso" : "Instructor successfully registered!"
     },
-
-    "login": {
-        "boasVindas": "Welcome!",
-	    "crieConta": "Don't have an account yet?",
-        "cadastrar": "Register",
-        "email": "E-mail",
-        "senha": "Password",
-        "esqueceuSenha": "Forgot password?",
-        "entrar": "To enter"
-    },
     "editarCad": {
         "editarCad": "Edit Registration",
         "nomeCad": "Name",
@@ -127,6 +117,16 @@
         "errorGeneroAdm": "Please enter a valid gender",
         "voltar": "To go back",
         "salvar": "To save"
+    },
+
+    "login": {
+        "boasVindas": "Welcome!",
+	    "crieConta": "Don't have an account yet?",
+        "cadastrar": "Register",
+        "email": "E-mail",
+        "senha": "Password",
+        "esqueceuSenha": "Forgot password?",
+        "entrar": "To enter"
     },
     "editarEquip": {
         "editarEquip": "Edit Equipment",
