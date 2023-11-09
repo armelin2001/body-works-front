@@ -18,7 +18,8 @@
             <input matInput (keyup)="applyFilter($event)" #input>
         </mat-form-field>
 
-        <div class="mat-elevation-z8">
+            <section class="container-tabela mat-elevation-z8">
+                
             <table mat-table [dataSource]="dataSource" matSort>
                 <ng-container matColumnDef="nome">
                     <th mat-header-cell *matHeaderCellDef mat-sort-header> Nome </th>
@@ -45,7 +46,8 @@
           
             </table>
             <mat-paginator [pageSizeOptions]="[5, 10, 25]" aria-label="Select page of users"></mat-paginator>
-        </div>
+            
+        </section>
 
     </div>
     </mat-grid-tile>

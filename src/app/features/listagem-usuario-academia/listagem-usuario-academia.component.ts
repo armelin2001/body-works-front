@@ -75,7 +75,6 @@ export class ListagemUsuarioAcademiaComponent implements AfterViewInit {
             };
             this.listaInstrutores.push(usuarioAcademiaResumido);
             this.dataSource.data = this.listaInstrutores;
-            
           }
         });
       });
@@ -110,7 +109,12 @@ export class ListagemUsuarioAcademiaComponent implements AfterViewInit {
               verticalPosition: 'top',
             }
           );
-          this.carregarListaInstrutores();
+
+          const index = this.listaInstrutores.indexOf(row);
+          if (index > -1) {
+            this.listaInstrutores.splice(index, 1);
+          }
+          this.dataSource.data = this.listaInstrutores;
         },
         (err) => {
           this.snack.open(err.error.message, 'OK', {

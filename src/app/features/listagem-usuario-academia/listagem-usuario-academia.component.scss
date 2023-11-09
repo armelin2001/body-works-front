@@ -154,3 +154,12 @@ td, th {
     background-color: #d31152;
     margin-right: 10%;
 }
+
+.container-tabela {
+  height: 90%;
+  border-radius: 1%;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: auto;
+}
