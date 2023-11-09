@@ -216,7 +216,9 @@
         "totalSeries": "Total de Séries",
         "carga": "Carga (kg)",
         "repeticoes": "Repetições",
-        "cargaMedia": "Carga Média (KG)"
+        "cargaMedia": "Carga Média (KG)",
+        "sufixoKg": "KG",
+        "sufixoReps": "Reps"
     },
     "usuarioTreino": {
         "treino": "TREINO",

@@ -39,42 +39,7 @@ const baseChardOptions: Highcharts.Options = {
     },
   },
 };
-const DATA_TREINO: TreinoElemento[] = [
-  {
-    nomeExercicio: 'Supino',
-    cargaMaxima: 100,
-    totalRepeticoes: 150,
-    totalSeries: 15,
-    chartOptionsCarga: {
-      ...baseChardOptions,
-      title: {
-        text: 'Carga KG',
-      },
-      series: [
-        {
-          type: 'line',
-          color: '#e04679',
-          name: 'Carga KG',
-          data: [100, 34, 22, 72, 10],
-        },
-      ],
-    },
-    chartOptionsRepeticoes: {
-      ...baseChardOptions,
-      title: {
-        text: 'Repetições',
-      },
-      series: [
-        {
-          type: 'line',
-          color: '#e04679',
-          name: 'Repetições',
-          data: [10, 9, 12, 8, 10],
-        },
-      ],
-    },
-  },
-];
+const DATA_TREINO: TreinoElemento[] = [];
 
 @Component({
   selector: 'app-usuario-historico-treino',
@@ -126,19 +91,6 @@ export class UsuarioHistoricoTreinoComponent implements AfterViewInit {
           color: '#ffffff',
         },
       }
-    },
-    yAxis: {
-      labels: {
-        style: {
-          color: '#ffffff',
-        },
-      },
-      title: {
-        text: 'KG',
-        style: {
-          color: '#ffffff',
-        },
-      },
     }
   };
   constructor(
@@ -205,6 +157,19 @@ export class UsuarioHistoricoTreinoComponent implements AfterViewInit {
           totalSeries,
           chartOptionsCarga: {
             ...this.baseChardOptions,
+            yAxis: {
+              labels: {
+                style: {
+                  color: '#ffffff',
+                },
+              },
+              title: {
+                text: this.translate.instant('historico.sufixoKg'),
+                style: {
+                  color: '#ffffff',
+                },
+              },
+            },
             title: {
               text: this.translate.instant('historico.carga'),
               style: {
@@ -222,6 +187,19 @@ export class UsuarioHistoricoTreinoComponent implements AfterViewInit {
           },
           chartOptionsRepeticoes: {
             ...this.baseChardOptions,
+            yAxis: {
+              labels: {
+                style: {
+                  color: '#ffffff',
+                },
+              },
+              title: {
+                text: this.translate.instant('historico.sufixoReps'),
+                style: {
+                  color: '#ffffff',
+                },
+              },
+            },
             title: {
               text: this.translate.instant('historico.repeticoes'),
               style: {
@@ -239,6 +217,19 @@ export class UsuarioHistoricoTreinoComponent implements AfterViewInit {
           },
           chartOptionsCargaMedia: {
             ...this.baseChardOptions,
+            yAxis: {
+              labels: {
+                style: {
+                  color: '#ffffff',
+                },
+              },
+              title: {
+                text: this.translate.instant('historico.sufixoKg'),
+                style: {
+                  color: '#ffffff',
+                },
+              },
+            },
             title: {
               text: this.translate.instant('historico.cargaMedia'),
               style: {

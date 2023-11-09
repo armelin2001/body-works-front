@@ -216,7 +216,9 @@
         "totalSeries": "Total Series",
         "carga": "Weight (kg)",
         "repeticoes": "Reps",
-        "cargaMedia": "Average Weight (KG)"
+        "cargaMedia": "Average Weight (KG)",
+        "sufixoKg": "KG",
+        "sufixoReps": "Reps"
     },
     "usuarioTreino": {
         "treino": "TRAINING",
