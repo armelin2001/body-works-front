@@ -2,29 +2,50 @@
     "titulo": "Título",
     "editar": "Editar",
     "excluir": "Excluir",
+    "salvar": "Salvar",
+    "voltar": "Voltar",
     "cadastroUsuario": {
         "registro": "Registe seu usuário!",
         "campoNome": "Nome",
+        "errorNome": "Insira um nome válido",
         "campoCPF": "CPF - Documento",
+        "errorCPF": "Insira um CPF válido",
         "dataNascimento": "Data de Nascimento",
+        "errorData": "Insira uma data válida",
         "genero": "Gênero",
+        "errorGenero": "Insira um gênero válido",
         "masc": "Masculino",
         "fem": "Feminino",
         "outro": "Outro",
         "email": "E-mail",
+        "errorEmail": "Insira um e-mail válido",
         "senha": "Senha",
+        "errorSenha": "Insira uma senha válida",
         "adm": "Administrador",
         "codCad": "Código de Cadastro",
         "cadastrar": "Cadastre-se",
         "infosAdc": "*Após cadastro pediremos mais informações pessoais.",
-        "criarConta": "Já tem uma conta?",
-        "errorNome": "Insira um nome válido",
-        "errorCPF": "Insira um CPF válido",
-        "errorData": "Insira uma data válida",
-        "errorGenero": "Insira um gênero válido",
-        "errorEmail": "Insira um e-mail válido",
-        "errorSenha": "Insira uma senha válida"
+        "criarConta": "Já tem uma conta?"
     },
+    "cadastroEquipamento": {
+        "cadEquipamento": "Cadastro de Equipamentos",
+        "nomeEquip": "Nome equipamento",
+        "errorNomeEquip": "Insira um nome válido",
+        "tipoEquip": "Tipo equipamento",
+        "equipCross": "Cross",
+        "equipLivre": "Livre",
+        "equipBarra": "Barra",
+        "errorTipo": "Insira um tipo válido"
+    },
+
+    "cadastroExercicio": {
+        "cadExercicio": "Cadastro de Exercícios",
+        "nomeExe": "Nome exercício",
+        "tipoExe": "Tipo de Exercício",
+        "equipNecessario": "Equipamento Necessário"
+    },
+
+
     "login": {
         "boasVindas": "Seja bem-vindo!",
 	    "crieConta": "Ainda não tem conta?",
@@ -33,18 +54,6 @@
         "senha": "Senha",
         "esqueceuSenha": "Esqueceu a senha?",
         "entrar": "Entrar"
-    },
-    "cadastroEquipamento": {
-        "editarCad": "Editar cadastro",
-        "nomeEquip": "Nome equipamento",
-        "errorNomeEquip": "Insira um nome válido",
-        "tipoEquip": "Tipo equipamento",
-        "equipCross": "Cross",
-        "equipLivre": "Livre",
-        "equipBarra": "Barra",
-        "errorTipo": "Insira um tipo válido",
-        "voltar": "Voltar",
-        "salvar": "Salvar"
     },
     "editarAdm": {
         "editarCad": "Editar cadastro",
