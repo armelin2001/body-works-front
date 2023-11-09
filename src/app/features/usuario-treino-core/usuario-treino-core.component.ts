@@ -61,6 +61,7 @@ export class UsuarioTreinoCoreComponent implements OnInit {
     this.presenca = {
       idUsuario: '',
       dataInicio: moment().format('YYYY-MM-DD:HH:mm:ss').toString(),
+      dataFim: moment().format('YYYY-MM-DD:HH:mm:ss').toString(),
     };
     this.treinoForm = this.formBuilder.group({
       comentario: [''],

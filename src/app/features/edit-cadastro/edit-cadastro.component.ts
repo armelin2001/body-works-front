@@ -12,6 +12,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import * as moment from 'moment';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { LocalstorageService } from 'src/app/shared/local-storage/localstorage.service';
+import { LoginService } from 'src/app/shared/http-service/login-service/login.service';
 
 @Component({
   selector: 'app-edit-cadastro',
@@ -28,6 +29,7 @@ export class EditCadastroComponent implements OnInit {
     private usuarioService: UsuarioService,
     private activatedRoute: ActivatedRoute,
     private snack: MatSnackBar,
+    private loginService: LoginService,
     private router: Router,
     private localStorage: LocalstorageService
   ) {
@@ -49,7 +51,6 @@ export class EditCadastroComponent implements OnInit {
     const usuario = this.localStorage.obter('usuario') as any;
     this.usuarioService.obterUsuario(this.id).subscribe(
       (res) => {
-        console.log(res);
         this.formularioUsuario.patchValue({
           nome: res.nome,
           cpf: res.cpf,
@@ -57,12 +58,12 @@ export class EditCadastroComponent implements OnInit {
           email: usuario.email,
           dataNascimento: res.dataNascimento,
         });
-        if(res.peso){
+        if (res.peso) {
           this.formularioUsuario.patchValue({
             peso: res.peso,
           });
         }
-        if(res.altura){
+        if (res.altura) {
           this.formularioUsuario.patchValue({
             altura: res.altura,
           });
@@ -86,9 +87,11 @@ export class EditCadastroComponent implements OnInit {
     const usuario = this.getUsuario();
     this.usuarioService.atualizaUsuario(usuario).subscribe(
       (res) => {
-        this.localStorage.remover('usuario');
-        this.localStorage.adicionar('usuario', res);
-        this.goBack();
+        this.loginService.realizaLogin(usuario).subscribe((res) => {
+          this.localStorage.remover('usuario');
+          this.localStorage.adicionar('usuario', res);
+          this.goBack();
+        });
       },
       (err) => {}
     );

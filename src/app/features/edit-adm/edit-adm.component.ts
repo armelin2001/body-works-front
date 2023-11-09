@@ -12,6 +12,7 @@ import { LocalstorageService } from 'src/app/shared/local-storage/localstorage.s
 import { UsuarioAcademiaAdmDto } from 'src/app/shared/models/usuario-academia.dto';
 import { Location } from '@angular/common';
 import * as moment from 'moment';
+import { LoginService } from 'src/app/shared/http-service/login-service/login.service';
 
 @Component({
   selector: 'app-edit-adm',
@@ -29,6 +30,7 @@ export class EditAdmComponent {
     private usuarioAcademiaService: UsuarioAcademiaService,
     private activatedRoute: ActivatedRoute,
     private snack: MatSnackBar,
+    private loginService: LoginService,
     private router: Router,
     private localStorage: LocalstorageService
   ) {
@@ -155,11 +157,16 @@ export class EditAdmComponent {
       }
       this.usuarioAcademiaService.atualizaUsuarioAcademia(usuarioAdm).subscribe(
         (res) => {
-          if(this.id === usuario.id){
+          this.loginService.realizaLogin(usuario).subscribe((res) => {
+            this.snack.open('Edição feita com sucesso!', 'OK', {
+              duration: 3000,
+              horizontalPosition: 'center',
+              verticalPosition: 'top',
+            });
             this.localStorage.remover('usuario');
             this.localStorage.adicionar('usuario', res);
-          }
-          this.goBack();
+            this.goBack();
+          });
         },
         (err) => {}
       );
