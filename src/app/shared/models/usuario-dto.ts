@@ -16,3 +16,17 @@ export interface UsuarioFichaDto {
     id: string;
     idFicha: string;
 }
+
+export interface UsuarioAtualizaDto {
+  id?: string;
+  nome: string;
+  cpf: string;
+  genero: string;
+  email: string;
+  senha: string;
+  perfil?: string;
+  statusPagamento?: string;
+  dataNascimento: Date;
+  peso?: string;
+  altura?: string;
+}

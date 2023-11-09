@@ -19,14 +19,14 @@ export class ListagemUsuarioComponent implements OnInit {
   constructor(
     private usuarioService: UsuarioService,
     private localStorage: LocalstorageService,
-    private router: Router,
-    ) {}
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     const usuario = this.localStorage.obter('usuario') as any;
     this.nomeUsuario = String(usuario.nome).split(' ')[0];
     this.adm = usuario.adm;
-    if(!usuario.perfil){
+    if (!usuario.perfil) {
       this.mostraEditInstrutor = true;
     }
     this.id = usuario.id;
@@ -45,14 +45,16 @@ export class ListagemUsuarioComponent implements OnInit {
   }
 
   atualizarStatusPagamento(usuarioId: string, novoStatus: string) {
-    this.usuarioService.atualizarStatusPagamento(usuarioId, novoStatus).subscribe(
-      (res) => {
-        console.log('Status de pagamento atualizado com sucesso!', res);
-      },
-      (err) => {
-        console.error('Erro ao atualizar status de pagamento:', err);
-      }
-    );
+    this.usuarioService
+      .atualizarStatusPagamento(usuarioId, novoStatus)
+      .subscribe(
+        (res) => {
+          console.log('Status de pagamento atualizado com sucesso!', res);
+        },
+        (err) => {
+          console.error('Erro ao atualizar status de pagamento:', err);
+        }
+      );
   }
 
   navegaParaEditAdm() {
@@ -74,7 +76,7 @@ export class ListagemUsuarioComponent implements OnInit {
   navegarParaListagemEquipamentos() {
     this.router.navigate(['/visualiza-equipamentos']);
   }
-  
+
   navegarParaListagemUsuario() {
     this.router.navigate(['/visualiza-usuario']);
   }
@@ -86,5 +88,11 @@ export class ListagemUsuarioComponent implements OnInit {
   logout() {
     this.localStorage.remover('usuario');
     this.router.navigate(['/login']);
+  }
+
+  verificaUsuarioExcluido(event: any) {
+    if (event) {
+      this.carregarListaUsuarios();
+    }
   }
 }

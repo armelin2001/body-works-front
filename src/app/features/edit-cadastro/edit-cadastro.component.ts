@@ -7,7 +7,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { UsuarioService } from 'src/app/shared/http-service/usuario-service/usuario.service';
-import { UsuarioDto } from 'src/app/shared/models/usuario-dto';
+import { UsuarioAtualizaDto } from 'src/app/shared/models/usuario-dto';
 import { ActivatedRoute, Router } from '@angular/router';
 import * as moment from 'moment';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -99,7 +99,7 @@ export class EditCadastroComponent implements OnInit {
 
   getUsuario() {
     const formularioUsuario = this.formularioUsuario.value;
-    const usuario: UsuarioDto = {
+    const usuario: UsuarioAtualizaDto = {
       id: this.id,
       nome: formularioUsuario.nome,
       cpf: formularioUsuario.cpf,
@@ -109,8 +109,6 @@ export class EditCadastroComponent implements OnInit {
       dataNascimento: formularioUsuario.dataNascimento,
       altura: formularioUsuario.altura,
       peso: formularioUsuario.peso,
-      perfil: 'usuario',
-      statusPagamento: 'ativo',
     };
     return usuario;
   }

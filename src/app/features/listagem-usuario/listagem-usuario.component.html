@@ -3,7 +3,7 @@
     <div class="content">
         <div class="listagem">
             <div *ngFor="let user of listaUsuarios">
-                <app-card-usuario [usuario]="user" (statusChanged)="atualizarStatusPagamento(user.id, user.statusPagamento)"></app-card-usuario>
+                <app-card-usuario [usuario]="user" (usuarioExcluido)="verificaUsuarioExcluido($event)" (statusChanged)="atualizarStatusPagamento(user.id, user.statusPagamento)"></app-card-usuario>
             </div>
         </div>
     </div>

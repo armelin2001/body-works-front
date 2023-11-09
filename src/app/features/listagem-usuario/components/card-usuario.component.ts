@@ -12,6 +12,7 @@ import { UsuarioService } from 'src/app/shared/http-service/usuario-service/usua
 export class CardUsuarioComponent {
   @Input() usuario: any;
   @Output() statusChanged = new EventEmitter<any>();
+  @Output() usuarioExcluido = new EventEmitter<boolean>();
 
   constructor(
     private snack: MatSnackBar,
@@ -54,6 +55,7 @@ export class CardUsuarioComponent {
     }
     this.usuarioService.excluirUsuario(this.usuario.id).subscribe(
       (res) => {
+        this.usuarioExcluido.emit(true);
         this.router.navigate(['/visualiza-usuario/']);
       },
       (err) => {
