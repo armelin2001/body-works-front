@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { UsuarioDto, UsuarioFichaDto } from '../../models/usuario-dto';
+import { UsuarioAtualizaDto, UsuarioDto, UsuarioFichaDto } from '../../models/usuario-dto';
 
 @Injectable()
 export class UsuarioService {
@@ -18,7 +18,7 @@ export class UsuarioService {
     return this.http.get(`${this.urlbase}/${id}`);
   }
 
-  atualizaUsuario(usuario: UsuarioDto): Observable<any> {
+  atualizaUsuario(usuario: UsuarioAtualizaDto): Observable<any> {
     return this.http.patch(`${this.urlbase}/${usuario.id}`, usuario);
   }
 
