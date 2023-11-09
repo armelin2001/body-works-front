@@ -165,6 +165,16 @@
         },
         "btnEditar": "Edit"
     },
+    "listagemExercicio": {
+        "tabela": {
+            "filtro": "Filter",
+            "nomeExe": "Name Exercise",
+            "tipoExe": "Type of Exercise",
+            "equipNecessario": "Necessary equipment",
+            "musculosTrabalhados": "Muscles Worked (ex: Biceps, Triceps)"
+        },
+        "btnEditar": "Edit"
+    },
 
     "login": {
         "boasVindas": "Welcome!",

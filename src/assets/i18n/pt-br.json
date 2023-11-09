@@ -165,7 +165,16 @@
         },
         "btnEditar": "Editar"
     },
-
+    "listagemExercicio": {
+        "tabela": {
+            "filtro": "Filtro",
+            "nomeExe": "Nome Exercício",
+            "tipoExe": "Tipo de Exercício",
+            "equipNecessario": "Equipamento Necessário",
+            "musculosTrabalhados": "Músculos Trabalhados (ex: Bíceps, Tríceps)"
+        },
+        "btnEditar": "Editar"
+    },
 
     "login": {
         "boasVindas": "Seja bem-vindo!",
